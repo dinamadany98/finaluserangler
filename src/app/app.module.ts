@@ -9,6 +9,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { LoginComponent } from './Components/login/login.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LoginComponent } from './Components/login/login.component';
     HomeComponent,
     RegisterComponent,
     CheckoutComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
