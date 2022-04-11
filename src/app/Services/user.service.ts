@@ -17,9 +17,9 @@ export class UserService {
     }
    }
  
-   getuserdata() :Observable<IuserProfile[]>
+   getuserdata() :Observable<IuserProfile>
  {
-return this.httpclint.get<IuserProfile[]>(`${environment.ApiBaseURL}/users`);
+return this.httpclint.get<IuserProfile>(`${environment.ApiBaseURL}/users`);
   }
 
   edituserprofile(user:IuserProfile): Observable <IuserProfile>{
