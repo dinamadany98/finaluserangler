@@ -71,3 +71,6 @@ input{
 border-right-style: hidden;
 border-left-style: hidden;
  }
+ h3{
+    font-size:larger !important;
+}
