@@ -12,6 +12,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
+import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MyprofileComponent } from './Components/myprofile/myprofile.component';
     LoginComponent,
     NotFoundComponent,
     MainLayoutComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,
