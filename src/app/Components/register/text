@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up </title>
+
+
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="assets/form/images/form-img.jpg" alt="">
+                    <div class="signup-img-content">
+                        <h2>Register now </h2>
+                        <p>while seats are available !</p>
+                    </div>
+                </div>
+                <div class="signup-form">
+                    <form [formGroup]="userformgroup" (ngSubmit)="addUser()" class="register-form" id="register-form">
+                        <div class="form-row">
+                            <div class="form-group">
+
+                                <div class="form-input">
+                                    <label for="firstname" class="required">First Name</label>
+                                    <input type="text" [(ngModel)]="newuser.firstname" formControlName="firstname" name="firstname" id="firstname" [class.is-valid]="firstname?.valid" [class.is-invalid]="firstname?.invalid" />
+                                    <div class="alert alert-warning" [hidden]="firstname?.valid || firstname?.untouched">
+                                        <small *ngIf="firstname?.errors?.['required']">First Name is required</small>
+                                        <small *ngIf="firstname?.errors?.['minlength']">First Name must be more than 5 char</small>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="lastname" class="required">Last Name</label>
+                                    <input type="text" [(ngModel)]="newuser.lastname" formControlName="lastname" name="lastname" id="lastname" [class.is-valid]="lastname?.valid" [class.is-invalid]="lastname?.invalid" />
+                                    <div class="alert alert-warning" [hidden]="lastname?.valid || lastname?.untouched">
+                                        <small *ngIf="lastname?.errors?.['required']">Last Name is required</small>
+                                        <small *ngIf="lastname?.errors?.['minlength']">Last Name must be more than 5 char</small>
+                                    </div>
+                                </div>
+
+                                <div class="form-input">
+                                    <label for="email" class="required">Email</label>
+                                    <input type="email" [(ngModel)]="newuser.email" formControlName="email" name="email" id="email" [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid" />
+                                    <div class="alert alert-warning" [hidden]="email?.valid || email?.untouched">
+                                        <small *ngIf="email?.errors?.['required']">Email is required</small>
+                                        <small *ngIf="email?.errors?.['minlength']">Email must be more than 5 char</small>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="password" class="required">Password</label>
+                                    <input type="password" [(ngModel)]="newuser.password" formControlName="password" name="password" id="password" [class.is-valid]="password?.valid" [class.is-invalid]="password?.invalid" />
+                                    <div class="alert alert-warning" [hidden]="password?.valid || password?.untouched">
+                                        <small *ngIf="password?.errors?.['required']">Password is required</small>
+                                        <small *ngIf="password?.errors?.['minlength']">Password must be more than 5 char</small>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label for="conpassword" class="required">Confirm Password</label>
+                                    <input type="password" [(ngModel)]="newuser.conpassword" formControlName="conpassword" name="conpassword" id="conpassword" [class.is-valid]="conpassword?.valid" [class.is-invalid]="conpassword?.invalid" />
+                                    <div class="alert alert-warning" [hidden]="conpassword?.valid || conpassword?.untouched">
+                                        <small *ngIf="conpassword?.errors?.['required']">Confirm Password is required</small>
+                                        <small *ngIf="conpassword?.errors?.['minlength']">Confirm Password Not Correct</small>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-submit">
+                            <input type="submit" [disabled]="userformgroup.invalid" value="Submit" class="submit" id="submit" name="submit" />
+                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                        </div>
+                    </form>
+                    <div class="bg-warning">
+                        <h3>{{userformgroup.value | json}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="src/assets/form/vendor/jquery/jquery.min.js"></script>
+    <script src="src/assets/form/vendor/nouislider/nouislider.min.js"></script>
+    <script src="src/assets/form/vendor/wnumb/wNumb.js"></script>
+    <script src="src/assets/form/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="src/assets/form/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="src/assets/form/js/main.js"></script>
+
+</body>
+
+</html>
