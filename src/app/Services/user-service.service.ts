@@ -19,7 +19,7 @@ export class UserServiceService {
 
   addUser(newuser: IUser): Observable<IUser> {
     return this.httpClient.post<IUser>(
-      `${environment.APIBaseURL}/register`,
+      `${environment.ApiBaseURL}/register`,
       JSON.stringify(newuser),
       this.httpoption
     );

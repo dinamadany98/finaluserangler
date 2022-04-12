@@ -9,7 +9,7 @@ import { IProduct } from '../Models/iproduct';
 })
 export class IProductService {
   private httpoption = {};
- 
+
   constructor(private httpclient: HttpClient) {
     this.httpoption = {
       headers: new HttpHeaders({
@@ -20,7 +20,7 @@ export class IProductService {
 
   getallproduct(): Observable<IProduct[]> {
     return this.httpclient.get<IProduct[]>(
-      `${environment.APIBaseURL}/products`
+      `${environment.ApiBaseURL}/products`
     );
   }
 }
