@@ -21,7 +21,7 @@ export class UserService {
  {
 return this.httpclint.get<IuserProfile>(`${environment.ApiBaseURL}/users`);
   }
-
+ 
   edituserprofile(user:IuserProfile): Observable <IuserProfile>{
     //console.log(user);
     return this.httpclint.patch<IuserProfile>(`${environment.ApiBaseURL}/users/${user.id}`, JSON.stringify(user),this.httpoption) 

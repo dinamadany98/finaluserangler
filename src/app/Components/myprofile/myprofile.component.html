@@ -9,13 +9,14 @@
         </div>
         <div class="mt-5 ">
             <h2 class="mb-1 mt-5 ms-3"  >Name:</h2>
-                 <h3 class="ms-4">asd name</h3>  <br>
+                 <h3 class="ms-4">{{userdata.name}}</h3>  <br>
             <span class="text-muted d-block mb-1 ms-3"><h2>Email:</h2> 
-               <h3 class="ms-4"> asd@gmail.com</h3></span>
+               <h3 class="ms-4">  {{userdata.email}}</h3></span>
             
             
             <span class="text-muted d-block mb-5 mt-5"> 
-               <a  style=" color:red" class="btn "><i class="bi bi-trash3 h3  " ></i></a><span  style="font-size:medium;color: red;">Delete Acount</span> 
+                <button type="button" (click)="del(userdata.id)"  class="btn btn-outline-info mb-3" style=" color:red"><i class="bi bi-trash3 h3 " ></i></button>
+               <span  style="font-size:medium;color: red;">Delete Acount</span> 
                <a  routerLink="/editprofile"><i class="bi bi-pencil-square h3 ms-5"></i></a><span  style="font-size:medium;" class="ms-2">Edite Acount</span>
             </span>           
     

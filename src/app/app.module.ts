@@ -13,7 +13,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
