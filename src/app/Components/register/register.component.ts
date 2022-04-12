@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/Models/iuser';
 import { UserServiceService } from 'src/app/Services/user-service.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -50,10 +51,20 @@ export class RegisterComponent implements OnInit {
       this.UserService.addUser(this.newuser).subscribe({
         next: (prd) => {
           this.router.navigate(['/home']);
-          alert('registeration correct');
+          Swal.fire(
+            'registeration correct',
+            'You clicked the button!',
+            'success'
+          );
         },
         error: (err) => {
-          alert('error occured');
+
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  text: 'Something went wrong!',
+  footer: '<a href="">Why do I have this issue?</a>'
+})
         },
       });
 
