@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Template Name: Electro - HTML Ecommerce Template
 Author: yaminncco
@@ -2394,4 +2395,13 @@ textarea.input {
 
 .slick-arrow.slick-hidden {
     display: none;
+=======
+a {
+    font-size: medium;
+    text-decoration: none;
+}
+
+.head {
+    font-size: medium;
+>>>>>>> newheaderregister
 }

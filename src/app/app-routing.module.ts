@@ -5,8 +5,14 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
+import { MyprofileComponent } from './Components/myprofile/myprofile.component';
+import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 const routes: Routes = [
+ 
+ 
+  
   {
+    
     path: '',
     component: MainLayoutComponent,
     children: [
@@ -17,7 +23,14 @@ const routes: Routes = [
   
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'myprofile', component:MyprofileComponent },
+  { path: 'editprofile', component:EditprofileComponent }, 
+  
   { path: '**', component: NotFoundComponent },
+
+
+
+
 ];
 
 @NgModule({
