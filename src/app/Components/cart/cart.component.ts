@@ -48,6 +48,15 @@ return +pric * +count;
     }
 
     clearcart(){
+      this.cartservice.clearcart ().subscribe({
+        next:()=>{
+       this.rot.navigate(['/cart'])
+        },
+      
+        error:(err)=>{
+          alert("error")
+        }
+      })
       
     }
 
