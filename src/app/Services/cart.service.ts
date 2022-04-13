@@ -27,5 +27,9 @@ export class CartService {
     return this.httpclint.delete<Icart>(`${environment.ApiBaseURL}/cart/${id}`,this.httpoption) 
     
      }
+     clearcart(): Observable <Icart>{
 
+      return this.httpclint.delete<Icart>(`${environment.ApiBaseURL}/cartuser `,this.httpoption) 
+      
+       }
 }

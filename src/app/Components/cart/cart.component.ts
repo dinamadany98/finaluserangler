@@ -47,7 +47,9 @@ return +pric * +count;
     })
     }
 
-
+    clearcart(){
+      
+    }
 
 
   }

@@ -7,6 +7,9 @@
   
               <div class="row">
             <h1 class="mt-4 mb-5 text-center"> Shopping Cart</h1>
+            <button type="button" (click)="clearcart()" class="btn btn-outline-danger mb-3 col-2" style="margin-left: 80%;"  >
+              <i class="bi bi-trash3 h4" >Clear Cart </i></button>
+            </div>
                 <div>
       
                         <ng-container *ngFor="let cart of cartlist"  >
@@ -33,7 +36,7 @@
                           <div style="width: 80px;">
                             <h5 class="mb-0 ms-4">${{sum(prod.selling_price,cart.prod_qty)}}</h5>
                           </div>
-                          <button type="button"      (click)="del(cart.id)"    class="btn btn-outline-danger mb-3" style=" color:blackazz">
+                          <button type="button"      (click)="del(cart.id)"    class="btn btn-outline-danger mb-3" >
                             <i class="bi bi-trash3 h4 " ></i></button>
                         </div>
                       </div>
@@ -47,12 +50,13 @@
   
                 </div>
               
-  
               </div>
             
             </div>
           </div>
         </div>
-      </div>
+        
+     
+      
     </div>
   </section>
