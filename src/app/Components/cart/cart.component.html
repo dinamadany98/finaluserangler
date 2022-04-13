@@ -28,10 +28,10 @@
                         </div>
                         <div class="d-flex flex-row align-items-center">
                           <div style="width: 100px;">
-                            <h5 class="fw-normal mb-0"><button type="button"  class="bi bi-dash h4 me-4" ></button>{{cart.prod_qty }}<i class="bi bi-file-plus h4 ms-3"></i></h5>
+                            <h5 class="fw-normal mb-0"><button type="button"  class="bi bi-dash h4 me-3" ></button>{{cart.prod_qty }}<button type="button"  class="bi bi-plus h4 ms-4"></button></h5>
                           </div>
                           <div style="width: 80px;">
-                            <h5 class="mb-0">${{sum(prod.selling_price,cart.prod_qty)}}</h5>
+                            <h5 class="mb-0 ms-4">${{sum(prod.selling_price,cart.prod_qty)}}</h5>
                           </div>
                           <button type="button"      (click)="del(cart.id)"    class="btn btn-outline-danger mb-3" style=" color:blackazz">
                             <i class="bi bi-trash3 h4 " ></i></button>
