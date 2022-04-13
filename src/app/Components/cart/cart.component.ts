@@ -35,4 +35,20 @@ export class CartComponent implements OnInit {
    this.total+=(+pric * +count);
 return +pric * +count;
   }
-}
+  del(id:any){
+    this.cartservice.deletfromcart(id).subscribe({
+      next:()=>{
+     this.rot.navigate(['/cart'])
+      },
+    
+      error:(err)=>{
+        alert("error")
+      }
+    })
+    }
+
+
+
+
+  }
+
