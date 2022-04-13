@@ -35,8 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule
+   
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

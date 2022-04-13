@@ -1,1 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Electro - HTML Ecommerce Template</title>
+
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+ 		<!-- Bootstrap -->
+ 		
+ 		<!-- Slick -->
+ 	
+ 		<!-- nouislider -->
+ 	
+ 		<!-- Font Awesome Icon -->
+ 	 
+ 		<!-- Custom stlylesheet -->
+ 		 
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+
+	
+
+
+
+        
+<!-- --------------------->
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">Checkout</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">Home</a></li>
+							<li class="active">Checkout</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+                   
+<form   (ngSubmit)="insert()"  #formvali="ngForm">
+					<div class="col-md-7">
+						<!-- Billing Details -->
+						<div class="billing-details">
+							<div class="section-title">
+								<h3 class="title">Billing address</h3>
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" id="fname" name="fname" placeholder="First Name" #fname="ngModel" [(ngModel)]="newshipping.fname" required
+                                [class.is-valid]="fname.valid"  [class.is-invalid]="fname.invalid">
+                                <div [hidden]="fname.valid ||fname.untouched" >
+                                    <small *ngIf="fname.errors?.['required']">
+                                        <h6 class="text-danger"> Frist name required</h6>
+                                      </small>
+                                </div>
+                                
+
+
+                            </div>
+							<div class="form-group">
+								<input class="input" type="text" name="lname" placeholder="Last Name" [(ngModel)]="newshipping.lname" required
+                                #lname="ngModel" [class.is-valid]="lname.valid"  [class.is-invalid]="lname.invalid">
+                                <div [hidden]="lname.valid ||lname.untouched" >
+                                    <small *ngIf="lname.errors?.['required']">
+                                        <h6 class="text-danger"> Last name required</h6>
+                                      </small>
+                                </div>
+                            
+                            </div>
+							<div class="form-group">
+								<input class="input" type="email" name="email" placeholder="Email" [(ngModel)]="newshipping.email" required
+                                [class.is-valid]="email.valid"  [class.is-invalid]="email.invalid" #email="ngModel">
+                                <div [hidden]="email.valid ||email.untouched" >
+                                    <small *ngIf="email.errors?.['required']">
+                                        <h6 class="text-danger"> Email required</h6>
+                                      </small>
+                                </div>
+                            
+                            </div>
+							<div class="form-group">
+								<input class="input" type="text" name="address1" placeholder="Addressone" [(ngModel)]="newshipping.address1"
+                                 required  [class.is-valid]="address1.valid"  [class.is-invalid]="address1.invalid" #address1="ngModel">
+                                <div [hidden]="address1.valid ||address1.untouched" >
+                                    <small *ngIf="address1.errors?.['required']">
+                                        <h6 class="text-danger">  Address one  required</h6>
+                                      </small>
+                                </div>
+                            
+                            </div>
+                            <div class="form-group">
+								<input class="input" type="text" name="address2" placeholder="Addresstwo" [(ngModel)]="newshipping.address2"
+                                 required  [class.is-valid]="address2.valid"  [class.is-invalid]="address2.invalid" #address2="ngModel">
+                                <div [hidden]="address2.valid ||address2.untouched" >
+                                    <small *ngIf="address2.errors?.['required']">
+                                        <h6 class="text-danger">Address two required</h6>
+                                      </small>
+                                </div>
+                            
+                            </div>
+							<div class="form-group">
+								<input class="input" type="text" name="city" placeholder="City" [(ngModel)]="newshipping.city" required
+                                [class.is-valid]="city.valid"  [class.is-invalid]="city.invalid" #city="ngModel">
+							
+                                <div [hidden]="city.valid ||city.untouched" >
+                                    <small *ngIf="city.errors?.['required']">
+                                        <h6 class="text-danger"> City required</h6>
+                                      </small>
+                                </div>
+                            </div>
+							<div class="form-group">
+								<input class="input" type="text" name="country" placeholder="Country" [(ngModel)]="newshipping.country" required
+                                [class.is-valid]="country.valid"  [class.is-invalid]="country.invalid" #country="ngModel">
+							
+                                <div [hidden]="country.valid ||country.untouched" >
+                                    <small *ngIf="country.errors?.['required']">
+                                        <h6 class="text-danger">Country required</h6>
+                                      </small>
+                                </div>
+                            </div>
+							<div class="form-group">
+								<input class="input" type="text" name="state" placeholder="State" [(ngModel)]="newshipping.state" required
+                                [class.is-valid]="state.valid"  [class.is-invalid]="state.invalid" #state="ngModel">
+                                <div [hidden]="state.valid ||state.untouched" >
+                                    <small *ngIf="state.errors?.['required']">
+                                        <h6 class="text-danger">State required</h6>
+                                      </small>
+                                </div>
+                            
+                            </div>
+							<div class="form-group">
+								<input class="input" type="text" name="phone" placeholder="Telephone" [(ngModel)]="newshipping.phone" required
+                                [class.is-valid]="phone.valid"  [class.is-invalid]="phone.invalid" #phone="ngModel">
+                                <div [hidden]="phone.valid ||phone.untouched" >
+                                    <small *ngIf="phone.errors?.['required']">
+                                        <h6 class="text-danger">  Telephone number required</h6>
+                                      </small>
+                                </div>
+                            
+                            </div>
+                          
+                            <div class="form-group">
+								<input class="input" type="text" name="pincode" placeholder="Pin code" [(ngModel)]="newshipping.pincode" 
+                                required  [class.is-valid]="pincode.valid"  [class.is-invalid]="pincode.invalid"  #pincode="ngModel">
+							
+                                <div [hidden]="pincode.valid ||pincode.untouched" >
+                                    <small *ngIf="pincode.errors?.['required']">
+                                        <h6 class="text-danger"> Pin Code required</h6>
+                                      </small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+								<input class="input" type="text" name="tracking_no" placeholder="tracking Numbor" [(ngModel)]="newshipping.tracking_no">
+							</div>
+                            <div class="form-group">
+								<input class="input" type="text" name="message" placeholder="Message" [(ngModel)]="newshipping.message">
+							</div>
+						
+						</div>
+						<!-- /Billing Details -->
+
+			
+						<!-- /Shiping Details -->
+
+					
+					</div>
+
+					<!-- Order Details -->
+					<div class="col-md-5 order-details">
+						<div class="section-title text-center">
+							<h3 class="title">Your Order</h3>
+						</div>
+						<div class="order-summary">
+							<div class="order-col">
+								<div><strong>PRODUCT</strong></div>
+								<div><strong>TOTAL</strong></div>
+							</div>
+							<div class="order-products">
+								<div class="order-col">
+									<div>1x Product Name Goes Here</div>
+									<div>$980.00</div>
+								</div>
+								<div class="order-col">
+									<div>2x Product Name Goes Here</div>
+									<div>$980.00</div>
+								</div>
+							</div>
+							<div class="order-col">
+								<div>Shiping</div>
+								<div><strong>FREE</strong></div>
+							</div>
+							<div class="order-col">
+								<div><strong>TOTAL</strong></div>
+								<div><strong class="order-total">$2940.00</strong></div>
+							</div>
+						</div>
+						<div class="payment-method">
+							<div class="input-radio">
+								<input type="radio" name="payment" id="payment-1">
+								<label for="payment-1">
+									<span></span>
+									Direct Bank Transfer
+								</label>
+								
+							</div>
+							<div class="input-radio">
+								<input type="radio" name="payment" id="payment-2">
+								<label for="payment-2">
+									<span></span>
+									Cheque Payment
+								</label>
+								 
+							</div>
+							<div class="input-radio">
+								<input type="radio" name="payment" id="payment-3">
+								<label for="payment-3">
+									<span></span>
+									Paypal System
+								</label>
+								 
+							</div>
+						</div>
+					 
+						<input type="submit"  class="primary-btn order-submit" [disabled]="formvali.invalid" value="Place order">
+					</div>
+                </form>
+					<!-- /Order Details -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="#">Hot deals</a></li>
+									<li><a href="#">Laptops</a></li>
+									<li><a href="#">Smartphones</a></li>
+									<li><a href="#">Cameras</a></li>
+									<li><a href="#">Accessories</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Terms & Conditions</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="#">My Account</a></li>
+									<li><a href="#">View Cart</a></li>
+									<li><a href="#">Wishlist</a></li>
+									<li><a href="#">Track My Order</a></li>
+									<li><a href="#">Help</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/slick.min.js"></script>
+		<script src="js/nouislider.min.js"></script>
+		<script src="js/jquery.zoom.min.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
 
