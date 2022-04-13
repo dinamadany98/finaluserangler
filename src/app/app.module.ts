@@ -14,6 +14,7 @@ import { MainLayoutComponent } from './Components/main-layout/main-layout.compon
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotFoundComponent,
     MainLayoutComponent,
     MyprofileComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { CartComponent } from './Components/cart/cart.component';
 const routes: Routes = [
  
  
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'myprofile', component:MyprofileComponent },
   { path: 'editprofile', component:EditprofileComponent }, 
   { path: 'checout', component:CheckoutComponent }, 
-  
+  { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },
 
 
