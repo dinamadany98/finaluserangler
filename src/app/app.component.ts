@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { LoginService } from './Services/login.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,5 +10,6 @@ export class AppComponent {
   helo() {
     return "helo from function";
   }
+  constructor(loginservice:LoginService){}
 }
 

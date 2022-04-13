@@ -1,76 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
-@import "~bootstrap-icons/font/bootstrap-icons.css";
 body {
-    background-color:rgb(252, 247, 240);
-    font-family: "Poppins", sans-serif;
-    font-weight: 300
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
 }
 
-.container {
-    height: 103vh
+.card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+    background-size: cover;
 }
 
-.card {
-    width: 380px;
-    border: none;
-    border-radius: 15px;
-    padding: 8px;
-    background-color: #fff;
-    position: relative;
-    height: 530px;
-    margin-bottom: 5px;
-    margin-top: 10px;
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
 }
 
-.upper {
-    height: 100px
+.btn-google {
+    color: white !important;
+    background-color: #ea4335;
 }
 
-.upper img {
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px
+.btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
 }
 
-.user {
-    position: relative
+a {
+    font-size: medium;
 }
 
-.profile img {
-    height: 80px;
-    width: 80px;
-   
-}
-
-.profile {
-    position: absolute;
-    top: -35px;
-    left: 38%;
-    height: 90px;
-    width: 90px;
-    border: 3px solid #fff;
-    border-radius: 50%
-}
-
-.follow {
-    border-radius: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 35px
-}
-
-.stats span {
-    font-size: 30px
-}
-h2{
-    color: maroon;
-    font-family:lucida calligraphy,cursive;
-}
-input{
-    border-top-style: hidden;
-border-right-style: hidden;
-border-left-style: hidden;
- }
- h3{
-    font-size:larger !important;
+input {
+    font-size: medium;
 }

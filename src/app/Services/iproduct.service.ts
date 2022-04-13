@@ -9,6 +9,7 @@ import { IProduct } from '../Models/iproduct';
 })
 export class IProductService {
   private httpoption = {};
+  private productList: IProduct[] = [];
 
   constructor(private httpclient: HttpClient) {
     this.httpoption = {
@@ -20,7 +21,22 @@ export class IProductService {
 
   getallproduct(): Observable<IProduct[]> {
     return this.httpclient.get<IProduct[]>(
-      `${environment.ApiBaseURL}/products`
+      `${environment.ApiBaseURL}/getallproduct`
     );
+  }
+  // return cat id
+  getprdbycatid(catid: number): Observable<IProduct[]> {
+    return this.httpclient.get<IProduct[]>(
+      `${environment.ApiBaseURL}/products?CateogryID=${catid}`
+    );
+  }
+  //return obj
+  getprdbyid(prdid: number): Observable<IProduct> {
+    return this.httpclient.get<IProduct>(
+      `${environment.ApiBaseURL}/products/${prdid}`
+    );
+  }
+  searchprdbyname(prdname: string): IProduct | undefined {
+    return this.productList.find((prd) => prd.name == prdname);
   }
 }

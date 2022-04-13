@@ -7,12 +7,10 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
+import { LoginGuard } from './login.guard';
+
 const routes: Routes = [
- 
- 
-  
   {
-    
     path: '',
     component: MainLayoutComponent,
     children: [
@@ -20,17 +18,17 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
     ],
   },
-  
+
   { path: 'register', component: RegisterComponent },
+
   { path: 'login', component: LoginComponent },
-  { path: 'myprofile', component:MyprofileComponent },
-  { path: 'editprofile', component:EditprofileComponent }, 
-  
+  {
+    path: 'myprofile',
+    component: MyprofileComponent,
+    canActivate: [LoginGuard],
+  },
+  { path: 'editprofile', component: EditprofileComponent },
   { path: '**', component: NotFoundComponent },
-
-
-
-
 ];
 
 @NgModule({

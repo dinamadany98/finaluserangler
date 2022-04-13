@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICategory } from 'src/app/Models/icategory';
 import { IProduct } from 'src/app/Models/iproduct';
@@ -13,13 +13,19 @@ import { IProductService } from 'src/app/Services/iproduct.service';
 export class HomeComponent implements OnInit, OnChanges {
   categorylist: ICategory[] = [];
   prdlisticat: IProduct[] = [];
+  prd: IProduct | undefined = undefined;
+  @Input() receveid: number = 0;
+  decrease(catt: any) {
+    return catt.quantity--;
+  }
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService
   ) {}
   ngOnChanges(): void {
-    this.prdcatservice.getallcategory().subscribe((prdlist) => {
-      this.categorylist = prdlist;
+   
+    this.prdapisevice.getprdbycatid(this.receveid).subscribe((prdlist) => {
+      this.prdlisticat = prdlist;
     });
     ////////////////////////////////
     this.prdapisevice.getallproduct().subscribe((prdlist) => {
@@ -34,5 +40,14 @@ export class HomeComponent implements OnInit, OnChanges {
     this.prdapisevice.getallproduct().subscribe((prdlist) => {
       this.prdlisticat = prdlist;
     });
+  }
+  /////////////////////////////
+  searchprd(prdname: string) {
+    let foundprd = this.prdapisevice.searchprdbyname(prdname);
+    if (foundprd) {
+      this.prd = foundprd;
+    } else {
+      alert('not found');
+    }
   }
 }

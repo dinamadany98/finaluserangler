@@ -10,29 +10,30 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class MyprofileComponent implements OnInit, OnChanges {
    userdata: IuserProfile={} as IuserProfile;
-  constructor(private userservice: UserService,private rout:Router) { 
-     
+  constructor(private userservice: UserService,private rout:Router) {
+
   }
   ngOnChanges() {
-  
+
   }
- 
+
   ngOnInit(): void {
-  
- 
+
+
   this.userservice.getuserdata().subscribe(
     user=>{
-       
+
       this.userdata=user;
       console.log(this.userdata);
   });
 }
 del(id:any){
   this.userservice.deletuseracount(id).subscribe({
-    next:()=>{
+    next: () => {
+       localStorage.removeItem('login');
    this.rout.navigate(['/home'])
     },
-  
+
     error:(err)=>{
       alert("error")
     }

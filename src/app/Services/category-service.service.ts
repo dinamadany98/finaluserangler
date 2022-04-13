@@ -20,7 +20,7 @@ export class CategoryServiceService {
 
   getallcategory(): Observable<ICategory[]> {
     return this.httpclient.get<ICategory[]>(
-      `${environment.ApiBaseURL}/categories`
+      `${environment.ApiBaseURL}/getallcategories`
     );
   }
 }

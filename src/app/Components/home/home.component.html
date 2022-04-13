@@ -1,3 +1,9 @@
+<!-- <div class="mb-3">
+    <label class="form-label">search</label>
+    <input type="text" #prdname class="form-control" id="prd" name="prd">
+    <button class="btn btn-info" (click)="searchprd(prdname.value)"> search here</button>
+
+</div> -->
 <div class="section">
     <div class="container">
         <div class="row">
@@ -77,7 +83,7 @@
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                            <button class="add-to-cart-btn" (click)="decrease(prd) "><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
 
