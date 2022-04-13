@@ -1,0 +1,62 @@
+<section class="h-100 h-custom" style="background-color: #eee;">
+    <div class="container   h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card">
+            <div class="card-body  ">
+  
+              <div class="row">
+            <h1 class="mt-4 mb-5 text-center"> Shopping Cart</h1>
+            <button type="button" (click)="clearcart()" class="btn btn-outline-danger mb-3 col-2" style="margin-left: 80%;"  >
+              <i class="bi bi-trash3 h4" >Clear Cart </i></button>
+            </div>
+                <div>
+      
+                        <ng-container *ngFor="let cart of cartlist"  >
+                        <ng-container *ngFor="let prod of prdlisticat">
+                         <ng-container  *ngIf="prod.id==cart.product_id" >
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                          <div>
+                            <img
+                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
+                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                          </div>
+                          <div class="ms-3">
+                            <h5>{{prod.name }} </h5>
+                            <p class="small mb-0">{{prod.small_description }}</p>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                          <div style="width: 100px;">
+                            <h5 class="fw-normal mb-0"><button type="button"  class="bi bi-dash h4 me-3" ></button>{{cart.prod_qty }}<button type="button"  class="bi bi-plus h4 ms-4"></button></h5>
+                          </div>
+                          <div style="width: 80px;">
+                            <h5 class="mb-0 ms-4">${{sum(prod.selling_price,cart.prod_qty)}}</h5>
+                          </div>
+                          <button type="button"      (click)="del(cart.id)"    class="btn btn-outline-danger mb-3" >
+                            <i class="bi bi-trash3 h4 " ></i></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </ng-container>
+            </ng-container>
+           </ng-container>  
+  
+  
+                </div>
+              
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        
+     
+      
+    </div>
+  </section>

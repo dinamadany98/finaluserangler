@@ -15,6 +15,7 @@ import { EditprofileComponent } from './Components/myprofile/editprofile/editpro
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginGuard } from './login.guard';
 import { LoginService } from './Services/login.service';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginService } from './Services/login.service';
     MyprofileComponent,
     EditprofileComponent,
 
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +38,8 @@ import { LoginService } from './Services/login.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
+
+
   ],
 
   providers: [

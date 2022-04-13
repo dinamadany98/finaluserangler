@@ -9,6 +9,7 @@ import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 import { LoginGuard } from './login.guard';
 
+import { CartComponent } from './Components/cart/cart.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,6 +29,9 @@ const routes: Routes = [
     canActivate: [LoginGuard],
   },
   { path: 'editprofile', component: EditprofileComponent },
+  { path: 'myprofile', component:MyprofileComponent },
+  { path: 'editprofile', component:EditprofileComponent },
+  { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },
 ];
 
