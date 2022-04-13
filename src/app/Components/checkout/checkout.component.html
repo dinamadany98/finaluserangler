@@ -30,12 +30,8 @@
 
     </head>
 	<body>
-
-	
-
-
-
         
+
 <!-- --------------------->
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
@@ -201,22 +197,22 @@
 								<div><strong>TOTAL</strong></div>
 							</div>
 							<div class="order-products">
+                              
+                             <ng-container *ngFor="let cart of cartlist"  >
+                                <ng-container *ngFor="let prod of prdlisticat">
+                                <ng-container  *ngIf="prod.id==cart.product_id" >
 								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
+									<div>{{cart.prod_qty }}x {{prod.name}}</div>
+									<div>{{sum(prod.selling_price,cart.prod_qty)}}</div>
 								</div>
-								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
+								 </ng-container>
+                                 </ng-container>
+                                </ng-container>
 							</div>
-							<div class="order-col">
-								<div>Shiping</div>
-								<div><strong>FREE</strong></div>
-							</div>
+							 
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">$2940.00</strong></div>
+								<div><strong class="order-total">{{total}}</strong></div>
 							</div>
 						</div>
 						<div class="payment-method">
