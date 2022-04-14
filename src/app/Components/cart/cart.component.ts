@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Icart } from 'src/app/Models/icart';
 import { Icheckout } from 'src/app/Models/icheckout';
@@ -11,12 +11,25 @@ import { IProductService } from 'src/app/Services/iproduct.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit ,OnChanges {
   newshipping:Icheckout={} as Icheckout
   cartlist:Icart[]=[];
   prdlisticat: IProduct[] = [];
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,
-    private prdapisevice: IProductService) { }
+    private prdapisevice: IProductService) { 
+      this.rot.routeReuseStrategy.shouldReuseRoute = () => false;
+    }
+  ngOnChanges() {
+    this.prdapisevice.getallproduct().subscribe((prdlist) => {
+      this.prdlisticat = prdlist;
+    }); 
+
+
+    this.cartservice.getcartdata().subscribe(cart=>{
+      this.cartlist=cart;
+    });
+    
+  }
 
   ngOnInit(): void {
     this.prdapisevice.getallproduct().subscribe((prdlist) => {
@@ -38,7 +51,7 @@ return +pric * +count;
   del(id:any){
     this.cartservice.deletfromcart(id).subscribe({
       next:()=>{
-     this.rot.navigate(['/cart'])
+     this.rot.navigate(['/redirect'])
       },
     
       error:(err)=>{
@@ -50,7 +63,7 @@ return +pric * +count;
     clearcart(){
       this.cartservice.clearcart ().subscribe({
         next:()=>{
-       this.rot.navigate(['/cart'])
+       this.rot.navigate(['/redirect'])
         },
       
         error:(err)=>{
@@ -63,7 +76,7 @@ return +pric * +count;
       
       this.cartservice.decrementquantaty(id).subscribe({
         next:()=>{
-       this.rot.navigate(['/cart'])
+       this.rot.navigate(['/redirect'])
         },
       
         error:(err)=>{
@@ -78,7 +91,7 @@ return +pric * +count;
       
       this.cartservice.incrementquantaty(id).subscribe({
         next:()=>{
-       this.rot.navigate(['/cart'])
+       this.rot.navigate(['/redirect'])
         },
       
         error:(err)=>{

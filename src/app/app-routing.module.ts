@@ -27,7 +27,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'myprofile', component:MyprofileComponent },
   { path: 'editprofile', component:EditprofileComponent }, 
-  { path: 'checout', component:CheckoutComponent }, 
+  { path: 'checout', component:CheckoutComponent },
+  
+  { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
   { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },
 
