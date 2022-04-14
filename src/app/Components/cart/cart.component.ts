@@ -59,6 +59,34 @@ return +pric * +count;
       })
       
     }
+    minsprod(id:any){
+      
+      this.cartservice.decrementquantaty(id).subscribe({
+        next:()=>{
+       this.rot.navigate(['/cart'])
+        },
+      
+        error:(err)=>{
+          alert("error")
+        }
+      })
 
 
+
+    }
+    add(id:any){
+      
+      this.cartservice.incrementquantaty(id).subscribe({
+        next:()=>{
+       this.rot.navigate(['/cart'])
+        },
+      
+        error:(err)=>{
+          alert("error")
+        }
+      })
+
+
+
+    }
   }

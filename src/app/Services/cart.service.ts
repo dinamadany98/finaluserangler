@@ -32,4 +32,12 @@ export class CartService {
       return this.httpclint.delete<Icart>(`${environment.ApiBaseURL}/cartuser `,this.httpoption) 
       
        }
+       decrementquantaty(id:number): Observable <Icart>{
+        return  this.httpclint.post <Icart>(`${environment.ApiBaseURL}/cart/${id}`,this.httpoption)
+        
+        }
+        incrementquantaty(id:number): Observable <Icart>{
+          return  this.httpclint.post <Icart>(`${environment.ApiBaseURL}/increment/${id}`,this.httpoption)
+          
+          }
 }
