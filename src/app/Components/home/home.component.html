@@ -77,7 +77,11 @@
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
-                                            <button class="add-to-cart-btn" (click)="addtocart(prd)"><i class="fa fa-shopping-cart"></i> add </button>
+                                            <ng-container *ngFor="let cart of cartlist"  >
+                                                <ng-container  *ngIf="prd.id==cart.product_id" >
+                                            <button class="add-to-cart-btn" [disabled]="prd.quantity==cart.prod_qty " (click)="addtocart(prd)"><i class="fa fa-shopping-cart"></i> add </button>
+                                        </ng-container>
+                                    </ng-container>
                                         </div>
                                     </div>
 

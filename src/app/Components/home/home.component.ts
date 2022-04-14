@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Icart } from 'src/app/Models/icart';
 import { ICategory } from 'src/app/Models/icategory';
 import { IProduct } from 'src/app/Models/iproduct';
 import { CartService } from 'src/app/Services/cart.service';
@@ -14,6 +15,7 @@ import { IProductService } from 'src/app/Services/iproduct.service';
 export class HomeComponent implements OnInit, OnChanges {
   categorylist: ICategory[] = [];
   prdlisticat: IProduct[] = [];
+  cartlist:Icart[]=[];
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
@@ -30,6 +32,9 @@ export class HomeComponent implements OnInit, OnChanges {
     });
   }
   ngOnInit(): void {
+    this.cartservice.getcartdata().subscribe(cart=>{
+      this.cartlist=cart;
+    }); 
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
       this.categorylist = prdlist;
     });
