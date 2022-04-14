@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, OnChanges {
   addtocart(prod :IProduct){
  
     this.cartservice.addtocart(prod).subscribe({
-     next:(proid)=>{
+     next:(prod)=>{
      this.rot.navigate(['/'])
       },
 
