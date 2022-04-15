@@ -27,16 +27,14 @@
     </div>
 </div>
 
-<!-- /SECTION -->
 
-<!-- SECTION -->
 <div class="section">
-    <!-- container -->
+
     <div class="container">
-        <!-- row -->
+
         <div class="row">
 
-            <!-- section title -->
+
             <div class="col-md-12">
                 <div class="section-title">
                     <h3 class="title">New Products</h3>
@@ -50,20 +48,16 @@
                     </div>
                 </div>
             </div>
-            <!-- /section title -->
-            <!-- Products tab & slick -->
-            <ng-container *ngFor="let prd of prdlisticat">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="products-tabs">
-                            <!-- tab -->
-                            <div id="tab1" class="tab-pane active">
-                                <div class="products-slick" data-nav="#slick-nav-1">
-                                    <!-- product -->
-                                    <div class="product">
+
+            <div>
+                <div class="row">
+                    <div class="products-tabs">
+                        <div id="tab1" class="tab-pane active">
+                            <div class="products-slick" data-nav="#slick-nav-1">
+                                <ng-container *ngFor="let prd of prdlisticat">
+                                    <div class="product col-md-3">
                                         <div class="product-img">
                                             <img src="http://localhost:8000/assets/{{prd.image}}" alt=" ">
-
                                         </div>
                                         <div class="product-body">
                                             <p class="product-category">Category</p>
@@ -76,39 +70,34 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>
+
                                             <div class="product-btns">
                                                 <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
                                                 <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                <button class="quick-view" (click)="opendtails(prd.id) "><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                             </div>
                                         </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn" (click)="decrease(prd) "><i class="fa fa-shopping-cart"></i> add to cart</button>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                                </ng-container>
                             </div>
-
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
                         </div>
+
                     </div>
                 </div>
-            </ng-container>
+            </div>
+
         </div>
 
     </div>
 
 </div>
-<!-- /SECTION -->
 
-
-
-<!-- HOT DEAL SECTION -->
 <div id="hot-deal" class="section">
-    <!-- container -->
     <div class="container">
-        <!-- row -->
         <div class="row">
             <div class="col-md-12">
                 <div class="hot-deal">
@@ -138,26 +127,21 @@
                             </div>
                         </li>
                     </ul>
-                    <h2 class="text-uppercase">hot deal this week</h2>
+                    <h2 class="text-uppercase">Hot Deal This Week</h2>
                     <p>New Collection Up to 50% OFF</p>
-                    <a class="primary-btn cta-btn" href="#">Shop now</a>
+                    <a class="primary-btn cta-btn" href="#">Shop Now</a>
                 </div>
             </div>
         </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /HOT DEAL SECTION -->
 
-<!-- SECTION -->
+    </div>
+
+</div>
+
 <div class="section">
-    <!-- container -->
     <div class="container">
-        <!-- row -->
         <div class="row">
 
-            <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
                     <h3 class="title">Top selling</h3>
@@ -171,16 +155,12 @@
                     </div>
                 </div>
             </div>
-            <!-- /section title -->
 
-            <!-- Products tab & slick -->
             <div class="col-md-12">
                 <div class="row">
                     <div class="products-tabs">
-                        <!-- tab -->
                         <div id="tab2" class="tab-pane fade in active">
                             <div class="products-slick" data-nav="#slick-nav-2">
-                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="assets/img/product06.png" alt="">
@@ -210,9 +190,7 @@
                                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                     </div>
                                 </div>
-                                <!-- /product -->
 
-                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="assets/img/product07.png" alt="">
@@ -241,9 +219,7 @@
                                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                     </div>
                                 </div>
-                                <!-- /product -->
 
-                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="assets/img/product08.png" alt="">
@@ -267,9 +243,7 @@
                                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                     </div>
                                 </div>
-                                <!-- /product -->
 
-                                <!-- product -->
                                 <div class="product">
                                     <div class="product-img">
                                         <img src="assets/img/product09.png" alt="">

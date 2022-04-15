@@ -27,17 +27,30 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.formGroup.valid) {
-      this.authservice.auth_login(this.formGroup.value).subscribe((data) => {
-        localStorage.setItem('login', data.token);
-        this.router.navigate(['/home']);
+      this.authservice.auth_login(this.formGroup.value).subscribe({
+        next: (data) => {
+          localStorage.setItem('login', data.token);
+          this.router.navigate(['/home']);
           Swal.fire(
-            'Login Correct',
+            'Login orrect',
             'You clicked the button!',
             'success'
-        );
-      });
-    } 
+          );
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+        },
+      }
+      )
     }
+
   }
+}
+
 
 

@@ -1,102 +1,582 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- <div class="section">
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let prd of categorylist">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up </title>
+                <div class="col-md-4 col-xs-6">
+                    <div class="shop">
+                        <div class="shop-img">
+                            <img src="{{prd.image}} " alt=" ">
 
-
-</head>
-
-<body>
-
-    <div class="main">
-
-        <div class="container">
-            <div class="signup-content">
-                <div class="signup-img">
-                    <img src="assets/form/images/form-img.jpg" alt="">
-                    <div class="signup-img-content">
-                        <h2>Register now </h2>
-                        <p>while seats are available !</p>
+                            <img src="assets/img/shop01.png" alt="">
+                        </div>
+                        <div class="shop-body">
+                            <h3>{{prd.name}}<br>Collection</h3>
+                            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="signup-form">
-                    <form [formGroup]="userformgroup" (ngSubmit)="addUser()" class="register-form" id="register-form">
-                        <div class="form-row">
-                            <div class="form-group">
+            </ng-container>
+        </div>
+    </div>
+</div>
 
-                                <div class="form-input">
-                                    <label for="firstname" class="required">First Name</label>
-                                    <input type="text" [(ngModel)]="newuser.firstname" formControlName="firstname" name="firstname" id="firstname" [class.is-valid]="firstname?.valid" [class.is-invalid]="firstname?.invalid" />
-                                    <div class="alert alert-warning" [hidden]="firstname?.valid || firstname?.untouched">
-                                        <small *ngIf="firstname?.errors?.['required']">First Name is required</small>
-                                        <small *ngIf="firstname?.errors?.['minlength']">First Name must be more than 5 char</small>
-                                    </div>
-                                </div>
-                                <div class="form-input">
-                                    <label for="lastname" class="required">Last Name</label>
-                                    <input type="text" [(ngModel)]="newuser.lastname" formControlName="lastname" name="lastname" id="lastname" [class.is-valid]="lastname?.valid" [class.is-invalid]="lastname?.invalid" />
-                                    <div class="alert alert-warning" [hidden]="lastname?.valid || lastname?.untouched">
-                                        <small *ngIf="lastname?.errors?.['required']">Last Name is required</small>
-                                        <small *ngIf="lastname?.errors?.['minlength']">Last Name must be more than 5 char</small>
-                                    </div>
-                                </div>
+/SECTION SECTION
+<div class="section">
+    container
+    <div class="container">
+        row
+        <div class="row">
 
-                                <div class="form-input">
-                                    <label for="email" class="required">Email</label>
-                                    <input type="email" [(ngModel)]="newuser.email" formControlName="email" name="email" id="email" [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid" />
-                                    <div class="alert alert-warning" [hidden]="email?.valid || email?.untouched">
-                                        <small *ngIf="email?.errors?.['required']">Email is required</small>
-                                        <small *ngIf="email?.errors?.['minlength']">Email must be more than 5 char</small>
-                                    </div>
-                                </div>
-                                <div class="form-input">
-                                    <label for="password" class="required">Password</label>
-                                    <input type="password" [(ngModel)]="newuser.password" formControlName="password" name="password" id="password" [class.is-valid]="password?.valid" [class.is-invalid]="password?.invalid" />
-                                    <div class="alert alert-warning" [hidden]="password?.valid || password?.untouched">
-                                        <small *ngIf="password?.errors?.['required']">Password is required</small>
-                                        <small *ngIf="password?.errors?.['minlength']">Password must be more than 5 char</small>
-                                    </div>
-                                </div>
-                                <div class="form-input">
-                                    <label for="conpassword" class="required">Confirm Password</label>
-                                    <input type="password" [(ngModel)]="newuser.conpassword" formControlName="conpassword" name="conpassword" id="conpassword" [class.is-valid]="conpassword?.valid" [class.is-invalid]="conpassword?.invalid" />
-                                    <div class="alert alert-warning" [hidden]="conpassword?.valid || conpassword?.untouched">
-                                        <small *ngIf="conpassword?.errors?.['required']">Confirm Password is required</small>
-                                        <small *ngIf="conpassword?.errors?.['minlength']">Confirm Password Not Correct</small>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-submit">
-                            <input type="submit" [disabled]="userformgroup.invalid" value="Submit" class="submit" id="submit" name="submit" />
-                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
-                        </div>
-                    </form>
-                    <div class="bg-warning">
-                        <h3>{{userformgroup.value | json}}</h3>
+            section title
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">New Products</h3>
+                    <div class="section-nav">
+                        <ul class="section-tab-nav tab-nav">
+                            <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
+                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
+                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
+                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
+            /section title Products tab & slick
+            <ng-container *ngFor="let prd of prdlisticat">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="products-tabs">
+                            tab
+                            <div id="tab1" class="tab-pane active">
+                                <div class="products-slick" data-nav="#slick-nav-1">
+                                    product
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="http://localhost:8000/assets/{{prd.image}}" alt=" ">
+
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Category</p>
+                                            <h3 class="product-name"><a href="#">{{prd.name}}</a></h3>
+                                            <h4 class="product-price">${{prd.selling_price}} <del class="product-old-price">$990.00</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                <button class="quick-view" routerLink="/productdetails" routerLinkActive="active"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn" (click)="decrease(prd) "><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
         </div>
 
     </div>
 
-    <!-- JS -->
-    <script src="src/assets/form/vendor/jquery/jquery.min.js"></script>
-    <script src="src/assets/form/vendor/nouislider/nouislider.min.js"></script>
-    <script src="src/assets/form/vendor/wnumb/wNumb.js"></script>
-    <script src="src/assets/form/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="src/assets/form/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-    <script src="src/assets/form/js/main.js"></script>
+</div>
+/SECTION HOT DEAL SECTION
+<div id="hot-deal" class="section">
+    container
+    <div class="container">
+        row
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot-deal">
+                    <ul class="hot-deal-countdown">
+                        <li>
+                            <div>
+                                <h3>02</h3>
+                                <span>Days</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>10</h3>
+                                <span>Hours</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>34</h3>
+                                <span>Mins</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3>60</h3>
+                                <span>Secs</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <h2 class="text-uppercase">hot deal this week</h2>
+                    <p>New Collection Up to 50% OFF</p>
+                    <a class="primary-btn cta-btn" href="#">Shop now</a>
+                </div>
+            </div>
+        </div>
+        /row
+    </div>
+    /container
+</div>
+/HOT DEAL SECTION SECTION
+<div class="section">
+    container
+    <div class="container">
+        row
+        <div class="row">
 
-</body>
+            section title
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">Top selling</h3>
+                    <div class="section-nav">
+                        <ul class="section-tab-nav tab-nav">
+                            <li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Cameras</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            /section title Products tab & slick
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        tab
+                        <div id="tab2" class="tab-pane fade in active">
+                            <div class="products-slick" data-nav="#slick-nav-2">
+                                product
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="assets/img/product06.png" alt="">
+                                        <div class="product-label">
+                                            <span class="sale">-30%</span>
+                                            <span class="new">NEW</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Category</p>
+                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
+                                </div>
+                                /product product
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="assets/img/product07.png" alt="">
+                                        <div class="product-label">
+                                            <span class="new">NEW</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Category</p>
+                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
+                                </div>
+                                /product product
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="assets/img/product08.png" alt="">
+                                        <div class="product-label">
+                                            <span class="sale">-30%</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Category</p>
+                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                        <div class="product-rating">
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
+                                </div>
+                                /product product
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="assets/img/product09.png" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Category</p>
+                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
+                                </div>
+                                /product product
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="assets/img/product01.png" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category">Category</p>
+                                        <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                        <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    </div>
+                                </div>
+                                /product
+                            </div>
+                            <div id="slick-nav-2" class="products-slick-nav"></div>
+                        </div>
+                        /tab
+                    </div>
+                </div>
+            </div>
+            /Products tab & slick
+        </div>
+        /row
+    </div>
+    /container
+</div>
+/SECTION SECTION
+<div class="section">
+    container
+    <div class="container">
+        row
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title">Top selling</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-3" class="products-slick-nav"></div>
+                    </div>
+                </div>
 
-</html>
+                <div class="products-widget-slick" data-nav="#slick-nav-3">
+                    <div>
+                        product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product07.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product08.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product09.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        product widget
+                    </div>
+
+                    <div>
+                        product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product01.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product02.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product03.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        product widget
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title">Top selling</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-4" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-4">
+                    <div>
+                        product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product04.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product05.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product06.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        product widget
+                    </div>
+
+                    <div>
+                        product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product07.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product08.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product09.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        product widget
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-sm visible-xs"></div>
+
+            <div class="col-md-4 col-xs-6">
+                <div class="section-title">
+                    <h4 class="title">Top selling</h4>
+                    <div class="section-nav">
+                        <div id="slick-nav-5" class="products-slick-nav"></div>
+                    </div>
+                </div>
+
+                <div class="products-widget-slick" data-nav="#slick-nav-5">
+                    <div>
+                        product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product01.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product02.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product03.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        product widget
+                    </div>
+
+                    <div>
+                        product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product04.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product05.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        /product widget product widget
+                        <div class="product-widget">
+                            <div class="product-img">
+                                <img src="assets/img/product06.png" alt="">
+                            </div>
+                            <div class="product-body">
+                                <p class="product-category">Category</p>
+                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                            </div>
+                        </div>
+                        product widget
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        /row
+    </div>
+    /container
+</div> -->

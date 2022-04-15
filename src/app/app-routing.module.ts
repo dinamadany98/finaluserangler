@@ -10,6 +10,8 @@ import { EditprofileComponent } from './Components/myprofile/editprofile/editpro
 import { LoginGuard } from './login.guard';
 
 import { CartComponent } from './Components/cart/cart.component';
+import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
 const routes: Routes = [
   {
     path: '',
@@ -29,9 +31,11 @@ const routes: Routes = [
     canActivate: [LoginGuard],
   },
   { path: 'editprofile', component: EditprofileComponent },
-  { path: 'myprofile', component:MyprofileComponent },
-  { path: 'editprofile', component:EditprofileComponent },
-  { path: 'cart', component:CartComponent},
+  { path: 'product/:pid', component: ProductdetailsComponent },
+  { path: 'wishlist', component: WishlistComponent },
+  { path: 'myprofile', component: MyprofileComponent },
+  { path: 'editprofile', component: EditprofileComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

@@ -20,10 +20,10 @@ export class HomeComponent implements OnInit, OnChanges {
   }
   constructor(
     private prdcatservice: CategoryServiceService,
-    private prdapisevice: IProductService
+    private prdapisevice: IProductService,
+    private router:Router
   ) {}
   ngOnChanges(): void {
-   
     this.prdapisevice.getprdbycatid(this.receveid).subscribe((prdlist) => {
       this.prdlisticat = prdlist;
     });
@@ -49,5 +49,9 @@ export class HomeComponent implements OnInit, OnChanges {
     } else {
       alert('not found');
     }
+  }
+  /////////////////////////////////////
+  opendtails(prdid: number) {
+    this.router.navigate(['product', prdid]);
   }
 }

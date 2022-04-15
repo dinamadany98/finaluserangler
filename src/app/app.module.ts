@@ -16,7 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginGuard } from './login.guard';
 import { LoginService } from './Services/login.service';
 import { CartComponent } from './Components/cart/cart.component';
-
+import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
+import { WishlistComponent } from './Components/wishlist/wishlist.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +32,10 @@ import { CartComponent } from './Components/cart/cart.component';
     MainLayoutComponent,
     MyprofileComponent,
     EditprofileComponent,
-
-    CartComponent
+    CartComponent,
+    ProductdetailsComponent,
+    WishlistComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -38,8 +43,7 @@ import { CartComponent } from './Components/cart/cart.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-
-
+    BrowserAnimationsModule,
   ],
 
   providers: [

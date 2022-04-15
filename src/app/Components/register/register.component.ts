@@ -53,31 +53,37 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
   addUser() {
-    this.UserService.addUser(this.newuser).subscribe({
-      next: (prd) => {
-        this.router.navigate(['/home']);
-        Swal.fire(
-          'registeration correct',
-          'You clicked the button!',
-          'success'
-        );
-      },
-      error: (err) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>',
-        });
-      },
-    });
+    console.log(this.password?.value);
+    console.log(this.conpassword?.value);
+    if (this.password?.value === this.conpassword?.value) {
+      this.UserService.addUser(this.newuser).subscribe({
+        next: (prd) => {
+          this.router.navigate(['/home']);
+          Swal.fire(
+            'Registeration Correct',
+            'You clicked the button!',
+            'success'
+          );
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+        },
+      });
+    } else {
+           Swal.fire({
+             icon: 'error',
+             title: 'Oops...',
+             text: 'Something went wrong!',
+             footer: '<a href="">Why do I have this issue?</a>',
+           });
+    }
+
   }
 
-  // get f() {
-  //   return this.form.controls;
-  // }
 
-  // submit() {
-  //   console.log(this.form.value);
-  // }
 }
