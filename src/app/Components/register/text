@@ -1,3 +1,5 @@
+ // this.wishlistservice.addrating(this.rate).subscribe({ // next: (prd) => { // this.router.navigate(['/home']); // Swal.fire( // 'Registeration Correct', // 'You clicked the button!', // 'success' // ); // }, // error: (err) => { // Swal.fire({ // icon:
+'error', // title: 'Oops...', // text: 'Something went wrong!', // footer: '<a href="">Why do I have this issue?</a>', // }); // }, // });
 <!-- <div class="section">
     <div class="container">
         <div class="row">

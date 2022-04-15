@@ -24,12 +24,6 @@ export class IProductService {
       `${environment.ApiBaseURL}/getallproduct`
     );
   }
-  // getprodbyid(prdid: number): IProduct | undefined {
-  //   return this.productList.find((prd) => prd.id == prdid);
-  // }
-  // getprdlist(): number[] {
-  //   return this.productList.map((prd) => prd.id);
-  // }
   // return cat id
   getprdbycatid(catid: number): Observable<IProduct[]> {
     return this.httpclient.get<IProduct[]>(
@@ -42,8 +36,6 @@ export class IProductService {
       `${environment.ApiBaseURL}/products/${prdid}`
     );
   }
-
-
   searchprdbyname(prdname: string): IProduct | undefined {
     return this.productList.find((prd) => prd.name == prdname);
   }

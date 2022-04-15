@@ -20,15 +20,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private UserService: UserServiceService
   ) {
-    // this.form = fb.group(
-    //   {
-    //     password: ['', [Validators.required]],
-    //     confirm_password: ['', [Validators.required]],
-    //   },
-    //   {
-    //     validator: ConfirmedValidator('password', 'confirm_password'),
-    //   }
-    // );
+ 
     /////////////////////////////////////////
     this.userformgroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
@@ -53,8 +45,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
   addUser() {
-    console.log(this.password?.value);
-    console.log(this.conpassword?.value);
+    // console.log(this.password?.value);
+    // console.log(this.conpassword?.value);
     if (this.password?.value === this.conpassword?.value) {
       this.UserService.addUser(this.newuser).subscribe({
         next: (prd) => {
