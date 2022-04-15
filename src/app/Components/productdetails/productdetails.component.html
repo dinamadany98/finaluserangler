@@ -30,27 +30,32 @@
                     <div class="details col-md-6">
                         <h3 class="product-title">{{prd?.name}}
                         </h3>
-                        <!-- <ngb-rating></ngb-rating> -->
+
+                        <div class="mb-3">
+                            <ngb-rating [formControl]="ctrl" (click)="addrate()"></ngb-rating>
+                            {{ctrl.value}}
+                            <div class="form-text font-omedium">
+                                <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
+                                <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
+                            </div>
+                        </div>
+
                         <hr>
-                        <!-- <span class="fa fa-star" [(rate)]="currentRate"></span> -->
+
+                        <button class="btn btn-sm btn-outline-primary me-2" (click)="ctrl.setValue(null)">Clear</button>
+                        <hr>
+
+
 
                         <pre>Rate: <b>{{currentRate}}</b></pre>
-
                         <div class="rating ">
 
                             <div class="stars ">
-                                <!-- <button *ngFor="let rate of ratingarr; index as i" (click)="onclick(i)"> -->
-                                <!-- {{returnstar(i)}} -->
-                                <!-- <span class="fa fa-star fa-2x "> -->
-                                <!-- {{returnstar(i)}} -->
-                                <!-- </span> -->
-
-                                <!-- </button> -->
-
-
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star "></span>
-                                <span class="fa fa-star "></span>
+                                <!-- <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span>
+                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span>
+                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "> </span>
+                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span>
+                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span> -->
                             </div>
                             <span class="review-no ">41 reviews</span>
                         </div>

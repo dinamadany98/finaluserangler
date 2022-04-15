@@ -1,26 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/Models/iproduct';
 import { IProductService } from 'src/app/Services/iproduct.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl, Validators } from '@angular/forms';
+import { Icart } from 'src/app/Models/icart';
 @Component({
   selector: 'app-productdetails',
   templateUrl: './productdetails.component.html',
   styleUrls: ['./productdetails.component.css'],
+  styles: [
+    `
+      .star {
+        font-size: 1.5rem;
+        color: #b0c4de;
+      }
+      .filled {
+        color: #1e90ff;
+      }
+      .bad {
+        color: #deb0b0;
+      }
+      .filled.bad {
+        color: #ff1e1e;
+      }
+      .head {
+        font-size: medium;
+      }
+    `,
+  ],
 })
 export class ProductdetailsComponent implements OnInit {
-  // rating = 0;
-  // startcount = 5;
-  // ratingarr: boolean[] = [];
-  // snackbarduration = 1000;
-  // response = [
-  //   'you broke my heart',
-  //   'really',
-  //   'we will do better',
-  //   'glade you',
-  //   'thank you',
-  // ];
-  currentRate = 8;
+  currentRate = 6;
+  ctrl = new FormControl(null, Validators.required);
+  @Output() btnevent: EventEmitter<Icart>;
+
+  toggle() {
+    if (this.ctrl.disabled) {
+      this.ctrl.enable();
+    } else {
+      this.ctrl.disable();
+    }
+  }
   ///////////////////////////////
   prd: IProduct = {} as IProduct;
   prdidlist: number[] = [];
@@ -33,23 +54,10 @@ export class ProductdetailsComponent implements OnInit {
     private activedroute: ActivatedRoute,
     private prdservice: IProductService
   ) {
-    // this.ratingarr = Array(this.startcount).fill(false);
+    this.btnevent = new EventEmitter<any>();
   }
-  // returnstar(i:number) {
-  //   if (this.rating >= i + 1) {
-  //     return 'star';
-  //   } else {
-  //     return 'star_border';
-  //  }
-  // }
-  // onclick(i:number) {
-  //   this.rating = i + 1;
-  //   this.snackbar?.open(this.response[i], '', {
-  //     duration: this.snackbarduration,
-  //     panelClass:['snack-bar']
-  //   })
-  // }
-
+  addrate() {}
+ 
   ngOnInit(): void {
     //  this.prdidlist = this.prdservice.getallproduct();
     this.activedroute.paramMap.subscribe(() => {

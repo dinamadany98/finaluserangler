@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, OnChanges {
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
-    private router:Router
+    private router: Router
   ) {}
   ngOnChanges(): void {
     this.prdapisevice.getprdbycatid(this.receveid).subscribe((prdlist) => {
@@ -54,4 +54,10 @@ export class HomeComponent implements OnInit, OnChanges {
   opendtails(prdid: number) {
     this.router.navigate(['product', prdid]);
   }
+  /////////////////////////////////
+  addToWishlist(prod: IProduct) {
+
+  }
+
+
 }

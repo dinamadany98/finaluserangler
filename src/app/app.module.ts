@@ -20,6 +20,7 @@ import { ProductdetailsComponent } from './Components/productdetails/productdeta
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    NgbModule,
   ],
 
   providers: [
