@@ -13,6 +13,6 @@ export interface Icheckout {
     pincode:string,
     message: string,
     tracking_no:string ,
-    status:string,
+    status:number,
 }
 
