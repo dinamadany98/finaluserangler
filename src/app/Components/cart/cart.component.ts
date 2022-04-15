@@ -9,7 +9,7 @@ import { IProductService } from 'src/app/Services/iproduct.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'] 
 })
 export class CartComponent implements OnInit ,OnChanges {
   newshipping:Icheckout={} as Icheckout
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit ,OnChanges {
 
     this.cartservice.getcartdata().subscribe(cart=>{
       this.cartlist=cart;
-    }); 
+    });  
   
   }
 
