@@ -20,7 +20,22 @@ export class WhishlistService {
 
  
   addwishlistdata(Product:IProduct):Observable<IProduct>{
-    return  this.httpclint.post <IProduct>(`${environment.ApiBaseURL}/cart`,JSON.stringify(Product),this.httpoption)
+    return  this.httpclint.post <IProduct>(`${environment.ApiBaseURL}/wishlist`,JSON.stringify(Product),this.httpoption)
     
+    }
+
+    getwishlistdata() :Observable<IProduct[]>
+    {
+      return this.httpclint.get<IProduct[]>(`${environment.ApiBaseURL}/wishlist`);
+    }  
+    clearwishlist(): Observable <Iwhishlist>
+    {
+      return this.httpclint.delete<Iwhishlist>(`${environment.ApiBaseURL}/wishlistuser `,this.httpoption) 
+        
+    } 
+    deletfromwishlist(id:number): Observable <Iwhishlist>
+    {
+      return this.httpclint.delete<Iwhishlist>(`${environment.ApiBaseURL}/wishlist/${id}`,this.httpoption) 
+      
     }
 }

@@ -10,6 +10,7 @@ import { EditprofileComponent } from './Components/myprofile/editprofile/editpro
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
+import { WhishlistComponent } from './Components/whishlist/whishlist.component';
 const routes: Routes = [
  
  
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'editprofile', component:EditprofileComponent }, 
   { path: 'checout', component:CheckoutComponent },
   { path: 'myorder', component:MyorderComponent },
-   
+  { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
+  { path: 'mywishlist', component:WhishlistComponent },
   { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
   { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },
