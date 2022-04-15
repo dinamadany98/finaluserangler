@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'editprofile', component:EditprofileComponent }, 
   { path: 'checout', component:CheckoutComponent },
   { path: 'myorder', component:MyorderComponent },
+   
   { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
   { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },

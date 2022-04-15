@@ -6,6 +6,7 @@ import { IProduct } from 'src/app/Models/iproduct';
 import { CartService } from 'src/app/Services/cart.service';
 import { CategoryServiceService } from 'src/app/Services/category-service.service';
 import { IProductService } from 'src/app/Services/iproduct.service';
+import { WhishlistService } from 'src/app/Services/whishlist.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit, OnChanges {
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
     private cartservice:CartService,
-    private rot:Router
+    private rot:Router,
+    private whishlistservic:WhishlistService
   ) {}
   ngOnChanges(): void {
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
@@ -55,4 +57,21 @@ export class HomeComponent implements OnInit, OnChanges {
       }
     })
   }
+
+  addtowishlist(prod :IProduct){
+ 
+    this.whishlistservic.addwishlistdata(prod).subscribe({
+     next:(prod)=>{
+     this.rot.navigate(['/'])
+      },
+
+      error:(err)=>{
+        alert("error")
+      }
+    })
+  }
+
+
+
+
 }

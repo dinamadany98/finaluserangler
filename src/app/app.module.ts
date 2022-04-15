@@ -16,6 +16,7 @@ import { EditprofileComponent } from './Components/myprofile/editprofile/editpro
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './Components/cart/cart.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
+import { WhishlistComponent } from './Components/whishlist/whishlist.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MyorderComponent } from './Components/myorder/myorder.component';
     MyprofileComponent,
     EditprofileComponent,
     CartComponent,
-    MyorderComponent
+    MyorderComponent,
+    WhishlistComponent
   ],
   imports: [
     BrowserModule,
