@@ -43,27 +43,66 @@
                         <hr>
 
                         <button class="btn btn-sm btn-outline-primary me-2" (click)="ctrl.setValue(null)">Clear</button>
-                        <hr>
-
-
+                        <hr> {{prd?.id}}
 
                         <pre>Rate: <b>{{currentRate}}</b></pre>
+
+                        <!-- <div class="col-sm-12">
+
+                            <div class="row">
+                                <div ng-controller="reviewController">
+                                    <h3 class="pdt-title">Review</h3>
+                                    <hr>
+                                    <div class="alert alert-danger" ng-if="reviews.length == 0">
+                                        No reviews yet, be the first to review this Product!
+                                    </div><br>
+                                    <div class="col-sm-12" ng-repeat="review in reviews">
+                                        <blockquote class="row">
+                                            <h3 class="pdt-title col-sm-6">{{review.user_id}}</h3>
+                                            <h3 class="pdt-title col-sm-6">{{review.product_id}}</h3>
+                                            <!-- <h5 class="col-sm-12"><small><i>{{review.email}}</i></small></h5> -->
+                        <!-- <p class="col-sm-12">{{review.user_review}}</p>
+                        </blockquote>
+                    </div>
+                    <form class="form-inline form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Name</span>
+                            <input class="form-control" type="text" ng-model="username">
+
+                            <span class="input-group-addon">E-mail</span>
+                            <input class="form-control" type="email" ng-model="email">
+
+                            <span class="input-group-addon">Star</span>
+                            <select class="form-control" ng-model="star">
+                                <option name="oneStar" value="1 star">1 Star</option>
+                                <option name="twoStar" value="2 star">2 Star</option>
+                                <option name="threeStar" value="3 star">3 Star</option>
+                                <option name="fourStar" value="4 star">4 Star</option>
+                                <option name="fiveStar" value="5 star">5 Star</option>
+                            </select>
+                        </div>
+                    </form>
+                    <textarea class="form-control" rows="5" ng-model="message"></textarea><br>
+                    <input type="submit" class="btn btn-block btn-success" ng-submit="addReview()" value="Submit review">
+
+
+                </div>
+            </div>
+        </div> -->
+
+                        <hr>
                         <div class="col-md-8">
                             <div id="review-form">
-                                <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addreview()">
-                                    <input class=" input " type="text " placeholder="Your Name ">
-                                    <input class="input " type="email " placeholder="Your Email ">
-                                    <textarea class="input " formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
+                                <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
+
+                                    <!-- <input class=" input " [(ngModel)]="review.user_id" formControlName="name" name="name" id="name" type="text " placeholder="Your Name "> -->
+                                    <!-- <input class="input " type="email " placeholder="Your Email "> -->
+                                    <input class="input " hidden [(ngModel)]="review.product_id" formControlName="product_id" type="text " id="product_id" name="product_id">
+                                    <!-- <input class="input " [(ngModel)]="review.user_id" formControlName="user_id" type="hidden" id="user_id" name="user_id"> -->
+                                    <textarea class="input " [(ngModel)]="review.user_review" formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
                                     <div class="input-rating ">
-                                        <span>Your Rating: </span>
-                                        <div class="stars ">
-                                            <input id="star5 " name="rating " value="5 " type="radio "><label for="star5 "></label>
-                                            <input id="star4 " name="rating " value="4 " type="radio "><label for="star4 "></label>
-                                            <input id="star3 " name="rating " value="3 " type="radio "><label for="star3 "></label>
-                                            <input id="star2 " name="rating " value="2 " type="radio "><label for="star2 "></label>
-                                            <input id="star1 " name="rating " value="1 " type="radio "><label for="star1 "></label>
-                                        </div>
                                     </div>
+                                    rrrr {{productvalue}}
                                     <button class="primary-btn ">Submit</button>
                                 </form>
                             </div>

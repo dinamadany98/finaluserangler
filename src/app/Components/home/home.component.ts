@@ -49,14 +49,14 @@ export class HomeComponent implements OnInit, OnChanges {
     });
   }
   /////////////////////////////
-  searchprd(prdname: string) {
-    let foundprd = this.prdapisevice.searchprdbyname(prdname);
-    if (foundprd) {
-      this.prd = foundprd;
-    } else {
-      alert('not found');
-    }
-  }
+  // searchprd(prdname: string) {
+  //   let foundprd = this.prdapisevice.searchprdbyname(prdname);
+  //   if (foundprd) {
+  //     this.prd = foundprd;
+  //   } else {
+  //     alert('not found');
+  //   }
+  // }
   /////////////////////////////////////
   opendtails(prdid: number) {
     this.router.navigate(['product', prdid]);

@@ -42,6 +42,7 @@ export class ProductdetailsComponent implements OnInit {
   wish: any;
   rate: Ratting = {} as Ratting;
   review: Review = {} as Review;
+  rev: Review = {} as Review;
   toggle() {
     if (this.ctrl.disabled) {
       this.ctrl.enable();
@@ -56,7 +57,7 @@ export class ProductdetailsComponent implements OnInit {
   prdid: any;
   productapi: IProduct = {} as IProduct;
   userformgroup: FormGroup;
-
+  productvalue: any;
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
@@ -64,9 +65,11 @@ export class ProductdetailsComponent implements OnInit {
     private wishlistservice: WishlistService,
     private fb: FormBuilder
   ) {
-     this.userformgroup = this.fb.group({
-       user_review: ['', [Validators.required, Validators.minLength(5)]],
-     });
+    this.userformgroup = this.fb.group({
+      user_review: ['', [Validators.required, Validators.minLength(5)]],
+      user_id: ['', [Validators.required]],
+      product_id: ['', [Validators.required]],
+    });
   }
   addrate(value: any) {
     // alert('sucses')
@@ -80,22 +83,31 @@ export class ProductdetailsComponent implements OnInit {
   get user_review() {
     return this.userformgroup.get('user_review');
   }
+  get user_id() {
+    return this.userformgroup.get('user_id');
+  }
+  get product_id() {
+    return this.userformgroup.get('product_id');
+  }
   ////////////////////////////
-  addreview() {
+
+  /////////////////////////////
+  addReview() {
     this.wishlistservice.addreview(this.review).subscribe({
-      next: (prd) => {
-        this.router.navigate(['/home']);
-        Swal.fire('Review Correct', 'You clicked the button!', 'success');
-      },
-      error: (err) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>',
-        });
-      },
+      // next: (review) => {
+      //   this.router.navigate(['/home']);
+      //   Swal.fire('Review Correct', 'You clicked the button!', 'success');
+      // },
+      // error: (err) => {
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Oops...',
+      //     text: 'Something went wrong!',
+      //     footer: '<a href="">Why do I have this issue?</a>',
+      //   });
+      // },
     });
+    console.log(this.review);
   }
   //////////////////////////////
   ngOnInit(): void {
@@ -107,8 +119,11 @@ export class ProductdetailsComponent implements OnInit {
       let foundprd = this.prdservice
         .getprdbyid(this.currprdid)
         .subscribe((product) => {
-          // console.log(product);
           this.prd = product;
+          this.productvalue = this.currprdid;
+          console.log(this.productvalue);
+
+
         });
     });
   }
