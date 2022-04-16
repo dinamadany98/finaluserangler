@@ -23,7 +23,11 @@ export class HomeComponent implements OnInit, OnChanges {
     private cartservice:CartService,
     private rot:Router,
     private whishlistservic:WhishlistService
-  ) {}
+  ) {
+
+    this.rot.routeReuseStrategy.shouldReuseRoute = () => false;
+
+  }
   ngOnChanges(): void {
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
       this.categorylist = prdlist;

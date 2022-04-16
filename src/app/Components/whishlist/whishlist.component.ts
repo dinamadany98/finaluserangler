@@ -13,7 +13,10 @@ export class WhishlistComponent implements OnInit {
   whishlistprod:IProduct[]=[]
   constructor(private wishlistservic:WhishlistService,
     private cartservice:CartService,
-    private rot:Router ) { }
+    private rot:Router ) { 
+      
+      this.rot.routeReuseStrategy.shouldReuseRoute = () => false;
+    }
 
   ngOnInit(): void {
 

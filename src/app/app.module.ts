@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './Components/cart/cart.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
 import { WhishlistComponent } from './Components/whishlist/whishlist.component';
+import { SearchComponent } from './Components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { WhishlistComponent } from './Components/whishlist/whishlist.component';
     EditprofileComponent,
     CartComponent,
     MyorderComponent,
-    WhishlistComponent
+    WhishlistComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

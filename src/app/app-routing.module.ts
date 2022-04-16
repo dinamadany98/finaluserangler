@@ -11,6 +11,7 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
 import { WhishlistComponent } from './Components/whishlist/whishlist.component';
+import { SearchComponent } from './Components/search/search.component';
 const routes: Routes = [
  
  
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'myorder', component:MyorderComponent },
   { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
   { path: 'mywishlist', component:WhishlistComponent },
+  { path: 'search', component:SearchComponent },
   { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
   { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },

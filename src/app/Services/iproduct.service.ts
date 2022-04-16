@@ -23,4 +23,11 @@ export class IProductService {
       `${environment.ApiBaseURL}/products`
     );
   }
+
+  searchproduct(name:any) :Observable<IProduct[]>
+  {
+    return this.httpclient.get<IProduct[]>(`${environment.ApiBaseURL}/search/${name}`);
+  }
+
+
 }

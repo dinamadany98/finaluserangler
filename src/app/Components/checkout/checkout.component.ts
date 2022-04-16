@@ -14,7 +14,7 @@ import { IProductService } from 'src/app/Services/iproduct.service';
 })
 export class CheckoutComponent implements OnInit {
   newshipping:Icheckout={} as Icheckout
-  cartlist:Icart[]=[];
+  cartlist:Icart[]=[]; 
   prdlisticat: IProduct[] = [];
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,
     private prdapisevice: IProductService) { }

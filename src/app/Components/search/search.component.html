@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="filterBy" placeholder="search for " (keyup)="filter()">
+
+<ul>
+  <li *ngFor="let prod of product">
+    {{ prod.name }}<br>
+    {{ prod.small_description }}<br>
+    {{ prod.selling_price }}<br><hr>
+  </li>
+</ul>
