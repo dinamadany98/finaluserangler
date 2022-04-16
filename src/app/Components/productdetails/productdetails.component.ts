@@ -74,9 +74,25 @@ export class ProductdetailsComponent implements OnInit {
   addrate(value: any) {
     // alert('sucses')
     this.wishlistservice.addratting(this.rate).subscribe((value) => {
-      console.log(value);
       this.rate = value;
+      console.log(value);
+
     });
+      //  this.review.product_id = this.currprdid;
+      //  this.wishlistservice.addreview(this.review).subscribe({
+         // next: (review) => {
+         //   this.router.navigate(['/home']);
+         //   Swal.fire('Review Correct', 'You clicked the button!', 'success');
+         // },
+         // error: (err) => {
+         //   Swal.fire({
+         //     icon: 'error',
+         //     title: 'Oops...',
+         //     text: 'Something went wrong!',
+         //     footer: '<a href="">Why do I have this issue?</a>',
+         //   });
+         // },
+      //  });
   }
 
   ////////////////////////////
