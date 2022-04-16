@@ -41,8 +41,9 @@
 										<option value="1">Category 01</option>
 										<option value="1">Category 02</option>
 									</select>
-                            <input class="input" placeholder="Search here">
-                            <button class="search-btn">Search</button>
+                            <input class="input" type="text" [(ngModel)]="filterBy" placeholder="search for ">
+
+                            <button class="search-btn" routerLink="/search" routerLinkActive="active" (keyup)="filter()">Search</button>
                         </form>
                     </div>
                 </div>
