@@ -13,11 +13,10 @@ import { MyorderComponent } from './Components/myorder/myorder.component';
 import { WhishlistComponent } from './Components/whishlist/whishlist.component';
 import { SearchComponent } from './Components/search/search.component';
 const routes: Routes = [
- 
- 
-  
+
+
+
   {
-    
     path: '',
     component: MainLayoutComponent,
     children: [
@@ -25,17 +24,17 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
     ],
   },
-  
+
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'myprofile', component:MyprofileComponent },
-  { path: 'editprofile', component:EditprofileComponent }, 
+  { path: 'editprofile', component:EditprofileComponent },
   { path: 'checout', component:CheckoutComponent },
   { path: 'myorder', component:MyorderComponent },
   { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
   { path: 'mywishlist', component:WhishlistComponent },
   { path: 'search', component:SearchComponent },
-  { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
+  { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' },
   { path: 'cart', component:CartComponent},
   { path: '**', component: NotFoundComponent },
 
