@@ -97,7 +97,7 @@
 
                                     <!-- <input class=" input " [(ngModel)]="review.user_id" formControlName="name" name="name" id="name" type="text " placeholder="Your Name "> -->
                                     <!-- <input class="input " type="email " placeholder="Your Email "> -->
-                                    <input class="input " hidden [(ngModel)]="review.product_id" formControlName="product_id" type="text " id="product_id" name="product_id">
+                                    <input class="input " {{prd.id}} #currprdid [(ngModel)]="currprdid" formControlName="product_id" type="hidden" id="product_id" name="product_id">
                                     <!-- <input class="input " [(ngModel)]="review.user_id" formControlName="user_id" type="hidden" id="user_id" name="user_id"> -->
                                     <textarea class="input " [(ngModel)]="review.user_review" formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
                                     <div class="input-rating ">
