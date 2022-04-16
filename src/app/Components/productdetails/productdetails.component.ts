@@ -93,7 +93,9 @@ export class ProductdetailsComponent implements OnInit {
 
   /////////////////////////////
   addReview() {
+    this.review.product_id = this.currprdid;
     this.wishlistservice.addreview(this.review).subscribe({
+
       // next: (review) => {
       //   this.router.navigate(['/home']);
       //   Swal.fire('Review Correct', 'You clicked the button!', 'success');

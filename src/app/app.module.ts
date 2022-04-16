@@ -19,7 +19,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSnackBar } from '@angular/material/snack-bar';
+// import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CartComponent,
     ProductdetailsComponent,
     WishlistComponent,
-    
+
   ],
   imports: [
     BrowserModule,
