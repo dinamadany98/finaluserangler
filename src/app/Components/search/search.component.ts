@@ -8,14 +8,18 @@ import { IProductService } from 'src/app/Services/iproduct.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  ser=""
   filterBy:any
   product:IProduct[]=[]
   constructor(private prodservic:IProductService) { }
 
   ngOnInit(): void {
   }
-  filter() {
-
+  values :any;
+  filter(event: any) {
+    if(event.target.value!=' ')
+    this.values = true ;
+  
     this.prodservic.searchproduct(this.filterBy).subscribe(prod=>{
       this.product=prod;
     });
