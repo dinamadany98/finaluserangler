@@ -19,10 +19,12 @@ export class SearchComponent implements OnInit {
     private cartservice:CartService,
     private rot:Router,
     private wishlist:WhishlisService
- ) { }
+ ) { 
+   
+ }
 
   ngOnInit(): void {
-  }
+  } 
   values :any;
   filter(event: any) {
     if(event.target.value!=' ')
@@ -36,7 +38,7 @@ export class SearchComponent implements OnInit {
  
         this.cartservice.addtocart(prod).subscribe({
          next:(prod)=>{
-         this.rot.navigate(['/'])
+         this.rot.navigate(['/redirectsearch'])
           },
     
           error:(err)=>{
@@ -49,7 +51,7 @@ export class SearchComponent implements OnInit {
  
         this.wishlist.addwishlistdata(prod).subscribe({
          next:(prod)=>{
-         this.rot.navigate(['/'])
+         this.rot.navigate(['/redirectsearch'])
           },
     
           error:(err)=>{

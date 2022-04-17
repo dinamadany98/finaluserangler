@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'myorder', component:MyorderComponent },
   { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
   { path: 'mywishlist', component:WishlistComponent },
+  { path: 'redirectsearch', redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component:SearchComponent },
   { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
   { path: 'cart', component:CartComponent},

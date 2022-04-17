@@ -63,7 +63,7 @@
             <div id="aside" class="col-md-3">
                 <!-- aside Widget -->
                 <div class="aside">
-                    <h3 class="aside-title">SEARCH</h3>
+                    <h1 class="aside-title" style="color: brown;font-size: larger;" >SEARCH</h1>
                     <div class="checkbox-filter">
 
 
@@ -71,8 +71,13 @@
                             <div class="header-search">
 
 
-                                <input class="input" type="text" [(ngModel)]="filterBy" placeholder="Search For " (keyup)="filter($event)">
-          </div>
+                                <input class="input" type="text" [(ngModel)]="filterBy" placeholder="Search For ... " (keyup)="filter($event)">
+                                <ng-container *ngIf="!product.length  && values  ">
+                                     <h1>
+                                         Not Found 
+                                     </h1>
+                                  </ng-container>
+                            </div>
                         </div>
 
 
@@ -90,51 +95,26 @@
             </div>
             <!-- /ASIDE -->
 
-            <!-- STORE -->
+            <!-- STORE -->              
+               
             <div id="store" class="col-md-9">
                 <!-- store top filter -->
-                <div class="store-filter clearfix">
-                    <div class="store-sort">
-                        <label>
-									Sort By:
-									<select class="input-select">
-										<option value="0">Popular</option>
-										<option value="1">Position</option>
-									</select>
-								</label>
-
-                        <label>
-									Show:
-									<select class="input-select">
-										<option value="0">20</option>
-										<option value="1">50</option>
-									</select>
-								</label>
-                    </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
-                </div>
+                
                 <!-- /store top filter -->
                 <!-- store products -->
                 <div class="row">
                     <!-- product -->
-                    <ng-container *ngFor="let prod of product">
-
-                        <div class="col-md-4 col-xs-6">
+                    
+        
+                        <div class="col-md-4 col-xs-6" *ngFor="let prod of product">
                             <div class="product">
                                 <div class="product-img">
                                     <img src="http://localhost:8000/assets/{{prod.image}}" alt="">
-                                    <div class="product-label">
-                                        <span class="sale">-30%</span>
-                                        <span class="new">NEW</span>
-                                    </div>
+                                 
                                 </div>
                                 <div class="product-body">
-                                    <p class="product-category">Category</p>
-                                    <h3 class="product-name"><a href="#">{{ prod.name }}</a></h3>
-                                    <h4 class="product-price">${{ prod.selling_price }}<del class="product-old-price">$990.00</del></h4>
+                                    <h1 class="product-name h1"> {{ prod.name }} </h1>
+                                    <h3 class="product-price">${{ prod.selling_price }} <del class="product-old-price"> ${{ prod.original_price }}</del></h3>
                                     <div class="product-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -144,12 +124,12 @@
                                     </div>
                                     <div class="product-btns">
                                         <button class="add-to-wishlist" (click)="addtowishlist(prod)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                        <button class="add-to-compare" ><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
                                         <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                     </div>
                                 </div>
                                 <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    <button class="add-to-cart-btn" (click)="addtocart(prod)"><i class="fa fa-shopping-cart"></i> add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -159,23 +139,14 @@
 
 
                         <div class="clearfix visible-lg visible-xs"></div>
-                    </ng-container>
+                    
+                   
+               
 
                 </div>
-                <!-- /store products -->
-                <!-- store bottom filter -->
-                <div class="store-filter clearfix">
-                    <span class="store-qty">Showing 20-100 products</span>
-                    <ul class="store-pagination">
-                        <li class="active">1</li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
-                </div>
-                <!-- /store bottom filter -->
+               
             </div>
+        
             <!-- /STORE -->
         </div>
         <!-- /row -->
