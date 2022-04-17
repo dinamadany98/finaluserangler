@@ -1,1 +1,268 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Minics</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="hero_area">
+        <section class="slider_section ">
+            <div class="slider_bg_box">
+                <img src="assets/slider-bg.jpg" alt="">
+            </div>
+
+
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-7 col-lg-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            <span>
+                                    Sale 20% Off
+                                    </span>
+                                            <br> On Everything
+                                        </h1>
+                                        <p>
+                                            Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                                        </p>
+                                        <div class="btn-box">
+                                            <a href="" class="btn1">
+                                    Shop Now
+                                    </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="container">
+                    <ol class="carousel-indicators">
+                        <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                        <li data-target="#customCarousel1" data-slide-to="1"></li>
+                        <li data-target="#customCarousel1" data-slide-to="2"></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- product section -->
+
+    <section class="product_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2 style="font-size: xx-large; ">
+                    Our Products
+                </h2>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <ng-container *ngFor="let prd of prdlisticat">
+
+                        <div class="col-md-3 col-sm-6">
+
+                            <div class="product-grid">
+                                <div class="product-image">
+                                    <a href="#" class="image">
+                                        <img class="pic-1" src="http://localhost:8000/assets/{{prd.image}}">
+                                        <img class="pic-2" src="http://localhost:8000/assets/{{prd.image}}">
+                                    </a>
+                                    <ul class="social">
+                                        <li><a (click)="addtowishlist(prd)" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#" data-tip="Add to wishlist"><i class="fa fa-heart"></i></a></li>
+                                    </ul>
+                                    <div class="product-rating">
+
+                                        <a class="add-to-cart btn btn-ligt" (click)="addtocart(prd)"> ADD TO CART </a>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3 class="title"><a href="#">{{prd.name}}</a></h3>
+                                    <div class="price">${{prd.selling_price}}</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </ng-container>
+
+                </div>
+
+            </div>
+            <br>
+            <br>
+
+
+
+            <div class="btn_box">
+                <a href="" class="view_more-link ">
+          View More
+        </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- end product section -->
+
+    <!-- about section -->
+
+    <!-- HOT DEAL SECTION -->
+    <div id="hot-deal" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hot-deal">
+                        <ul class="hot-deal-countdown">
+                            <li>
+                                <div>
+                                    <h3>02</h3>
+                                    <span>Days</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>10</h3>
+                                    <span>Hours</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>34</h3>
+                                    <span>Mins</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h3>60</h3>
+                                    <span>Secs</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <h2 class="text-uppercase">hot deal this week</h2>
+                        <p>New Collection Up to 50% OFF</p>
+                        <a class="primary-btn cta-btn" href="#">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /HOT DEAL SECTION -->
+
+
+    <!-- end about section -->
+
+    <!-- why us section -->
+
+    <section class="why_us_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Why Choose Us
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="assets/home/images/w1.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Fast Delivery
+                            </h5>
+                            <p>
+                                variations of passages of Lorem Ipsum available
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="assets/home/images/w2.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Free Shiping
+                            </h5>
+                            <p>
+                                variations of passages of Lorem Ipsum available
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box ">
+                        <div class="img-box">
+                            <img src="assets/home/images/w3.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Best Quality
+                            </h5>
+                            <p>
+                                variations of passages of Lorem Ipsum available
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end why us section -->
+
+
+    <!-- client section -->
+
+
+    <!-- end client section -->
+
+
+
+
+    <!-- footer section -->
+
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src="src/assets/home/js/jquery-3.4.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="src/assets/home/js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="src/assets/home/js/custom.js"></script>
+
+
+</body>
+
+</html>
