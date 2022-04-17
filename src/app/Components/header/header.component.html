@@ -9,6 +9,7 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
             </ul>
             <ul class="header-links pull-right">
+                <li><a routerLink="/search" routerLinkActive="active"><i class="fa fa-cc-discover"></i> Search</a></li>
                 <li><a routerLink="/login" routerLinkActive="active"><i class="fa fa-user"></i> Login</a></li>
                 <li><a routerLink="/register" routerLinkActive="active"><i class="fa fa-user-o"></i> Register</a></li>
             </ul>
@@ -42,8 +43,7 @@
 										<option value="1">Category 02</option>
 									</select>
                             <input class="input" type="text" [(ngModel)]="filterBy" placeholder="search for ">
-
-                            <button class="search-btn" routerLink="/search" routerLinkActive="active" (keyup)="filter()">Search</button>
+                            <button class="search-btn" routerLink="/search" routerLinkActive="active" (click)="filter()">Search</button>
                         </form>
                     </div>
                 </div>
