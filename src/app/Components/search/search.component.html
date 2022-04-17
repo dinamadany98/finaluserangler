@@ -120,10 +120,11 @@
                     </ul>
                 </div>
                 <!-- /store top filter -->
-                <ng-container *ngFor="let prod of product">
-                    <!-- store products -->
-                    <div class="row">
-                        <!-- product -->
+                <!-- store products -->
+                <div class="row">
+                    <!-- product -->
+                    <ng-container *ngFor="let prod of product">
+
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
@@ -161,9 +162,10 @@
 
 
                         <div class="clearfix visible-lg visible-xs"></div>
-                    </div>
-                    <!-- /store products -->
-                </ng-container>
+                    </ng-container>
+
+                </div>
+                <!-- /store products -->
                 <!-- store bottom filter -->
                 <div class="store-filter clearfix">
                     <span class="store-qty">Showing 20-100 products</span>
