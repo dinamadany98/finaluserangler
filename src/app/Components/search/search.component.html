@@ -71,11 +71,8 @@
                             <div class="header-search">
 
 
-                                <input class="input" type="text" [(ngModel)]="filterBy" placeholder="Search For " (keyup)="filter()">
-
-                                <button class="search-btn btn btn-primary">Search</button>
-
-                            </div>
+                                <input class="input" type="text" [(ngModel)]="filterBy" placeholder="Search For " (keyup)="filter($event)">
+          </div>
                         </div>
 
 
