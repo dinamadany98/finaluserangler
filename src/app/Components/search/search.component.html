@@ -1,0 +1,19 @@
+<input type="text" [(ngModel)]="filterBy" placeholder="search for " (keyup)="filter($event)"   >
+<ng-container *ngIf="!product.length  && values ; else elseproduct ">
+  nnoot foyunfd
+</ng-container>
+<ng-template #elseproduct >
+<ul >
+
+  <li *ngFor="let prod of product">
+ 
+    {{ prod.name }}<br>
+    {{ prod.small_description }}<br>
+    {{ prod.selling_price }}<br><hr>
+ 
+  </li>
+
+</ul>
+</ng-template>
+
+                                   
