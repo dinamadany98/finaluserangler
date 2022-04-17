@@ -20,19 +20,21 @@ export class CheckoutComponent implements OnInit {
   prdlisticat: Iproduct[] = [];
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,
     private prdapisevice: IProductService) { }
- 
-  ngOnInit(): void {
+    total=0
+  ngOnInit() {
     this.cartservice.getcartdata().subscribe(cart=>{
       this.cartlist=cart;
     }); 
-
+ 
+      
+    
     this.prdapisevice.getallproduct().subscribe((prdlist) => {
       this.prdlisticat = prdlist;
     });  
   }
-  total=0
-  sum(pric:any,count:any){
-   this.total+=(+pric * +count);
+
+  sum(pric:number,count:number){
+    
 return +pric * +count;
   }
   insert(){
@@ -49,6 +51,18 @@ return +pric * +count;
 
 
   }
+  totalcal(){
+    for(let cart of this.cartlist){
+      for(let prod of this.prdlisticat){
+if(cart.product_id==prod.id){
+  this.total +=(prod.selling_price * cart.prod_qty);
 
+}
 
+      }
+      
+      
+      }
+      return this.total;
+  }
 }
