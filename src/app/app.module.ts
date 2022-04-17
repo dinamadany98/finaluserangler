@@ -18,6 +18,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
 import { WhishlistComponent } from './Components/whishlist/whishlist.component';
 import { SearchComponent } from './Components/search/search.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -38,13 +39,15 @@ import { SearchComponent } from './Components/search/search.component';
     SearchComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-   
-   
+    NgxPayPalModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

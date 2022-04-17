@@ -12,15 +12,15 @@
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
  		<!-- Bootstrap -->
- 		
+
  		<!-- Slick -->
- 	
+
  		<!-- nouislider -->
- 	
+
  		<!-- Font Awesome Icon -->
- 	 
+
  		<!-- Custom stlylesheet -->
- 		 
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -30,7 +30,7 @@
 
     </head>
 	<body>
-        
+
 
 <!-- --------------------->
 		<!-- BREADCRUMB -->
@@ -59,7 +59,7 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-                   
+
 <form   (ngSubmit)="insert()"  #formvali="ngForm">
 					<div class="col-md-7">
 						<!-- Billing Details -->
@@ -75,7 +75,7 @@
                                         <h6 class="text-danger"> Frist name required</h6>
                                       </small>
                                 </div>
-                                
+
 
 
                             </div>
@@ -87,7 +87,7 @@
                                         <h6 class="text-danger"> Last name required</h6>
                                       </small>
                                 </div>
-                            
+
                             </div>
 							<div class="form-group">
 								<input class="input" type="email" name="email" placeholder="Email" [(ngModel)]="newshipping.email" required
@@ -97,7 +97,7 @@
                                         <h6 class="text-danger"> Email required</h6>
                                       </small>
                                 </div>
-                            
+
                             </div>
 							<div class="form-group">
 								<input class="input" type="text" name="address1" placeholder="Addressone" [(ngModel)]="newshipping.address1"
@@ -107,7 +107,7 @@
                                         <h6 class="text-danger">  Address one  required</h6>
                                       </small>
                                 </div>
-                            
+
                             </div>
                             <div class="form-group">
 								<input class="input" type="text" name="address2" placeholder="Addresstwo" [(ngModel)]="newshipping.address2"
@@ -117,12 +117,12 @@
                                         <h6 class="text-danger">Address two required</h6>
                                       </small>
                                 </div>
-                            
+
                             </div>
 							<div class="form-group">
 								<input class="input" type="text" name="city" placeholder="City" [(ngModel)]="newshipping.city" required
                                 [class.is-valid]="city.valid"  [class.is-invalid]="city.invalid" #city="ngModel">
-							
+
                                 <div [hidden]="city.valid ||city.untouched" >
                                     <small *ngIf="city.errors?.['required']">
                                         <h6 class="text-danger"> City required</h6>
@@ -132,7 +132,7 @@
 							<div class="form-group">
 								<input class="input" type="text" name="country" placeholder="Country" [(ngModel)]="newshipping.country" required
                                 [class.is-valid]="country.valid"  [class.is-invalid]="country.invalid" #country="ngModel">
-							
+
                                 <div [hidden]="country.valid ||country.untouched" >
                                     <small *ngIf="country.errors?.['required']">
                                         <h6 class="text-danger">Country required</h6>
@@ -147,7 +147,7 @@
                                         <h6 class="text-danger">State required</h6>
                                       </small>
                                 </div>
-                            
+
                             </div>
 							<div class="form-group">
 								<input class="input" type="text" name="phone" placeholder="Telephone" [(ngModel)]="newshipping.phone" required
@@ -157,13 +157,13 @@
                                         <h6 class="text-danger">  Telephone number required</h6>
                                       </small>
                                 </div>
-                            
+
                             </div>
-                          
+
                             <div class="form-group">
-								<input class="input" type="text" name="pincode" placeholder="Pin code" [(ngModel)]="newshipping.pincode" 
+								<input class="input" type="text" name="pincode" placeholder="Pin code" [(ngModel)]="newshipping.pincode"
                                 required  [class.is-valid]="pincode.valid"  [class.is-invalid]="pincode.invalid"  #pincode="ngModel">
-							
+
                                 <div [hidden]="pincode.valid ||pincode.untouched" >
                                     <small *ngIf="pincode.errors?.['required']">
                                         <h6 class="text-danger"> Pin Code required</h6>
@@ -176,14 +176,14 @@
                             <div class="form-group">
 								<input class="input" type="text" name="message" placeholder="Message" [(ngModel)]="newshipping.message">
 							</div>
-						
+
 						</div>
 						<!-- /Billing Details -->
 
-			
+
 						<!-- /Shiping Details -->
 
-					
+
 					</div>
 
 					<!-- Order Details -->
@@ -197,7 +197,7 @@
 								<div><strong>TOTAL</strong></div>
 							</div>
 							<div class="order-products">
-                              
+
                              <ng-container *ngFor="let cart of cartlist"  >
                                 <ng-container *ngFor="let prod of prdlisticat">
                                 <ng-container  *ngIf="prod.id==cart.product_id" >
@@ -209,7 +209,7 @@
                                  </ng-container>
                                 </ng-container>
 							</div>
-							 
+
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
 								<div><strong class="order-total">{{total}}</strong></div>
@@ -222,7 +222,7 @@
 									<span></span>
 									Direct Bank Transfer
 								</label>
-								
+
 							</div>
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-2">
@@ -230,7 +230,7 @@
 									<span></span>
 									Cheque Payment
 								</label>
-								 
+
 							</div>
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-3">
@@ -238,10 +238,11 @@
 									<span></span>
 									Paypal System
 								</label>
-								 
+
 							</div>
+              <ngx-paypal [config]="payPalConfig"></ngx-paypal>
 						</div>
-					 
+
 						<input type="submit"  class="primary-btn order-submit" [disabled]="formvali.invalid" value="Place order">
 					</div>
                 </form>
