@@ -21,7 +21,6 @@ export class CheckoutComponent implements OnInit {
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,
     private prdapisevice: IProductService) { 
       
-      this.rot.routeReuseStrategy.shouldReuseRoute = () => true;
     }
     total=0
   ngOnInit() {
@@ -45,7 +44,7 @@ return +pric * +count;
      
     this.checkservice.addshippigdetails(this.newshipping).subscribe({
       next:(shipping)=>{
-     this.rot.navigate(['/home'])
+     this.rot.navigate(['/myorder'])
       },
 
       error:(err)=>{
