@@ -19,7 +19,10 @@ export class CheckoutComponent implements OnInit {
   cartlist:Icart[]=[]; 
   prdlisticat: Iproduct[] = [];
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,
-    private prdapisevice: IProductService) { }
+    private prdapisevice: IProductService) { 
+      
+      this.rot.routeReuseStrategy.shouldReuseRoute = () => true;
+    }
     total=0
   ngOnInit() {
     this.cartservice.getcartdata().subscribe(cart=>{
@@ -35,6 +38,7 @@ export class CheckoutComponent implements OnInit {
 
   sum(pric:number,count:number){
     
+   this.total+=(+pric * +count);
 return +pric * +count;
   }
   insert(){
