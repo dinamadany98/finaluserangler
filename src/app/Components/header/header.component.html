@@ -5,12 +5,22 @@
         <div class="container">
             <ul class="header-links pull-left">
                 <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> electro@gmail.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <li><a routerLink="/login" routerLinkActive="active"><i class="fa fa-user"></i> Login</a></li>
-                <li><a routerLink="/register" routerLinkActive="active"><i class="fa fa-user-o"></i> Register</a></li>
+                <!-- <ng-container *ngIf="login_user==null"> -->
+                <li><a routerLink="/login" *ngIf="!loggedin()" routerLinkActive="active"><i class="fa fa-user"></i> Login</a></li>
+                <li><a routerLink="/register" *ngIf="!loggedin()" routerLinkActive="active"><i class="fa fa-user-o"></i> Register</a></li>
+
+                <!-- </ng-container> -->
+
+                <!-- <ng-container *ngIf="login_user!==null"> -->
+                <li><a routerLink="/myprofile" *ngIf="loggedin()" routerLinkActive="active"><i class="fa fa-user-o"></i> My Account</a></li>
+                <!-- <li><a type="button" *ngIf="login_user!==null" class="btn" (click)="logout()"><i class="fa fa-user"></i> Logout</a></li> -->
+                <li><a type="button" *ngIf="loggedin()" class="btn" (click)="logoutuser()"><i class="fa fa-user"></i> Logout</a></li>
+
+                <!-- </ng-container> -->
             </ul>
         </div>
     </div>
@@ -47,8 +57,76 @@
                     </div>
                 </div>
                 <!-- /SEARCH BAR -->
+                <ng-container *ngIf="loggedin()">
 
+                    <!-- ACCOUNT -->
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+                            <!-- Wishlist -->
+                            <div>
+                                <a routerLink="/wishlist" routerLinkActive="active">
+                                    <i class="fa fa-heart-o"></i>
+                                    <span>Your Wishlist</span>
+                                    <div class="qty">2</div>
+                                </a>
+                            </div>
+                            <!-- /Wishlist -->
 
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <div class="qty">3</div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list">
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="assets/img/product01.png" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="assets/img/product02.png" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="cart-summary">
+                                        <small>3 Item(s) selected</small>
+                                        <h5>SUBTOTAL: $2940.00</h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a routerLink="/cart" routerLinkActive="active">View Cart</a>
+                                        <a routerLink="/checkout" routerLinkActive="active">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Cart -->
+
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </ng-container>
             </div>
             <!-- row -->
         </div>
@@ -56,4 +134,25 @@
     </div>
     <!-- /MAIN HEADER -->
 </header>
+<ng-container *ngIf="loggedin()">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
 
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="main-nav nav navbar-nav">
+                        <li class="active"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+                        <li><a class="nav-link" href="#">Hot Deals</a></li>
+                        <li><a class="nav-link" href="#">Categories</a></li>
+                        <li><a class="nav-link" href="#">Laptops</a></li>
+                        <li><a class="nav-link" href="#">Smartphones</a></li>
+                        <li><a class="nav-link" href="#">Cameras</a></li>
+                        <li><a class="nav-link" href="#">Accessories</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</ng-container>
