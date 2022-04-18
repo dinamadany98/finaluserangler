@@ -29,6 +29,10 @@ export class IProductService {
   {
     return this.httpclient.get<Iproduct[]>(`${environment.ApiBaseURL}/search/${name}`);
   }
-
+  getprdbyid(prdid: number): Observable<Iproduct> {
+    return this.httpclient.get<Iproduct>(
+      `${environment.ApiBaseURL}/products/${prdid}`
+    );
+  }
 
 }

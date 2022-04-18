@@ -5,6 +5,7 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
+import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { SearchComponent } from './Components/search/search.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 
@@ -22,9 +23,11 @@ const routes: Routes = [
   { path: 'myorder', component:MyorderComponent },
   { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
   { path: 'mywishlist', component:WishlistComponent },
+  { path: 'redirectsearch', redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component:SearchComponent },
   { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
   { path: 'cart', component:CartComponent},
+  { path: 'product/:pid', component:ProductdetailsComponent },
 
 
 ];

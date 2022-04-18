@@ -170,9 +170,7 @@
                                       </small>
                                 </div>
                             </div>
-                            <div class="form-group">
-								<input class="input" type="text" name="tracking_no" placeholder="tracking Numbor" [(ngModel)]="newshipping.tracking_no">
-							</div>
+                          
                             <div class="form-group">
 								<input class="input" type="text" name="message" placeholder="Message" [(ngModel)]="newshipping.message">
 							</div>
@@ -212,7 +210,7 @@
 							 
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">{{totalcal()}}</strong></div>
+								<div><strong class="order-total">{{total}}</strong></div>
 							</div>
 						</div>
 						<div class="payment-method">

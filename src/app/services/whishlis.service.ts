@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Iproduct } from '../Models/iproduct';
 import { Iwhishlist } from '../Models/iwhishlist';
+import { Ratting } from '../Models/ratting';
+import { Review } from '../Models/review';
 
 @Injectable({
   providedIn: 'root'
@@ -39,4 +41,19 @@ export class WhishlisService {
       return this.httpclint.delete<Iwhishlist>(`${environment.ApiBaseURL}/wishlist/${id}`,this.httpoption) 
       
     }
+    addreview(review: Review): Observable<Review> {
+      return this.httpclint.post<Review>(
+        `${environment.ApiBaseURL}/add-review`,
+        JSON.stringify(review),
+        this.httpoption
+      );
+    }
+
+    addratting(rate: Ratting): Observable<Ratting> {
+      return this.httpclint.post<Ratting>(
+        `${environment.ApiBaseURL}/add-rate`,
+        JSON.stringify(rate),
+        this.httpoption
+      );
+    } 
 }
