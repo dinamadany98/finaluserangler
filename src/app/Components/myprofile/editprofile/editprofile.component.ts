@@ -14,7 +14,7 @@ export class EditprofileComponent implements OnInit ,OnChanges {
   togeltextboxforpassword(){
     this.showtextboxforpassword=!this.showtextboxforpassword;
   }
-  validPassword:any;
+ 
   oldpassword="";
   trupasssord:any 
   newuserdata: IuserProfile={} as IuserProfile;
@@ -28,10 +28,10 @@ export class EditprofileComponent implements OnInit ,OnChanges {
       this.trupasssord=true;
     }
    }
-   chechpassword(old:any){
-      this.validPassword = bcrypt.compare(old,this.newuserdata.password);
-       
-     if(this.validPassword){
+   async chechpassword(old:any){
+      const validPassword =await bcrypt.compare(old,this.newuserdata.password);
+      console.log(validPassword);
+     if(validPassword){
           this.trupasssord =true
           
     this.showtextboxforpassword=!this.showtextboxforpassword;
