@@ -14,6 +14,8 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
 import { SearchComponent } from './Components/search/search.component';
 import { MyorderComponent } from './Components/myorder/myorder.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { MyprofileComponent } from './Components/myprofile/myprofile.component';
+import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
     MyorderComponent,
     SearchComponent,
     WishlistComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
+    MyprofileComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,
