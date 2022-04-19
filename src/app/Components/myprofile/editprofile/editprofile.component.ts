@@ -31,10 +31,11 @@ export class EditprofileComponent implements OnInit ,OnChanges {
    }
    async chechpassword(old:any){
       const validPassword =await bcrypt.compare(old,this.newuserdata.password);
-      console.log(validPassword);
+      
+      const x =bcrypt.decodeBase64(this.newuserdata.password,100);
+      console.log(x);
      if(validPassword){
-          this.trupasssord =true
-
+          this.trupasssord =true;
     this.showtextboxforpassword=!this.showtextboxforpassword;
     this.newshowtextboxforpassword=!this.newshowtextboxforpassword;
           console.log(this.trupasssord)
