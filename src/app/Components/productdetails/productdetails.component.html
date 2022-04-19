@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>eCommerce Product Detail</title>
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,13 @@
                     <div class="details col-md-6">
                         <h3 class="product-title">{{prd?.name}}
                         </h3>
-
+                        <p class="product-description "> {{prd?.description}}</p>
+                        <h4 class="price ">current price: <span>${{prd?.selling_price}}</span></h4>
+                        <p class="vote "><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                        <h5 class="sizes ">Description:
+                            <span class="size " data-toggle="tooltip " title="small ">{{prd?.small_description}}</span>
+                        </h5>
+                        <hr>
                         <div class="mb-3">
                             <ngb-rating [formControl]="ctrl" (click)="addrate(ctrl.value)"></ngb-rating>
                             {{ctrl.value}}
@@ -40,91 +46,35 @@
                             </div>
                         </div>
 
-                        <hr>
+
 
                         <button class="btn btn-sm btn-outline-primary me-2" (click)="ctrl.setValue(null)">Clear</button>
-                        <hr> {{prd?.id}}
-
-                        <pre>Rate: <b>{{currentRate}}</b></pre>
-
-                        <!-- <div class="col-sm-12">
-
-                            <div class="row">
-                                <div ng-controller="reviewController">
-                                    <h3 class="pdt-title">Review</h3>
-                                    <hr>
-                                    <div class="alert alert-danger" ng-if="reviews.length == 0">
-                                        No reviews yet, be the first to review this Product!
-                                    </div><br>
-                                    <div class="col-sm-12" ng-repeat="review in reviews">
-                                        <blockquote class="row">
-                                            <h3 class="pdt-title col-sm-6">{{review.user_id}}</h3>
-                                            <h3 class="pdt-title col-sm-6">{{review.product_id}}</h3>
-                                            <!-- <h5 class="col-sm-12"><small><i>{{review.email}}</i></small></h5> -->
-                        <!-- <p class="col-sm-12">{{review.user_review}}</p>
-                        </blockquote>
-                    </div>
-                    <form class="form-inline form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">Name</span>
-                            <input class="form-control" type="text" ng-model="username">
-
-                            <span class="input-group-addon">E-mail</span>
-                            <input class="form-control" type="email" ng-model="email">
-
-                            <span class="input-group-addon">Star</span>
-                            <select class="form-control" ng-model="star">
-                                <option name="oneStar" value="1 star">1 Star</option>
-                                <option name="twoStar" value="2 star">2 Star</option>
-                                <option name="threeStar" value="3 star">3 Star</option>
-                                <option name="fourStar" value="4 star">4 Star</option>
-                                <option name="fiveStar" value="5 star">5 Star</option>
-                            </select>
-                        </div>
-                    </form>
-                    <textarea class="form-control" rows="5" ng-model="message"></textarea><br>
-                    <input type="submit" class="btn btn-block btn-success" ng-submit="addReview()" value="Submit review">
-
-
-                </div>
-            </div>
-        </div> -->
-
                         <hr>
-                        <div class="col-md-8">
-                            <div id="review-form">
-                                <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
 
-                                    <!-- <input class=" input " [(ngModel)]="review.user_id" formControlName="name" name="name" id="name" type="text " placeholder="Your Name "> -->
-                                    <!-- <input class="input " type="email " placeholder="Your Email "> -->
-                                    <input class="input " {{prd.id}} #currprdid formControlName="product_id" type="hidden" id="product_id" name="product_id">
-                                    <!-- <input class="input " [(ngModel)]="review.user_id" formControlName="user_id" type="hidden" id="user_id" name="user_id"> -->
-                                    <textarea class="input " [(ngModel)]="review.user_review" formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
-                                    <div class="input-rating ">
-                                    </div>
-                                    rrrr {{productvalue}}
-                                    <button class="primary-btn ">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="rating ">
 
-                            <div class="stars ">
-                                <!-- <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span>
-                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span>
-                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "> </span>
-                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span>
-                                <span class="fa fa-star fa-2x " [class.rate]="israted " (click)="changerate() "></span> -->
+                        <button class="btn btn-primary" (click)="toggle()" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Add Review
+                            </button>
+                        <ng-container *ngIf="flag">
+                            <br>
+                            <br>
+                            <div class="col-md-8 container">
+                                <div id="review-form">
+                                    <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
+                                        <input class=" input form-control " name="name" id="name" type="text " placeholder="Your Name ">
+                                        <input class="input " type="email " placeholder="Your Email ">
+                                        <input class="input " [(ngModel)]="review.product_id" formControlName="product_id" hidden type="text" id="product_id" name="product_id">
+                                        <textarea class="input " [(ngModel)]="review.user_review" formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
+                                        <button class="primary-btn ">Submit</button>
+                                    </form>
+                                </div>
                             </div>
-                            <span class="review-no ">41 reviews</span>
-                        </div>
-                        <p class="product-description "> {{prd?.description}}</p>
-                        <h4 class="price ">current price: <span>${{prd?.selling_price}}</span></h4>
-                        <p class="vote "><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-                        <h5 class="sizes ">Description:
-                            <span class="size " data-toggle="tooltip " title="small ">{{prd?.small_description}}</span>
-                        </h5>
+                            <br>
+                            <br>
+                            <br>
+                        </ng-container>
+
+
                         <div class="action ">
                             <button class="add-to-cart btn btn-default " type="button ">add to cart</button>
                             <button class="like btn btn-default " type="button "><span class="fa fa-heart "></span></button>

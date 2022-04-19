@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { IUser } from '../Models/iuser';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegisterService {
 

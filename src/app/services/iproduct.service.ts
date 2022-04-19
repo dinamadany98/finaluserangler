@@ -5,13 +5,13 @@ import { environment } from 'src/environments/environment';
 import { Iproduct } from '../Models/iproduct';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IProductService {
-
   private httpoption = {};
+  private productList: Iproduct[] = [];
 
-  constructor(private httpclient: HttpClient  ) {
+  constructor(private httpclient: HttpClient) {
     this.httpoption = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -21,19 +21,27 @@ export class IProductService {
 
   getallproduct(): Observable<Iproduct[]> {
     return this.httpclient.get<Iproduct[]>(
-      `${environment.ApiBaseURL}/products`
+      `${environment.ApiBaseURL}/getallproduct`
     );
   }
-
-  searchproduct(name:any) :Observable<Iproduct[]>
-  {
-    return this.httpclient.get<Iproduct[]>(`${environment.ApiBaseURL}/search/${name}`);
+  // return cat id
+  getprdbycatid(catid: number): Observable<Iproduct[]> {
+    return this.httpclient.get<Iproduct[]>(
+      `${environment.ApiBaseURL}/products?CateogryID=${catid}`
+    );
   }
-  
+  //return obj
   getprdbyid(prdid: number): Observable<Iproduct> {
     return this.httpclient.get<Iproduct>(
       `${environment.ApiBaseURL}/products/${prdid}`
     );
   }
+
+  searchproduct(name: any): Observable<Iproduct[]> {
+    return this.httpclient.get<Iproduct[]>(
+      `${environment.ApiBaseURL}/search/${name}`
+    );
+  }
+
 
 }

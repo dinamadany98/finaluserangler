@@ -7,10 +7,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   formGroup: FormGroup = new FormGroup({});
 
   constructor(private router: Router, private authservice: LoginService) {}
@@ -32,11 +31,7 @@ export class LoginComponent implements OnInit {
         next: (data) => {
           localStorage.setItem('login', data.token);
           this.router.navigate(['/home']);
-          Swal.fire(
-            'Login orrect',
-            'You clicked the button!',
-            'success'
-          );
+          Swal.fire('Login orrect', 'You clicked the button!', 'success');
         },
         error: (err) => {
           Swal.fire({
@@ -46,11 +41,8 @@ export class LoginComponent implements OnInit {
             footer: '<a href="">Why do I have this issue?</a>',
           });
         },
-      }
-      )
+      });
     }
-
   }
-
 
 }

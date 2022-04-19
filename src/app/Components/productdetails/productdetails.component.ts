@@ -6,11 +6,12 @@ import { Ratting } from 'src/app/Models/ratting';
 import { Review } from 'src/app/Models/review';
 import { IProductService } from 'src/app/services/iproduct.service';
 import { WhishlisService } from 'src/app/services/whishlis.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productdetails',
   templateUrl: './productdetails.component.html',
-  styleUrls: ['./productdetails.component.css']
+  styleUrls: ['./productdetails.component.css'],
 })
 export class ProductdetailsComponent implements OnInit {
   currentRate = 6;
@@ -19,12 +20,10 @@ export class ProductdetailsComponent implements OnInit {
   rate: Ratting = {} as Ratting;
   review: Review = {} as Review;
   rev: Review = {} as Review;
+  flag: boolean = false;
   toggle() {
-    if (this.ctrl.disabled) {
-      this.ctrl.enable();
-    } else {
-      this.ctrl.disable();
-    }
+    this.flag = !this.flag;
+   
   }
   ///////////////////////////////
   prd: Iproduct = {} as Iproduct;
@@ -38,7 +37,7 @@ export class ProductdetailsComponent implements OnInit {
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
     private router: Router,
-    private wishlistservice:WhishlisService,
+    private wishlistservice: WhishlisService,
     private fb: FormBuilder
   ) {
     this.userformgroup = this.fb.group({
@@ -50,9 +49,10 @@ export class ProductdetailsComponent implements OnInit {
   addrate(value: any) {
     // alert('sucses')
     this.wishlistservice.addratting(this.rate).subscribe((value) => {
-      console.log(value);
       this.rate = value;
+      console.log(value);
     });
+
   }
 
   ////////////////////////////
@@ -69,9 +69,22 @@ export class ProductdetailsComponent implements OnInit {
 
   /////////////////////////////
   addReview() {
+    this.review.product_id = this.currprdid;
     this.wishlistservice.addreview(this.review).subscribe({
-
+      next: (review) => {
+        this.router.navigate(['/home']);
+        Swal.fire('Review Correct', 'You clicked the button!', 'success');
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+      },
     });
+    console.log(this.review);
   }
   //////////////////////////////
   ngOnInit(): void {
@@ -79,6 +92,7 @@ export class ProductdetailsComponent implements OnInit {
       this.currprdid = this.activedroute.snapshot.paramMap.get('pid')
         ? Number(this.activedroute.snapshot.paramMap.get('pid'))
         : 0;
+          console.log(this.currprdid);
 
       let foundprd = this.prdservice
         .getprdbyid(this.currprdid)
@@ -86,14 +100,8 @@ export class ProductdetailsComponent implements OnInit {
           this.prd = product;
           this.productvalue = this.currprdid;
           console.log(this.productvalue);
-          console.log(product);
-
-
         });
     });
   }
-  // changerate() {
-  //   this.israted = !this.israted;
-  // }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor( private router: Router) {}
+  constructor(private loginservice: LoginService, private router: Router) {}
 
   loggedin() {
     return !!localStorage.getItem('login');

@@ -14,8 +14,6 @@ import { WhishlisService } from 'src/app/services/whishlis.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnChanges {
-  
-  
   categorylist: Icategory[] = [];
   prdlisticat: Iproduct[] = [];
   cartlist: Icart[] = [];
@@ -28,8 +26,6 @@ export class HomeComponent implements OnInit, OnChanges {
     private whishlistservic: WhishlisService
   ) {
     this.rot.routeReuseStrategy.shouldReuseRoute = () => false;
-    
-
   }
   ngOnChanges(): void {
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
@@ -78,10 +74,9 @@ export class HomeComponent implements OnInit, OnChanges {
 
   opendtails(prdid: number) {
     this.rot.navigate(['product', prdid]);
-    // console.log()
   }
   ////////////////////////////////////////
-  changecolor(){
-this.iswished= this.iswished
+  changecolor() {
+    this.iswished = this.iswished;
   }
 }

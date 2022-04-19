@@ -16,7 +16,6 @@ import { WishlistComponent } from './Components/wishlist/wishlist.component';
 
 const routes: Routes = [
   {
-    
     path: '',
     component: MainLayoutComponent,
     children: [
@@ -24,22 +23,21 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
     ],
   },
-  { path: 'checout', component:CheckoutComponent },
-  { path: 'myorder', component:MyorderComponent },
+  { path: 'product/:pid', component: ProductdetailsComponent },
+
+  { path: 'checout', component: CheckoutComponent },
+  { path: 'myorder', component: MyorderComponent },
   { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
-  { path: 'mywishlist', component:WishlistComponent },
+  { path: 'mywishlist', component: WishlistComponent },
   { path: 'redirectsearch', redirectTo: '/search', pathMatch: 'full' },
-  { path: 'search', component:SearchComponent },
-  { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' }, 
-  { path: 'cart', component:CartComponent},
-  { path: 'product/:pid', component:ProductdetailsComponent },
-  { path: 'myprofile', component:MyprofileComponent },
-  { path: 'editprofile', component:EditprofileComponent },
-  { path: 'register', component:RegisterComponent },
-  { path: 'login', component:LoginComponent },
-  { path: '**', component:NotFoundComponent },
-
-
+  { path: 'search', component: SearchComponent },
+  { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' },
+  { path: 'cart', component: CartComponent },
+  { path: 'myprofile', component: MyprofileComponent },
+  { path: 'editprofile', component: EditprofileComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

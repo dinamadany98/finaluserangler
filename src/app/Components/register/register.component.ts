@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
   userformgroup: FormGroup;
@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private UserService: RegisterService
   ) {
-
     /////////////////////////////////////////
     this.userformgroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
@@ -67,14 +66,12 @@ export class RegisterComponent implements OnInit {
         },
       });
     } else {
-           Swal.fire({
-             icon: 'error',
-             title: 'Oops...',
-             text: 'Something went wrong!',
-             footer: '<a href="">Why do I have this issue?</a>',
-           });
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>',
+      });
     }
-
   }
-
 }

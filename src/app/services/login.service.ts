@@ -6,11 +6,9 @@ import { environment } from 'src/environments/environment';
 import { Login } from '../Models/login';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
-  
   private httpOptions = {};
   constructor(private httpClient: HttpClient, private router: Router) {
     this.httpOptions = {
@@ -30,9 +28,15 @@ export class LoginService {
   }
 
   auth_login(data: Login): Observable<any> {
-    return this.httpClient.post(`${environment.ApiBaseURL}/login`, data);
-  }
-
+    return this.httpClient.post<any>(
+      `${environment.ApiBaseURL}/login`,
+      JSON.stringify(data),
+      this.httpOptions
+    );
+}
+  // auth_login(data: Login): Observable<any> {
+  //   return this.httpClient.post(`${environment.ApiBaseURL}/login`, data);
+  // }
 
   loggedin() {
     return !!localStorage.getItem('login');
