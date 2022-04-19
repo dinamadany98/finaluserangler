@@ -1,1 +1,137 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login V13</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+</head>
+
+<body style="background-color: #999999">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="login100-more" style="background-image: url('assets/register/images/bg-01.jpg');background-size: contain;"></div>
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+                <form class="login100-form validate-form" [formGroup]="userformgroup" (ngSubmit)="addUser()">
+                    <span class="login100-form-title p-b-59"> Sign Up </span>
+                    <div class="wrap-input100 validate-input" data-validate="Name is required">
+                        <span class="label-input100">Full Name</span>
+                        <input class="input100" type="text" [(ngModel)]="newuser.name" formControlName="name" name="name" id="name" [class.is-valid]="name?.valid" [class.is-invalid]="name?.invalid" placeholder="Name..." />
+                        <span class="focus-input100"></span>
+                        <div class="text-danger" [hidden]="name?.valid || name?.untouched">
+                            <span *ngIf="name?.errors?.['required']">Full Name is required</span>
+                            <span *ngIf="name?.errors?.['minlength']">Full Name must be more than 5 char</span>
+                        </div>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Email is required">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="email" placeholder="Email addess..." [(ngModel)]="newuser.email" formControlName="email" name="email" id="email" [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid" />
+                        <span class="focus-input100"></span>
+                        <div class="text-danger" [hidden]="email?.valid || email?.untouched">
+                            <small *ngIf="email?.errors?.['required']">Email is required</small >
+                            <small *ngIf="email?.errors?.['email']">Email is Not Correct</small >
+                            <small *ngIf="email?.errors?.['minlength']">Email must be more than 5 char</small>
+                        </div>
+                    </div>
+
+                    <input class="input100" type="hidden" name="username" placeholder="Username..." />
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" [(ngModel)]="newuser.password" formControlName="password" name="password" id="password" [class.is-valid]="password?.valid" [class.is-invalid]="password?.invalid" type="password" name="password" placeholder="*************" />
+
+                        <span class="focus-input100"></span>
+
+                        <div class="text-danger" [hidden]="password?.valid || password?.untouched">
+                            <small *ngIf="password?.errors?.['required']">Password is required</small>
+                            <small *ngIf="password?.errors?.['minlength']">Password must be more than 5 char</small>
+                        </div>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Repeat Password is required">
+                        <span class="label-input100">Repeat Password</span>
+                        <input class="input100" type="password" [(ngModel)]="newuser.conpassword" formControlName="conpassword" name="conpassword" id="conpassword" [class.is-valid]="conpassword?.valid" [class.is-invalid]="conpassword?.invalid" placeholder="*************" />
+                        <span class="focus-input100"></span>
+                        <!-- <small *ngIf="conpassword?.valid && conpassword?.value  != password?.value">Password Entered Don't Match</small> -->
+
+                        <div class="text-danger" [hidden]="conpassword?.valid || conpassword?.untouched">
+                            <small *ngIf="conpassword?.errors?.['required']">Confirm Password is required</small>
+                            <small *ngIf="conpassword?.errors?.['minlength']">Password must be more than 5 char</small>
+
+                        </div>
+                        <div class="text-danger" *ngIf="conpassword?.valid && conpassword?.value  != password?.value">Password Entered Don't Match
+                        </div>
+                    </div>
+                    <div class="flex-m w-full p-b-33">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
+                            <label class="label-checkbox100" for="ckb1">
+                  <span class="txt1">I agree to the <a href="#" class="txt2 hov1"> Terms of User </a></span> </label>
+                        </div>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn btn-success" [disabled]="userformgroup.invalid">Sign Up</button>
+                        </div>
+                        <a routerLink="/login" routerLinkActive="active" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Sign in<i class="fa fa-long-arrow-right m-l-5"></i></a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="src/assets/register/jquery/jquery-3.2.1.min.js"></script>
+    <script src="src/assets/register/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="src/assets/register/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="src/assets/register/vendor/bootstrap/js/popper.js"></script>
+    <script src="src/assets/register/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="src/assets/register/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="src/assets/register/vendor/daterangepicker/moment.min.js"></script>
+    <script src="src/assets/register/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="src/assets/register/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="src/assets/register/js/main.js"></script>
+</body>
+
+</html>
+<!-- <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                formControlName="password"
+                id="password"
+                type="password"
+                class="form-control">
+            <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                <div *ngIf="f.password.errors.required">Password is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input
+                formControlName="confirm_password"
+                id="confirm_password"
+                type="password"
+                class="form-control">
+            <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
+                <div *ngIf="f.confirm_password.errors.required">Password is required.</div>
+                <div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form> -->

@@ -17,6 +17,8 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { RegisterComponent } from './Components/register/register.component';
     ProductdetailsComponent,
     MyprofileComponent,
     EditprofileComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
