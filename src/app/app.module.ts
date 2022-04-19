@@ -7,7 +7,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
@@ -19,11 +19,13 @@ import { EditprofileComponent } from './Components/myprofile/editprofile/editpro
 import { RegisterComponent } from './Components/register/register.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { LoginComponent } from './Components/login/login.component';
+import { LoginService } from './services/login.service';
+import { AccessLoginGuard } from './access-login.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-   HeaderComponent,
+    HeaderComponent,
     FooterComponent,
     HomeComponent,
     MainLayoutComponent,
@@ -37,7 +39,7 @@ import { LoginComponent } from './Components/login/login.component';
     EditprofileComponent,
     RegisterComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,16 @@ import { LoginComponent } from './Components/login/login.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    [AccessLoginGuard, LoginService],
+    {
+      provide: HTTP_INTERCEPTORS,
+
+      useClass: LoginService,
+
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

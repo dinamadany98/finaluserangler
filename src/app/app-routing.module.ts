@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccessLoginGuard } from './access-login.guard';
 import { CartComponent } from './Components/cart/cart.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -25,16 +26,40 @@ const routes: Routes = [
   },
   { path: 'product/:pid', component: ProductdetailsComponent },
 
-  { path: 'checout', component: CheckoutComponent },
-  { path: 'myorder', component: MyorderComponent },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [AccessLoginGuard],
+  },
+  {
+    path: 'myorder',
+    component: MyorderComponent,
+    canActivate: [AccessLoginGuard],
+  },
   { path: 'redirectwishlist', redirectTo: '/mywishlist', pathMatch: 'full' },
-  { path: 'mywishlist', component: WishlistComponent },
+  {
+    path: 'mywishlist',
+    component: WishlistComponent,
+    canActivate: [AccessLoginGuard],
+  },
   { path: 'redirectsearch', redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
   { path: 'redirect', redirectTo: '/cart', pathMatch: 'full' },
-  { path: 'cart', component: CartComponent },
-  { path: 'myprofile', component: MyprofileComponent },
-  { path: 'editprofile', component: EditprofileComponent },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AccessLoginGuard]
+  },
+  {
+    path: 'myprofile',
+    component: MyprofileComponent,
+    canActivate: [AccessLoginGuard],
+  },
+  {
+    path: 'editprofile',
+    component: EditprofileComponent,
+    canActivate: [AccessLoginGuard],
+  },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
