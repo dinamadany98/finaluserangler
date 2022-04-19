@@ -5,7 +5,7 @@ import { Icategory } from 'src/app/Models/icategory';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 import { CategoryServiceService } from 'src/app/services/category-service.service';
-import { IProductService } from 'src/app/services/iproduct.service'; 
+import { IProductService } from 'src/app/services/iproduct.service';
 import { WhishlisService } from 'src/app/services/whishlis.service';
 
 @Component({
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.cartservice.getcartdata().subscribe(cart=>{
       this.cartlist=cart;
-    }); 
+    });
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
       this.categorylist = prdlist;
     });
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit, OnChanges {
     });
   }
   addtocart(prod :Iproduct){
- 
+
     this.cartservice.addtocart(prod).subscribe({
      next:(prod)=>{
      this.rot.navigate(['/'])
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit, OnChanges {
   }
 
   addtowishlist(prod :Iproduct){
- 
+
     this.whishlistservic.addwishlistdata(prod).subscribe({
      next:(prod)=>{
      this.rot.navigate(['/'])
@@ -77,6 +77,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
   opendtails(prdid: number) {
     this.rot.navigate(['product', prdid]);
+    // console.log()
   }
 
 

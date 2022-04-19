@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>eCommerce Product Detail</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
 
 </head>
 
@@ -97,7 +97,7 @@
 
                                     <!-- <input class=" input " [(ngModel)]="review.user_id" formControlName="name" name="name" id="name" type="text " placeholder="Your Name "> -->
                                     <!-- <input class="input " type="email " placeholder="Your Email "> -->
-                                    <input class="input " {{prd.id}} #currprdid   formControlName="product_id" type="hidden" id="product_id" name="product_id">
+                                    <input class="input " {{prd.id}} #currprdid formControlName="product_id" type="hidden" id="product_id" name="product_id">
                                     <!-- <input class="input " [(ngModel)]="review.user_id" formControlName="user_id" type="hidden" id="user_id" name="user_id"> -->
                                     <textarea class="input " [(ngModel)]="review.user_review" formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
                                     <div class="input-rating ">
@@ -147,4 +147,3 @@
 </body>
 
 </html>
-
