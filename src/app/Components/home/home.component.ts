@@ -11,22 +11,21 @@ import { WhishlisService } from 'src/app/services/whishlis.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnChanges {
   categorylist: Icategory[] = [];
   prdlisticat: Iproduct[] = [];
-  cartlist:Icart[]=[];
+  cartlist: Icart[] = [];
+  iswished = false;
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
-    private cartservice:CartService,
-    private rot:Router,
-    private whishlistservic:WhishlisService
+    private cartservice: CartService,
+    private rot: Router,
+    private whishlistservic: WhishlisService
   ) {
-
     this.rot.routeReuseStrategy.shouldReuseRoute = () => false;
-
   }
   ngOnChanges(): void {
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
@@ -38,8 +37,8 @@ export class HomeComponent implements OnInit, OnChanges {
     });
   }
   ngOnInit(): void {
-    this.cartservice.getcartdata().subscribe(cart=>{
-      this.cartlist=cart;
+    this.cartservice.getcartdata().subscribe((cart) => {
+      this.cartlist = cart;
     });
     this.prdcatservice.getallcategory().subscribe((prdlist) => {
       this.categorylist = prdlist;
@@ -49,36 +48,36 @@ export class HomeComponent implements OnInit, OnChanges {
       this.prdlisticat = prdlist;
     });
   }
-  addtocart(prod :Iproduct){
-
+  addtocart(prod: Iproduct) {
     this.cartservice.addtocart(prod).subscribe({
-     next:(prod)=>{
-     this.rot.navigate(['/'])
+      next: (prod) => {
+        this.rot.navigate(['/']);
       },
 
-      error:(err)=>{
-        alert("error")
-      }
-    })
+      error: (err) => {
+        alert('error');
+      },
+    });
   }
 
-  addtowishlist(prod :Iproduct){
-
+  addtowishlist(prod: Iproduct) {
     this.whishlistservic.addwishlistdata(prod).subscribe({
-     next:(prod)=>{
-     this.rot.navigate(['/'])
+      next: (prod) => {
+        this.rot.navigate(['/']);
       },
 
-      error:(err)=>{
-        alert("error")
-      }
-    })
+      error: (err) => {
+        alert('error');
+      },
+    });
   }
 
   opendtails(prdid: number) {
     this.rot.navigate(['product', prdid]);
     // console.log()
   }
-
-
+  ////////////////////////////////////////
+  changecolor(){
+this.iswished= !this.iswished
+  }
 }
