@@ -70,7 +70,7 @@ export class ProductdetailsComponent implements OnInit {
   /////////////////////////////
   addReview() {
     this.wishlistservice.addreview(this.review).subscribe({
-    
+
     });
   }
   //////////////////////////////
@@ -86,6 +86,7 @@ export class ProductdetailsComponent implements OnInit {
           this.prd = product;
           this.productvalue = this.currprdid;
           console.log(this.productvalue);
+          console.log(product);
 
 
         });

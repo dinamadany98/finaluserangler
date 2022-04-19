@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IuserProfile } from 'src/app/Models/iuser-profile';
 import { UserService } from 'src/app/services/user.service';
+// import * as bcrypt from 'bcryptjs';
 import * as bcrypt from 'bcryptjs';
 @Component({
   selector: 'app-editprofile',
@@ -14,13 +15,13 @@ export class EditprofileComponent implements OnInit ,OnChanges {
   togeltextboxforpassword(){
     this.showtextboxforpassword=!this.showtextboxforpassword;
   }
- 
+
   oldpassword="";
-  trupasssord:any 
+  trupasssord:any
   newuserdata: IuserProfile={} as IuserProfile;
-   constructor(private userservice: UserService,private rot:Router) { 
-     
- 
+   constructor(private userservice: UserService,private rot:Router) {
+
+
    }
    ngOnChanges() {
     if(this.oldpassword==this.newuserdata.password)
@@ -35,7 +36,7 @@ export class EditprofileComponent implements OnInit ,OnChanges {
       console.log(validPassword);
      if(validPassword){
           this.trupasssord =true
-          
+
     this.showtextboxforpassword=!this.showtextboxforpassword;
     this.newshowtextboxforpassword=!this.newshowtextboxforpassword;
           console.log(this.trupasssord)
@@ -43,42 +44,42 @@ export class EditprofileComponent implements OnInit ,OnChanges {
        this.trupasssord =false
        console.log(this.trupasssord)
      }
-     
- 
+
+
    }
    ngOnInit() {
- 
+
    this.userservice.getuserdata().subscribe(
      user=>{
-        
+
        this.newuserdata=user;
    });
  }
- 
- 
+
+
  edit(){
-     
-  
-  
+
+
+
       this.userservice.edituserprofile(this.newuserdata).subscribe({
         next:(user)=>{
           console.log(this.newuserdata)
        this.rot.navigate(['/myprofile'])
         },
-      
+
         error:(err)=>{
           alert("error");
           console.log(err.message);
         }
       })
-  
-  
-    }
- 
- 
- 
- 
 
-   
+
+    }
+
+
+
+
+
+
 
 }

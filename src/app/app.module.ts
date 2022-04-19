@@ -21,7 +21,7 @@ import { RegisterComponent } from './Components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+   HeaderComponent,
     FooterComponent,
     HomeComponent,
     MainLayoutComponent,
