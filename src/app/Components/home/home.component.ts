@@ -78,6 +78,6 @@ export class HomeComponent implements OnInit, OnChanges {
   }
   ////////////////////////////////////////
   changecolor(){
-this.iswished= !this.iswished
+this.iswished= this.iswished
   }
 }

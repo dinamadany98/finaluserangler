@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private UserService: RegisterService
   ) {
- 
+
     /////////////////////////////////////////
     this.userformgroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
