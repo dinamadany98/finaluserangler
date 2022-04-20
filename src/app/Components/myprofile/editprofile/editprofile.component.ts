@@ -2,8 +2,8 @@ import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IuserProfile } from 'src/app/Models/iuser-profile';
 import { UserService } from 'src/app/services/user.service';
-// import * as bcrypt from 'bcryptjs';
 import * as bcrypt from 'bcryptjs';
+import * as CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
@@ -29,9 +29,16 @@ export class EditprofileComponent implements OnInit ,OnChanges {
       this.trupasssord=true;
     }
    }
+   tokenFromUI: string = "0123456789123456";
+   
+  // const CryptoJS = require("crypto-js");
    async chechpassword(old:any){
+    const _key = CryptoJS.enc.Utf8.parse(this.tokenFromUI);
+    const _iv = CryptoJS.enc.Utf8.parse(this.tokenFromUI);
       const validPassword =await bcrypt.compare(old,this.newuserdata.password);
-      
+      const crpt=CryptoJS.AES.decrypt(this.newuserdata.password, _key).toString(CryptoJS.enc.Utf8);
+      console.log(crpt);
+     //const crt= Crypt.decrypt(this.newuserdata.password);
       const x =bcrypt.decodeBase64(this.newuserdata.password,100);
       console.log(x);
      if(validPassword){

@@ -22,6 +22,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AccessLoginGuard } from './access-login.guard';
 import { NgxPayPalModule } from 'ngx-paypal';
+ 
 
 
 @NgModule({
