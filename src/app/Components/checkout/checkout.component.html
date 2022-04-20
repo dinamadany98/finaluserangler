@@ -187,7 +187,7 @@
 
 
                         </div>
-                        <div class="payment-method">
+                        <!-- <div class="payment-method">
                             <div class="input-radio">
                                 <input type="radio" name="payment" id="payment-1">
                                 <label for="payment-1">
@@ -212,9 +212,11 @@
 								</label>
 
                             </div>
-                        </div>
+                        </div> -->
 
                         <input type="submit" class="primary-btn order-submit" [disabled]="formvali.invalid" value="Place order">
+                        <br><br>
+                        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
                     </div>
                 </form>
                 <!-- /Order Details -->
