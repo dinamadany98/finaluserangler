@@ -21,7 +21,7 @@
                         <span class="label-input100">Full Name</span>
                         <input class="input100" type="text" [(ngModel)]="newuser.name" formControlName="name" name="name" id="name" [class.is-valid]="name?.valid" [class.is-invalid]="name?.invalid" placeholder="Name..." />
                         <span class="focus-input100"></span>
-                        <div class="alert alert-warning" [hidden]="name?.valid || name?.untouched">
+                        <div class="text-danger" [hidden]="name?.valid || name?.untouched">
                             <span *ngIf="name?.errors?.['required']">Full Name is required</span>
                             <span *ngIf="name?.errors?.['minlength']">Full Name must be more than 5 char</span>
                         </div>
@@ -31,8 +31,9 @@
                         <span class="label-input100">Email</span>
                         <input class="input100" type="email" placeholder="Email addess..." [(ngModel)]="newuser.email" formControlName="email" name="email" id="email" [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid" />
                         <span class="focus-input100"></span>
-                        <div class="alert alert-warning" [hidden]="email?.valid || email?.untouched">
+                        <div class="text-danger" [hidden]="email?.valid || email?.untouched">
                             <small *ngIf="email?.errors?.['required']">Email is required</small >
+                            <small *ngIf="email?.errors?.['email']">Email is Not Correct</small >
                             <small *ngIf="email?.errors?.['minlength']">Email must be more than 5 char</small>
                         </div>
                     </div>
@@ -45,7 +46,7 @@
 
                         <span class="focus-input100"></span>
 
-                        <div class="alert alert-warning" [hidden]="password?.valid || password?.untouched">
+                        <div class="text-danger" [hidden]="password?.valid || password?.untouched">
                             <small *ngIf="password?.errors?.['required']">Password is required</small>
                             <small *ngIf="password?.errors?.['minlength']">Password must be more than 5 char</small>
                         </div>
@@ -55,12 +56,14 @@
                         <span class="label-input100">Repeat Password</span>
                         <input class="input100" type="password" [(ngModel)]="newuser.conpassword" formControlName="conpassword" name="conpassword" id="conpassword" [class.is-valid]="conpassword?.valid" [class.is-invalid]="conpassword?.invalid" placeholder="*************" />
                         <span class="focus-input100"></span>
-                        <small *ngIf="conpassword?.valid && conpassword?.value  != password?.value">Password Entered Don't Match</small>
+                        <!-- <small *ngIf="conpassword?.valid && conpassword?.value  != password?.value">Password Entered Don't Match</small> -->
 
-                        <div class="alert alert-warning" [hidden]="conpassword?.valid || conpassword?.untouched">
+                        <div class="text-danger" [hidden]="conpassword?.valid || conpassword?.untouched">
                             <small *ngIf="conpassword?.errors?.['required']">Confirm Password is required</small>
-                            <small *ngIf="conpassword?.errors?.['minlength']">Confirm Password Not Correct</small>
-                            <!-- <small *ngIf="conpassword?.valid && conpassword?.value  != password?.value">Password Entered Don't Match</small> -->
+                            <small *ngIf="conpassword?.errors?.['minlength']">Password must be more than 5 char</small>
+
+                        </div>
+                        <div class="text-danger" *ngIf="conpassword?.valid && conpassword?.value  != password?.value">Password Entered Don't Match
                         </div>
                     </div>
                     <div class="flex-m w-full p-b-33">
@@ -78,9 +81,7 @@
                         <a routerLink="/login" routerLinkActive="active" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Sign in<i class="fa fa-long-arrow-right m-l-5"></i></a>
                     </div>
                 </form>
-                <div class="bg-warning">
-                    <h3>{{userformgroup.value | json}}</h3>
-                </div>
+
             </div>
         </div>
     </div>
