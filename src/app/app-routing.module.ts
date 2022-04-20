@@ -7,6 +7,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
+//import { LoginGuard } from './login.guard';
 import { LoginGuard } from './login.guard';
 
 import { CartComponent } from './Components/cart/cart.component';
