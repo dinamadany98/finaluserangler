@@ -21,6 +21,8 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { LoginComponent } from './Components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AccessLoginGuard } from './access-login.guard';
+import { NgxPayPalModule } from 'ngx-paypal';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { AccessLoginGuard } from './access-login.guard';
     LoginComponent,
   ],
   imports: [
+    NgxPayPalModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
