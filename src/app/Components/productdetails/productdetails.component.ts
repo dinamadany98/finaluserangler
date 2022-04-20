@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { Ratting } from 'src/app/Models/ratting';
 import { Review } from 'src/app/Models/review';
+import { CartService } from 'src/app/services/cart.service';
 import { IProductService } from 'src/app/services/iproduct.service';
 import { WhishlisService } from 'src/app/services/whishlis.service';
 import Swal from 'sweetalert2';
@@ -23,7 +24,6 @@ export class ProductdetailsComponent implements OnInit {
   flag: boolean = false;
   toggle() {
     this.flag = !this.flag;
-   
   }
   ///////////////////////////////
   prd: Iproduct = {} as Iproduct;
@@ -36,6 +36,8 @@ export class ProductdetailsComponent implements OnInit {
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
+    private cartservice: CartService,
+
     private router: Router,
     private wishlistservice: WhishlisService,
     private fb: FormBuilder
@@ -52,7 +54,6 @@ export class ProductdetailsComponent implements OnInit {
       this.rate = value;
       console.log(value);
     });
-
   }
 
   ////////////////////////////
@@ -92,7 +93,7 @@ export class ProductdetailsComponent implements OnInit {
       this.currprdid = this.activedroute.snapshot.paramMap.get('pid')
         ? Number(this.activedroute.snapshot.paramMap.get('pid'))
         : 0;
-          console.log(this.currprdid);
+      console.log(this.currprdid);
 
       let foundprd = this.prdservice
         .getprdbyid(this.currprdid)
@@ -103,5 +104,43 @@ export class ProductdetailsComponent implements OnInit {
         });
     });
   }
+  addtocart(prod: Iproduct) {
+    this.cartservice.addtocart(prod).subscribe({
+      next: (prd) => {
+        Swal.fire(
+          'Adding To Cart Succssfuly',
+          'Please Check Your Cart',
+          'success'
+        );
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+      },
+    });
+  }
 
+  addtowishlist(prod: Iproduct) {
+    this.wishlistservice.addwishlistdata(prod).subscribe({
+      next: (prd) => {
+        Swal.fire(
+          'Adding To Wishlist Succssfuly',
+          'Please Check Your Wishlist',
+          'success'
+        );
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+      },
+    });
+  }
 }

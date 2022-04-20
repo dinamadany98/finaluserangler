@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/Models/iuser';
+// import { RegisterService } from 'src/app/services/register.service';
 import { RegisterService } from 'src/app/services/register.service';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -51,7 +53,7 @@ export class RegisterComponent implements OnInit {
         next: (prd) => {
           this.router.navigate(['/home']);
           Swal.fire(
-            'Registeration Correct',
+            'Registeration Successfully',
             'You clicked the button!',
             'success'
           );

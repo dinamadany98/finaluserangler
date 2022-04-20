@@ -63,7 +63,7 @@
             <div id="aside" class="col-md-3">
                 <!-- aside Widget -->
                 <div class="aside">
-                    <h1 class="aside-title" style="color: brown;font-size: larger;" >SEARCH</h1>
+                    <h1 class="aside-title" style="color: brown;font-size: larger;">SEARCH</h1>
                     <div class="checkbox-filter">
 
 
@@ -73,10 +73,10 @@
 
                                 <input class="input" type="text" [(ngModel)]="filterBy" placeholder="Search For ... " (keyup)="filter($event)">
                                 <ng-container *ngIf="!product.length  && values  ">
-                                     <h1>
-                                         Not Found 
-                                     </h1>
-                                  </ng-container>
+                                    <h1>
+                                        Not Found
+                                    </h1>
+                                </ng-container>
                             </div>
                         </div>
 
@@ -95,58 +95,58 @@
             </div>
             <!-- /ASIDE -->
 
-            <!-- STORE -->              
-               
+            <!-- STORE -->
+
             <div id="store" class="col-md-9">
                 <!-- store top filter -->
-                
+
                 <!-- /store top filter -->
                 <!-- store products -->
                 <div class="row">
                     <!-- product -->
-                    
-        
-                        <div class="col-md-4 col-xs-6" *ngFor="let prod of product">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="http://localhost:8000/assets/{{prod.image}}" alt="">
-                                 
+
+
+                    <div class="col-md-4 col-xs-6" *ngFor="let prod of product">
+                        <div class="product">
+                            <div class="product-img">
+                                <img src="http://localhost:8000/assets/{{prod.image}}" alt="">
+
+                            </div>
+                            <div class="product-body">
+                                <h1 class="product-name h1"> {{ prod.name }} </h1>
+                                <h3 class="product-price">${{ prod.selling_price }} <del class="product-old-price"> ${{ prod.original_price }}</del></h3>
+                                <div class="product-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
                                 </div>
-                                <div class="product-body">
-                                    <h1 class="product-name h1"> {{ prod.name }} </h1>
-                                    <h3 class="product-price">${{ prod.selling_price }} <del class="product-old-price"> ${{ prod.original_price }}</del></h3>
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product-btns">
-                                        <button class="add-to-wishlist" (click)="addtowishlist(prod)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                        <button class="add-to-compare" ><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                    </div>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn" (click)="addtocart(prod)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                <div class="product-btns">
+                                    <button class="add-to-wishlist" (click)="addtowishlist(prod)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                    <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                    <button class="quick-view" (click)="opendtails(prod.id) "><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                 </div>
                             </div>
+                            <div class="add-to-cart">
+                                <button class="add-to-cart-btn" (click)="addtocart(prod)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            </div>
                         </div>
-                        <!-- /product -->
+                    </div>
+                    <!-- /product -->
 
-                        <!-- product -->
+                    <!-- product -->
 
 
-                        <div class="clearfix visible-lg visible-xs"></div>
-                    
-                   
-               
+                    <div class="clearfix visible-lg visible-xs"></div>
+
+
+
 
                 </div>
-               
+
             </div>
-        
+
             <!-- /STORE -->
         </div>
         <!-- /row -->

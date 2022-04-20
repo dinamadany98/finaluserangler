@@ -10,16 +10,17 @@
             </ul>
             <ul class="header-links pull-right">
                 <!-- <ng-container *ngIf="login_user==null"> -->
-                <li><a routerLink="/login" *ngIf="!loggedin()" routerLinkActive="active"><i class="fa fa-user"></i> Login</a></li>
-                <li><a routerLink="/register" *ngIf="!loggedin()" routerLinkActive="active"><i class="fa fa-user-o"></i> Register</a></li>
+                <li><a routerLink="/login" *ngIf="!loggedin()" routerLinkActive="active"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                <li><a routerLink="/register" *ngIf="!loggedin()" routerLinkActive="active"><i class="fa fa-registered" aria-hidden="true"></i> Register</a></li>
 
                 <!-- </ng-container> -->
 
                 <!-- <ng-container *ngIf="login_user!==null"> -->
 
+                <li><a routerLink="/search" routerLinkActive="active"><i class="fa fa-search" aria-hidden="true"></i> Search</a></li>
                 <li><a routerLink="/myprofile" *ngIf="loggedin()" routerLinkActive="active"><i class="fa fa-user-o"></i> My Account</a></li>
                 <!-- <li><a type="button" *ngIf="login_user!==null" class="btn" (click)="logout()"><i class="fa fa-user"></i> Logout</a></li> -->
-                <li><a type="button" *ngIf="loggedin()" class="btn" (click)="logoutuser()"><i class="fa fa-user"></i> Logout</a></li>
+                <li><a type="button" *ngIf="loggedin()" class="btn" (click)="logoutuser()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 
                 <!-- </ng-container> -->
             </ul>

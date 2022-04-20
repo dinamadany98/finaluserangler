@@ -6,6 +6,7 @@ import { Iproduct } from 'src/app/Models/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { IProductService } from 'src/app/services/iproduct.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout',
@@ -43,14 +44,20 @@ return +pric * +count;
   insert(){
      
     this.checkservice.addshippigdetails(this.newshipping).subscribe({
-      next:(shipping)=>{
-     this.rot.navigate(['/myorder'])
+    
+      next: (shipping) => {
+        this.rot.navigate(['/myorder']);
+        Swal.fire('Adding Successfully', 'Please Check Your Email', 'success');
       },
-
-      error:(err)=>{
-        alert("error")
-      }
-    })
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>',
+        });
+      },
+    });
 
 
   }

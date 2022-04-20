@@ -37,34 +37,51 @@
                             <span class="size " data-toggle="tooltip " title="small ">{{prd?.small_description}}</span>
                         </h5>
                         <hr>
-                        <div class="mb-3">
-                            <ngb-rating [formControl]="ctrl" (click)="addrate(ctrl.value)"></ngb-rating>
+                        <!-- <div class="mb-3">
+                            <ngb-rating [formControl]="ctrl">
+                            </ngb-rating>
                             {{ctrl.value}}
-                            <div class="form-text font-omedium">
-                                <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
-                                <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
+                            <div class="form-text font-omedium ">
+                                <div *ngIf="ctrl.valid " class="text-success ">Thanks!</div>
+                                <div *ngIf="ctrl.invalid " class="text-danger ">Please rate us</div>
                             </div>
                         </div>
+                        <button class="btn btn-sm btn-outline-primary me-2 " (click)="ctrl.setValue(null) ">Clear</button> -->
+                        <!-- <div class="mb-3">
+                            <ngb-rating [(rate)]="currentRate">
+                            </ngb-rating>
+                            {{ctrl.value}}
+                            <div class="form-text font-omedium ">
+                                <div *ngIf="ctrl.valid " class="text-success ">Thanks!</div>
+                                <div *ngIf="ctrl.invalid " class="text-danger ">Please rate us</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary me-2 " (click)="ctrl.setValue(null) ">Clear</button> -->
 
-
-
-                        <button class="btn btn-sm btn-outline-primary me-2" (click)="ctrl.setValue(null)">Clear</button>
+                        <ngb-rating [formControl]="ctrl">
+                            <ng-template let-fill="fill" let-index="index">
+                                <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                            </ng-template>
+                        </ngb-rating>
+                        <hr>
+                        <pre>Rate: <b>{{ctrl}}</b></pre>
                         <hr>
 
 
-                        <button class="btn btn-primary" (click)="toggle()" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary " (click)="toggle() " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
                             Add Review
                             </button>
-                        <ng-container *ngIf="flag">
+                        <ng-container *ngIf="flag ">
                             <br>
                             <br>
-                            <div class="col-md-8 container">
-                                <div id="review-form">
-                                    <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
-                                        <input class=" input form-control " name="name" id="name" type="text " placeholder="Your Name ">
+                            <div class="col-md-8 container ">
+                                <div id="review-form ">
+                                    <form class="review-form " [formGroup]="userformgroup " (ngSubmit)="addReview() ">
+                                        <input class=" input form-control " name="name " id="name " type="text " placeholder="Your Name ">
                                         <input class="input " type="email " placeholder="Your Email ">
-                                        <input class="input " [(ngModel)]="review.product_id" formControlName="product_id" hidden type="text" id="product_id" name="product_id">
-                                        <textarea class="input " [(ngModel)]="review.user_review" formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
+                                        <input class="input " [(ngModel)]="review.product_id " formControlName="product_id " hidden type="text " id="product_id " name="product_id ">
+                                        <textarea class="input " [(ngModel)]="review.user_review " formControlName="user_review " name="user_review " id="user_review " [class.is-valid]="user_review?.valid " [class.is-invalid]="user_review?.invalid
+                                " [(ngModel)]="review.user_review " placeholder="Your Review "></textarea>
                                         <button class="primary-btn ">Submit</button>
                                     </form>
                                 </div>
@@ -76,8 +93,8 @@
 
 
                         <div class="action ">
-                            <button class="add-to-cart btn btn-default " type="button ">add to cart</button>
-                            <button class="like btn btn-default " type="button "><span class="fa fa-heart "></span></button>
+                            <button class="add-to-cart btn btn-default " (click)="addtocart(prd) " type="button ">add to cart</button>
+                            <button class="like btn btn-default " (click)="addtowishlist(prd)" type="button "><span class="fa fa-heart "></span></button>
                         </div>
 
 
