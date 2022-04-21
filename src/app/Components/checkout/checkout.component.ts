@@ -19,7 +19,7 @@ export class CheckoutComponent implements OnInit {
 
   newshipping:Icheckout={} as Icheckout
   cartlist:Icart[]=[];
-  prdlisticat: Iproduct[] = [];
+  prdlisticat: Iproduct[] = []; 
   public payPalConfig?: IPayPalConfig;
   showSuccess: boolean | undefined;
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,

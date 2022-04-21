@@ -18,19 +18,18 @@
                                 <input type="text" class="form-control h1" id="email" name="email" [(ngModel)]="newuserdata.email" style="border: 0;outline: 0;border-bottom: 2px solid"> <br>
                             </div>
 
-                            <div class="form-floating mb-3">
-
-                                <button type="button" (click)="togeltextboxforpassword()" class="btn btn-outline-info mb-3">Change Password</button>
-                                <span class="text-muted d-block mb-1 ms-3 mt-3 " *ngIf="showtextboxforpassword"><h4>Old Password:</h4>
-                            <input type="text"  id="oldpassword" #ol  [(ngModel)]="oldpassword"    name="oldpassword"  style="border: 0;outline: 0;border-bottom: 2px solid" > <br>
-                            <button type="button" (click)="chechpassword(ol.value)"  class="btn btn-outline-info mb-3">check Password</button>
-                    </span>
-                                <span *ngIf="trupasssord ==false"><h4 style="color: red;"> enter correct password</h4>
-                            </span>
-                                <span *ngIf="trupasssord && !newshowtextboxforpassword"><h4>Edit  Password:</h4>
-                            <input type="text" class="form-control" id="password"  name="password"  style="border: 0;outline: 0;border-bottom: 2px solid" [(ngModel)]="newuserdata.password" > <br>
-                        </span>
-
+                            <div  >
+                                <button type="button"  (click)="togeltextboxforpassword()" class="btn btn-outline-info mb-3">Change Password</button>
+                                <span class="text-muted d-block mb-1 ms-3 mt-3 " *ngIf="showtextboxforpassword"><h4>Old Password:</h4> 
+                                    <input type="text" class="form-control" id="oldpassword" #ol  [(ngModel)]="oldpassword"    name="oldpassword"  style="border: 0;outline: 0;border-bottom: 2px solid" > <br>
+                                    <button type="button" (click)="chechpassword(ol.value)"  class="btn btn-outline-info mb-3">check Password</button>
+                               </span>
+                               <span *ngIf="trupasssord ==false"><h4> enter correct password</h4> 
+                                     </span>
+                                    <span *ngIf="trupasssord && !newshowtextboxforpassword"><h4>Edit  Password:</h4> 
+                                    <input type="password" class="form-control" id="password"  name="password"  style="border: 0;outline: 0;border-bottom: 2px solid" [(ngModel)]="newuserdata.password" > <br>
+                                </span>
+            
                             </div>
 
                             <div class="d-grid mb-2">
