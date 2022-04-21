@@ -1,97 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 body {
-    background-color: #000000
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
 }
 
-.padding {
-    padding: 3rem !important;
-    margin-left: 200px
+.card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+    background-size: cover;
 }
 
-.card-img-top {
-    height: 300px
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
 }
 
-.card-no-border .card {
-    border-color: #d7dfe3;
-    border-radius: 4px;
-    margin-bottom: 30px;
-    -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05)
+.btn-google {
+    color: white !important;
+    background-color: #ea4335;
 }
 
-.card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem
+.btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
 }
 
-.pro-img {
-    margin-top: -80px;
-    margin-bottom: 20px
+a {
+    font-size: medium;
 }
 
-.little-profile .pro-img img {
-    width: 128px;
-    height: 128px;
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 100%
+input {
+    font-size: medium;
 }
 
-html body .m-b-0 {
-    margin-bottom: 0px
-}
-
-h3 {
-    line-height: 30px;
-    font-size: 21px
-}
-
-.btn-rounded.btn-md {
-    padding: 12px 35px;
-    font-size: 16px
-}
-
-html body .m-t-10 {
-    margin-top: 10px
-}
-
-.btn-primary,
-.btn-primary.disabled {
-    background: #7460ee;
-    border: 1px solid #7460ee;
-    -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-    box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
-    -webkit-transition: 0.2s ease-in;
-    -o-transition: 0.2s ease-in;
-    transition: 0.2s ease-in
-}
-
-.btn-rounded {
-    border-radius: 60px;
-    padding: 7px 18px
-}
-
-.m-t-20 {
-    margin-top: 20px
-}
-
-.text-center {
-    text-align: center !important
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #455a64;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 1rem
+h2 {
+    color: maroon;
+    font-family: lucida calligraphy, cursive;
 }
