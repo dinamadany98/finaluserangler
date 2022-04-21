@@ -8,52 +8,61 @@ import { Ratting } from '../Models/ratting';
 import { Review } from '../Models/review';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WhishlisService {
-
-  httpoption={}
-  constructor(private httpclint:HttpClient) { 
-    this.httpoption={
-      headers:new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    }
+  httpoption = {};
+  constructor(private httpclint: HttpClient) {
+    this.httpoption = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
   }
 
- 
-  addwishlistdata(Product:Iproduct):Observable<Iproduct>{
-    return  this.httpclint.post <Iproduct>(`${environment.ApiBaseURL}/wishlist`,JSON.stringify(Product),this.httpoption)
-    
-    }
+  addwishlistdata(Product: Iproduct): Observable<Iproduct> {
+    return this.httpclint.post<Iproduct>(
+      `${environment.ApiBaseURL}/wishlist`,
+      JSON.stringify(Product),
+      this.httpoption
+    );
+  }
 
-    getwishlistdata() :Observable<Iproduct[]>
-    {
-      return this.httpclint.get<Iproduct[]>(`${environment.ApiBaseURL}/wishlist`);
-    }  
-    clearwishlist(): Observable <Iwhishlist>
-    {
-      return this.httpclint.delete<Iwhishlist>(`${environment.ApiBaseURL}/wishlistuser `,this.httpoption) 
-        
-    } 
-    deletfromwishlist(id:number): Observable <Iwhishlist>
-    {
-      return this.httpclint.delete<Iwhishlist>(`${environment.ApiBaseURL}/wishlist/${id}`,this.httpoption) 
-      
-    }
-    addreview(review: Review): Observable<Review> {
-      return this.httpclint.post<Review>(
-        `${environment.ApiBaseURL}/add-review`,
-        JSON.stringify(review),
-        this.httpoption
-      );
-    }
+  getwishlistdata(): Observable<Iproduct[]> {
+    return this.httpclint.get<Iproduct[]>(`${environment.ApiBaseURL}/wishlist`);
+  }
+  clearwishlist(): Observable<Iwhishlist> {
+    return this.httpclint.delete<Iwhishlist>(
+      `${environment.ApiBaseURL}/wishlistuser `,
+      this.httpoption
+    );
+  }
+  deletfromwishlist(id: number): Observable<Iwhishlist> {
+    return this.httpclint.delete<Iwhishlist>(
+      `${environment.ApiBaseURL}/wishlist/${id}`,
+      this.httpoption
+    );
+  }
+  // addreview(review: Review): Observable<Review> {
+  //   return this.httpclint.post<Review>(
+  //     `${environment.ApiBaseURL}/add-review`,
+  //     JSON.stringify(review),
+  //     this.httpoption
+  //   );
+  // }
+  addreview(review: any): Observable<Review> {
+    return this.httpclint.post<Review>(
+      `${environment.ApiBaseURL}/add-review`,
+      JSON.stringify(review),
+      this.httpoption
+    );
+  }
 
-    addratting(rate: Ratting): Observable<Ratting> {
-      return this.httpclint.post<Ratting>(
-        `${environment.ApiBaseURL}/add-rate`,
-        JSON.stringify(rate),
-        this.httpoption
-      );
-    } 
+  addratting(rate: Ratting): Observable<Ratting> {
+    return this.httpclint.post<Ratting>(
+      `${environment.ApiBaseURL}/add-rate`,
+      JSON.stringify(rate),
+      this.httpoption
+    );
+  }
 }

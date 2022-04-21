@@ -60,9 +60,9 @@ export class ProductdetailsComponent implements OnInit {
   get user_review() {
     return this.userformgroup.get('user_review');
   }
-  get user_id() {
-    return this.userformgroup.get('user_id');
-  }
+  // get user_id() {
+  //   return this.userformgroup.get('user_id');
+  // }
   get product_id() {
     return this.userformgroup.get('product_id');
   }
@@ -85,8 +85,27 @@ export class ProductdetailsComponent implements OnInit {
         });
       },
     });
-    console.log(this.review);
+     console.log(this.review);
+
   }
+  //   addReview() {
+  //     this.review.product_id = this.currprdid;
+  //  let well=   this.wishlistservice.addreview(this.review).subscribe({
+  //       next: (review) => {
+  //         this.router.navigate(['/home']);
+  //         Swal.fire('Review Correct', 'You clicked the button!', 'success');
+  //       },
+  //       error: (err) => {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Oops...',
+  //           text: 'Something went wrong!',
+  //           footer: '<a href="">Why do I have this issue?</a>',
+  //         });
+  //       },
+  //     });
+  //     console.log(well);
+  //   }
   //////////////////////////////
   ngOnInit(): void {
     this.activedroute.paramMap.subscribe(() => {

@@ -1,72 +1,42 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
+<body class="">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>eCommerce Product Detail</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
-</head>
-
-<body>
 
     <div class="container">
+
         <div class="card">
-            <div class="container-fliud">
+            <div class="container-fliud ">
                 <div class="wrapper row">
                     <div class="preview col-md-6">
+
                         <div class="preview-pic tab-content">
-                            <img src="http://localhost:8000/assets/{{prd.image}}" alt=" ">
+                            <div class="tab-pane active" id="pic-1"><img src="http://localhost:8000/assets/{{prd.image}}" width="250" height="400" /></div>
+
                         </div>
+
+
                     </div>
                     <div class="details col-md-6">
-                        <h3 class="product-title">{{prd?.name}}
-                        </h3>
-                        <p class="product-description "> {{prd?.description}}</p>
-                        <h4 class="price ">current price: <span>${{prd?.selling_price}}</span></h4>
-                        <p class="vote "><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-                        <h5 class="sizes ">Description:
-                            <span class="size " data-toggle="tooltip " title="small ">{{prd?.small_description}}</span>
-                        </h5>
-                        <hr>
-                        <!-- <div class="mb-3">
+                        <h3 class="product-title">{{prd?.name}}</h3>
+                        <div class="rating">
                             <ngb-rating [formControl]="ctrl">
+                                <ng-template let-fill="fill" let-index="index">
+                                    <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                                </ng-template>
                             </ngb-rating>
-                            {{ctrl.value}}
-                            <div class="form-text font-omedium ">
-                                <div *ngIf="ctrl.valid " class="text-success ">Thanks!</div>
-                                <div *ngIf="ctrl.invalid " class="text-danger ">Please rate us</div>
-                            </div>
-                        </div>
-                        <button class="btn btn-sm btn-outline-primary me-2 " (click)="ctrl.setValue(null) ">Clear</button> -->
-                        <!-- <div class="mb-3">
-                            <ngb-rating [(rate)]="currentRate">
-                            </ngb-rating>
-                            {{ctrl.value}}
-                            <div class="form-text font-omedium ">
-                                <div *ngIf="ctrl.valid " class="text-success ">Thanks!</div>
-                                <div *ngIf="ctrl.invalid " class="text-danger ">Please rate us</div>
-                            </div>
-                        </div>
-                        <button class="btn btn-sm btn-outline-primary me-2 " (click)="ctrl.setValue(null) ">Clear</button> -->
+                            <hr>
+                            <pre>Rate: <b>{{ctrl}}</b></pre>
+                            <hr>
 
-                        <ngb-rating [formControl]="ctrl">
-                            <ng-template let-fill="fill" let-index="index">
-                                <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
-                            </ng-template>
-                        </ngb-rating>
-                        <hr>
-                        <pre>Rate: <b>{{ctrl}}</b></pre>
-                        <hr>
-
+                            <span class="review-no">41 reviews</span>
+                        </div>
+                        <p class="product-description">{{prd?.description}}</p>
+                        <h4 class="price">current price: <span>${{prd?.selling_price}}</span></h4>
+                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+                        <p class="product-description">{{prd?.small_description}}</p>
 
                         <button class="btn btn-primary " (click)="toggle() " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
                             Add Review
@@ -75,13 +45,12 @@
                             <br>
                             <br>
                             <div class="col-md-8 container ">
-                                <div id="review-form ">
-                                    <form class="review-form " [formGroup]="userformgroup " (ngSubmit)="addReview() ">
-                                        <input class=" input form-control " name="name " id="name " type="text " placeholder="Your Name ">
+                                <div id="review-form">
+                                    <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
+                                        <input class=" input " type="text " placeholder="Your Name ">
                                         <input class="input " type="email " placeholder="Your Email ">
-                                        <input class="input " [(ngModel)]="review.product_id " formControlName="product_id " hidden type="text " id="product_id " name="product_id ">
-                                        <textarea class="input " [(ngModel)]="review.user_review " formControlName="user_review " name="user_review " id="user_review " [class.is-valid]="user_review?.valid " [class.is-invalid]="user_review?.invalid
-                                " [(ngModel)]="review.user_review " placeholder="Your Review "></textarea>
+                                        <input class="input " [(ngModel)]="review.product_id" formControlName="product_id" hidden type="text" id="product_id" name="product_id">
+                                        <textarea class="input " formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
                                         <button class="primary-btn ">Submit</button>
                                     </form>
                                 </div>
@@ -90,27 +59,26 @@
                             <br>
                             <br>
                         </ng-container>
-
-
                         <div class="action ">
-                            <button class="add-to-cart btn btn-default " (click)="addtocart(prd) " type="button ">add to cart</button>
+                            <button class="add-to-cart btn btn-default " (click)="addtocart(prd)" type="button ">add to cart</button>
                             <button class="like btn btn-default " (click)="addtowishlist(prd)" type="button "><span class="fa fa-heart "></span></button>
                         </div>
-
-
-
-                        <!-- /Review Form -->
                     </div>
                 </div>
             </div>
         </div>
-
+        <br>
+        <br>
+        <br>
     </div>
-    <br>
-    <br>
-    <br>
+
+
+
+
+
 
 
 </body>
+
 
 </html>
