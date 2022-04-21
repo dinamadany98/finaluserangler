@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { IuserProfile } from 'src/app/Models/iuser-profile';
 import { UserService } from 'src/app/services/user.service';
 import * as bcrypt from 'bcryptjs';
-import * as CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
@@ -33,7 +32,7 @@ export class EditprofileComponent implements OnInit ,OnChanges {
    decrypted: string="";
   // const CryptoJS = require("crypto-js");
    async chechpassword(old:any){
-   
+
     //const _key = CryptoJS.enc.Utf8.parse(this.tokenFromUI);
    // const _iv = CryptoJS.enc.Utf8.parse(this.tokenFromUI);
       const validPassword =await bcrypt.compare(old,this.newuserdata.password);
@@ -44,15 +43,15 @@ export class EditprofileComponent implements OnInit ,OnChanges {
           this.trupasssord =true;
     this.showtextboxforpassword=!this.showtextboxforpassword;
     this.newshowtextboxforpassword=!this.newshowtextboxforpassword;
-   
+
 //const key ='base64:qlBXQNTYIw7O++ImqgcbMneSyAUG0qGTe7wDYKZaxSE=';
 
 //const iv = CryptoJS.enc.Base64.parse('BMcOODpuQurUYGICmOqqbQ==')
   // this.decrypted=CryptoJS.AES.decrypt(this.newuserdata.password, 'base64:qlBXQNTYIw7O++ImqgcbMneSyAUG0qGTe7wDYKZaxSE='
-  
+
     //).toString(CryptoJS.enc.Utf8);
    // console.log( this.decrypted);
-   
+
 
           console.log(this.trupasssord)
      }else{

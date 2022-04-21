@@ -33,10 +33,11 @@
 
                             <span class="review-no">41 reviews</span>
                         </div>
+                        <p class="product-description">{{prd?.small_description}}</p>
                         <p class="product-description">{{prd?.description}}</p>
+
                         <h4 class="price">current price: <span>${{prd?.selling_price}}</span></h4>
                         <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-                        <p class="product-description">{{prd?.small_description}}</p>
 
                         <button class="btn btn-primary " (click)="toggle() " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
                             Add Review
