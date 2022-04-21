@@ -38,21 +38,20 @@ export class EditprofileComponent implements OnInit ,OnChanges {
    // const _iv = CryptoJS.enc.Utf8.parse(this.tokenFromUI);
       const validPassword =await bcrypt.compare(old,this.newuserdata.password);
       //const crt= Crypt.decrypt(this.newuserdata.password);
-     // const x =bcrypt.decodeBase64(this.newuserdata.password,100);
-     // console.log(x);
+      const x =bcrypt.decodeBase64(this.newuserdata.password,100);
+     console.log(x);
      if(validPassword){
           this.trupasssord =true;
     this.showtextboxforpassword=!this.showtextboxforpassword;
     this.newshowtextboxforpassword=!this.newshowtextboxforpassword;
-   
+    this.newuserdata.password=""
 //const key ='base64:qlBXQNTYIw7O++ImqgcbMneSyAUG0qGTe7wDYKZaxSE=';
 
 //const iv = CryptoJS.enc.Base64.parse('BMcOODpuQurUYGICmOqqbQ==')
-  // this.decrypted=CryptoJS.AES.decrypt(this.newuserdata.password, 'base64:qlBXQNTYIw7O++ImqgcbMneSyAUG0qGTe7wDYKZaxSE='
-  
-    //).toString(CryptoJS.enc.Utf8);
-   // console.log( this.decrypted);
-   
+  this.decrypted=CryptoJS.AES.decrypt(this.newuserdata.password, 'base64:qlBXQNTYIw7O++ImqgcbMneSyAUG0qGTe7wDYKZaxSE='
+ ).toString(CryptoJS.enc.Utf8);
+    console.log( this.decrypted);
+    console.log( this.newuserdata.password);
 
           console.log(this.trupasssord)
      }else{
