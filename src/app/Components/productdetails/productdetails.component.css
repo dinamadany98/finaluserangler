@@ -109,7 +109,8 @@ img {
 .price,
 .sizes,
 .colors {
-    text-transform: UPPERCASE;
+    text-transform: capitalize;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -228,6 +229,22 @@ img {
 }
 
 .head {
+    font-size: medium;
+}
+
+.container {
+    font-size: large;
+}
+
+a {
+    font-size: large;
+}
+
+.card {
+    font-size: large;
+}
+
+.btn {
     font-size: medium;
 }
 
