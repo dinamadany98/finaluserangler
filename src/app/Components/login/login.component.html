@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login V9</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -23,16 +23,17 @@
                 <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
                     <input type="email" name="email" formControlName="email" class="input100 " aria-describedby="emailHelp" required placeholder="username or email">
                     <span class="focus-input100"></span>
-                    <div *ngIf="" class="text-danger">
-                        *Email is required
+                    <div class="text-danger font-weight-bold put" [hidden]="email?.valid || email?.untouched">
+                        <small *ngIf="email?.errors?.['required']">Email is required</small >
+                            <small *ngIf="email?.errors?.['email']">Email is Not Correct</small >
                     </div>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
                     <input type="password" name="password" formControlName="password" aria-describedby="emailHelp" required class="input100" placeholder="password">
                     <span class="focus-input100"></span>
-                    <div *ngIf="" class="text-danger">
-                        *password is required
+                     <div class="text-danger font-weight-bold put" [hidden]="password?.valid || password?.untouched">
+                        <small *ngIf="password?.errors?.['required']">password is required</small >
                     </div>
                 </div>
 
@@ -73,23 +74,7 @@
 
     <div id="dropDownSelect1"></div>
 
-    <!--===============================================================================================-->
-    <script src="src/assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="src/assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="src/assets/login/vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="src/assets/login/vendor/bootstrap/js/popper.js"></script>
-    <script src="src/assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="src/assets/login/vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="src/assets/login/vendor/daterangepicker/moment.min.js"></script>
-    <script src="src/assets/login/vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-    <script src="src/assets/login/vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="src/assets/login/js/main.js"></script>
+
 
 </body>
 

@@ -33,7 +33,7 @@ export class IProductService {
   //return obj
   getprdbyid(prdid: number): Observable<Iproduct> {
     return this.httpclient.get<Iproduct>(
-      `${environment.ApiBaseURL}/products/${prdid}`
+      `${environment.ApiBaseURL}/productsdetails/${prdid}`
     );
   }
 

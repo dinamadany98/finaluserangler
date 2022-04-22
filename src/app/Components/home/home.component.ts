@@ -63,9 +63,9 @@ export class HomeComponent implements OnInit, OnChanges {
       error: (err) => {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>',
+          footer: ' <a href="/login">If You Have Account ? Click Here</a>',
         });
       },
     });
@@ -85,9 +85,9 @@ export class HomeComponent implements OnInit, OnChanges {
       error: (err) => {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>',
+          footer:' <a href="/login">If You Have Account ? Click Here</a>',
         });
       },
     });

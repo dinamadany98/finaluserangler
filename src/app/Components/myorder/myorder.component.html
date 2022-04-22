@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
     <div class="container-fluid my-5 d-flex justify-content-center">
         <div class="card card-1">
             <div class="card-header bg-white">
@@ -45,7 +45,28 @@
                                                             <h4 class="mb-0">$ {{order.total_price}}</h4>
                                                         </div>
                                                     </div>
+                                                    {{order.id}}
                                                 </div>
+                                                <button class="btn btn-primary " (click)="toggle(order.id) " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
+                            Add Review
+                            </button>
+                                                <br>
+                                                <br>
+                                                <div class="col-md-8 container " class="order" id="{{order.id}}">
+                                                    <div id="review-form ">
+                                                        <form class="review-form " [formGroup]="userformgroup " (ngSubmit)="addReview() ">
+                                                            <input class=" input " type="text " placeholder="Your Name ">
+                                                            <input class="input " type="email " placeholder="Your Email ">
+                                                            <input class="input " [(ngModel)]="review.product_id " formControlName="product_id " hidden type="text " id="product_id " name="product_id ">
+                                                            <textarea class="input " formControlName="user_review " name="user_review " id="user_review " [class.is-valid]="user_review?.valid " [class.is-invalid]="user_review?.invalid " [(ngModel)]="review.user_review
+                                                    " placeholder="Your Review "></textarea>
+                                                            <button class="primary-btn ">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <br>
                                             </ng-container>
                                         </ng-container>
                                     </div>
@@ -59,17 +80,18 @@
 
                                                     <ng-container *ngIf="ordr.id==order.order_id">
                                                         <div class="progress blue">
-                                                            <div class="progress-bar progress-bar rounded" [style.width]="(ordr.status==0)?'400px':'910px'" style="width:90%; background:#20a39e;"></div>
+                                                            <div class="progress-bar progress-bar rounded" [style.width]="(ordr.status==0)?'370px':'810px'" style="width:90%; background:#20a39e;"></div>
                                                         </div>
                                                     </ng-container>
                                                 </ng-container>
                                             </div>
                                             <div style="margin-top: 20px; color: brown;">
                                                 <div class=" "> <span style="margin-left: 40%;margin-top: 20px ;"> <span class="text-right h5 ">Out for delivary </span><i class="fa fa-circle active"></i></span>
-                                                    <span style="margin-left: 39%;margin-top: 20px ;"> <span class="text-right h5 ">Delivered </span><i class="fa fa-circle "></i></span>
+                                                    <span style="margin-left: 30%;margin-top: 20px ;"> <span class="text-right h5 ">Delivered </span><i class="fa fa-circle "></i></span>
                                                 </div>
 
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -81,19 +103,19 @@
 
 
             </div>
-            <div class="card-footer">
-                <div class="jumbotron-fluid">
+            <div class="card-footer ">
+                <div class="jumbotron-fluid ">
                     <div class="row justify-content-between ">
-                        <div class="col-sm-auto col-auto my-auto">
+                        <div class="col-sm-auto col-auto my-auto ">
                             <br>
-                            <h2 class="mb-0 font-weight-bold" style="color:aliceblue">TOTAL PAID</h2><br>
+                            <h2 class="mb-0 font-weight-bold " style="color:aliceblue ">TOTAL PAID</h2><br>
                         </div>
 
                     </div>
-                    <div class="row mb-3 mt-3 mt-md-0">
-                        <div class="col-auto border-line"> <small class="text-white">PAN:AA02hDW7E</small></div>
-                        <div class="col-auto border-line"> <small class="text-white">CIN:UMMC20PTC </small></div>
-                        <div class="col-auto "><small class="text-white">GSTN:268FD07EXX </small> </div>
+                    <div class="row mb-3 mt-3 mt-md-0 ">
+                        <div class="col-auto border-line "> <small class="text-white ">PAN:AA02hDW7E</small></div>
+                        <div class="col-auto border-line "> <small class="text-white ">CIN:UMMC20PTC </small></div>
+                        <div class="col-auto "><small class="text-white ">GSTN:268FD07EXX </small> </div>
                     </div>
                 </div>
             </div>

@@ -60,7 +60,7 @@ export class WhishlisService {
 
   addratting(rate: Ratting): Observable<Ratting> {
     return this.httpclint.post<Ratting>(
-      `${environment.ApiBaseURL}/add-rate`,
+      `${environment.ApiBaseURL}/add-rating`,
       JSON.stringify(rate),
       this.httpoption
     );

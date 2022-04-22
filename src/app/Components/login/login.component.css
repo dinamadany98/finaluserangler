@@ -10353,3 +10353,7 @@ iframe {
 input {
     text-transform: none;
 }
+
+.put {
+    font-size: large;
+}

@@ -21,6 +21,7 @@ export class ProductdetailsComponent implements OnInit {
   rate: Ratting = {} as Ratting;
   review: Review = {} as Review;
   rev: Review = {} as Review;
+  starts_rate = '';
   flag: boolean = false;
   toggle() {
     this.flag = !this.flag;
@@ -48,11 +49,23 @@ export class ProductdetailsComponent implements OnInit {
       product_id: ['', [Validators.required]],
     });
   }
-  addrate(value: any) {
-    // alert('sucses')
-    this.wishlistservice.addratting(this.rate).subscribe((value) => {
-      this.rate = value;
-      console.log(value);
+  addrate(stars:any) {
+    this.rate.product_id = this.currprdid;
+    this.rate.stars_rated = stars;
+    console.log(this.rate);
+    this.wishlistservice.addratting(this.rate).subscribe({
+      next: () => {
+        Swal.fire('Review Correct', 'You clicked the button!', 'success');
+      },
+      error: () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops... Please Login  Now',
+          text: 'Something went wrong!',
+          footer:
+            '<a routerLink="/login" routerLinkActive="active">Why do I have this issue?</a>',
+        });
+      },
     });
   }
 
@@ -60,9 +73,7 @@ export class ProductdetailsComponent implements OnInit {
   get user_review() {
     return this.userformgroup.get('user_review');
   }
-  // get user_id() {
-  //   return this.userformgroup.get('user_id');
-  // }
+
   get product_id() {
     return this.userformgroup.get('product_id');
   }
@@ -79,33 +90,15 @@ export class ProductdetailsComponent implements OnInit {
       error: (err) => {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
           footer: '<a href="">Why do I have this issue?</a>',
         });
       },
     });
-     console.log(this.review);
-
+    console.log(this.review);
   }
-  //   addReview() {
-  //     this.review.product_id = this.currprdid;
-  //  let well=   this.wishlistservice.addreview(this.review).subscribe({
-  //       next: (review) => {
-  //         this.router.navigate(['/home']);
-  //         Swal.fire('Review Correct', 'You clicked the button!', 'success');
-  //       },
-  //       error: (err) => {
-  //         Swal.fire({
-  //           icon: 'error',
-  //           title: 'Oops...',
-  //           text: 'Something went wrong!',
-  //           footer: '<a href="">Why do I have this issue?</a>',
-  //         });
-  //       },
-  //     });
-  //     console.log(well);
-  //   }
+
   //////////////////////////////
   ngOnInit(): void {
     this.activedroute.paramMap.subscribe(() => {
@@ -135,9 +128,9 @@ export class ProductdetailsComponent implements OnInit {
       error: (err) => {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>',
+          footer: '<a href="/login">If You Have Account ? Click Here</a>',
         });
       },
     });
@@ -155,9 +148,9 @@ export class ProductdetailsComponent implements OnInit {
       error: (err) => {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
+          title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer: '<a href="">Why do I have this issue?</a>',
+          footer: ' <a href="/login">If You Have Account ? Click Here</a>',
         });
       },
     });

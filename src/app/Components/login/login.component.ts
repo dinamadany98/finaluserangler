@@ -17,10 +17,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
-
+  get email() {
+    return this.formGroup.get('email');
+  }
+  get password() {
+    return this.formGroup.get('password');
+  }
   initForm() {
     this.formGroup = new FormGroup({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
@@ -36,13 +41,22 @@ export class LoginComponent implements OnInit {
         error: (err) => {
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
+            title: 'Oops...Email OR Password Is not Correct',
             text: 'Something went wrong!',
             footer: '<a href="">Why do I have this issue?</a>',
           });
         },
       });
+    } else {
+         
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+      
     }
   }
-
 }
+
