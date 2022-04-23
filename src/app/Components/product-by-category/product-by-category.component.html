@@ -32,10 +32,11 @@
 <div class="section">
     <div class="container">
         <div class="row">
+            <carousel style="height:250px;">
             <ng-container *ngFor="let prd of categorylist">
 
-                <div class="col-md-4 col-xs-6  ">
-                    <div class="shop  carousel-inner">
+                <div class=" carousel-cell  ms-5 me-4 ">
+                    <div class="shop  " style="height:250px;">
                         <div class=" shop-img">
                             <img src="{{prd.image}} " alt=" ">
 
@@ -48,6 +49,7 @@
                     </div>
                 </div>
             </ng-container>
+            </carousel>
         </div>
     </div>
 </div>
