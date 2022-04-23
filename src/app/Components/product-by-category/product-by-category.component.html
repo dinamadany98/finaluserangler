@@ -64,12 +64,12 @@
                     <h3 class="title ">New Products</h3>
                     <div class="section-nav ">
                         <ul class="section-tab-nav tab-nav ">
-                            <li class="active ">
-                                <a data-toggle="tab" routerLink="/">All Products</a>
+                            <li  routerLinkActive="active">
+                                <a data-toggle="tab" routerLink="/" routerLinkActive="active">All Products</a>
                             </li>
                             <ng-container *ngFor="let cart of categorylist">
-                            <li >
-                                <a data-toggle="tab"  routerLink="/productbycat/{{cart.id}}" >{{cart.name}}</a>
+                            <li  routerLinkActive="active">
+                                <a data-toggle="tab"  routerLink="/productbycat/{{cart.id}}" routerLinkActive="active">{{cart.name}}</a>
                             </li>
                             </ng-container>
                         </ul>

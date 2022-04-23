@@ -23,6 +23,7 @@ import { LoginService } from './services/login.service';
 import { AccessLoginGuard } from './access-login.guard';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { ProductByCategoryComponent } from './Components/product-by-category/product-by-category.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
  
 
 
@@ -45,6 +46,7 @@ import { ProductByCategoryComponent } from './Components/product-by-category/pro
     NotFoundComponent,
     LoginComponent,
     ProductByCategoryComponent,
+    
   ],
   imports: [
     NgxPayPalModule,
@@ -53,6 +55,7 @@ import { ProductByCategoryComponent } from './Components/product-by-category/pro
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    IvyCarouselModule
   ],
   providers: [
     [AccessLoginGuard, LoginService],
