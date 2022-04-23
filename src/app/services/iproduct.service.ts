@@ -22,12 +22,12 @@ export class IProductService {
   getallproduct(): Observable<Iproduct[]> {
     return this.httpclient.get<Iproduct[]>(
       `${environment.ApiBaseURL}/getallproduct`
-    );
+    ); 
   }
   // return cat id
   getprdbycatid(catid: number): Observable<Iproduct[]> {
     return this.httpclient.get<Iproduct[]>(
-      `${environment.ApiBaseURL}/products?CateogryID=${catid}`
+      `${environment.ApiBaseURL}/getProductsbyCategory/${catid}`
     );
   }
   //return obj

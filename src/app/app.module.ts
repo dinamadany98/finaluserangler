@@ -22,6 +22,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AccessLoginGuard } from './access-login.guard';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { ProductByCategoryComponent } from './Components/product-by-category/product-by-category.component';
  
 
 
@@ -43,6 +44,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
     RegisterComponent,
     NotFoundComponent,
     LoginComponent,
+    ProductByCategoryComponent,
   ],
   imports: [
     NgxPayPalModule,

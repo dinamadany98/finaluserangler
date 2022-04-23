@@ -43,7 +43,7 @@
                         </div>
                         <div class="shop-body ">
                             <h3>{{prd.name}}<br>Collection</h3>
-                            <a  routerLink="/productbycat/{{prd.id}}" class="cta-btn ">Shop now <i class="fa fa-arrow-circle-right "></i></a>
+                            <a   routerLink="/productbycat/{{prd.id}}" class="cta-btn ">Shop now <i class="fa fa-arrow-circle-right "></i></a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     <div class="section-nav ">
                         <ul class="section-tab-nav tab-nav ">
                             <li class="active ">
-                                <a data-toggle="tab"  routerLink="/" >All Products</a>
+                                <a data-toggle="tab" routerLink="/">All Products</a>
                             </li>
                             <ng-container *ngFor="let cart of categorylist">
                             <li >
@@ -87,7 +87,7 @@
                     <!-- product -->
 
 
-                    <div class="col-md-4 col-xs-6 " *ngFor="let prd of prdlisticat ">
+                    <div class="col-md-4 col-xs-6 " *ngFor="let prd of productbycategoryid ">
                         <div class="product ">
                             <div class="product-img ">
                                 <img src="http://localhost:8000/assets/{{prd.image}}" alt=" " height="190px">

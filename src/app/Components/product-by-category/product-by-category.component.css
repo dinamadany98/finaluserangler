@@ -1,0 +1,17 @@
+a {
+    font-size: medium;
+    text-decoration: none;
+}
+
+.head {
+    font-size: medium;
+}
+
+.product-btns {
+    font-size: medium;
+}
+
+.wished {
+    /* color: red; */
+    background-color: red;
+}

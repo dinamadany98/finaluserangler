@@ -10,6 +10,7 @@ import { MyorderComponent } from './Components/myorder/myorder.component';
 import { EditprofileComponent } from './Components/myprofile/editprofile/editprofile.component';
 import { MyprofileComponent } from './Components/myprofile/myprofile.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { ProductByCategoryComponent } from './Components/product-by-category/product-by-category.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { SearchComponent } from './Components/search/search.component';
@@ -31,6 +32,14 @@ const routes: Routes = [
     component: CheckoutComponent,
     canActivate: [AccessLoginGuard],
   },
+
+  {
+    path: 'productbycat/:id',
+    component:ProductByCategoryComponent,
+     
+  },
+
+
   {
     path: 'myorder',
     component: MyorderComponent,
