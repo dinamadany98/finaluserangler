@@ -39,10 +39,14 @@ export class LoginService {
   // }
 
   loggedin() {
-    return !!localStorage.getItem('login');
+    if(localStorage.getItem('login')&&localStorage.getItem('role')&&localStorage.getItem('role')=='user')
+      return true;
+
+      return false;
   }
   logoutuser() {
     localStorage.removeItem('login');
+    localStorage.removeItem('role');
     this.router.navigate(['/home']);
   }
 }
