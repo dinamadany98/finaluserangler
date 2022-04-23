@@ -34,9 +34,23 @@ export class LoginComponent implements OnInit {
     if (this.formGroup.valid) {
       this.authservice.auth_login(this.formGroup.value).subscribe({
         next: (data) => {
+          if(data!=null && data.role=='user'){
           localStorage.setItem('login', data.token);
+          localStorage.setItem('role', data.role);
           this.router.navigate(['/home']);
           Swal.fire('Login orrect', 'You clicked the button!', 'success');
+          }else
+
+          {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...Email OR Password Is not Correct',
+              text: 'Something went wrong!',
+              footer: '<a href="">Why do I have this issue?</a>',
+            });
+
+          }
+
         },
         error: (err) => {
           Swal.fire({
@@ -48,14 +62,14 @@ export class LoginComponent implements OnInit {
         },
       });
     } else {
-         
+
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',
             footer: '<a href="">Why do I have this issue?</a>',
           });
-      
+
     }
   }
 }

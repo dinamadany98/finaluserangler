@@ -18,7 +18,11 @@ export class HeaderComponent implements OnInit {
     ,private prdapisevice: IProductService) {}
 
   loggedin() {
-    return !!localStorage.getItem('login');
+
+    if(localStorage.getItem('login')&&localStorage.getItem('role')=='user')
+        return true;
+        
+    return false;
   }
   logoutuser() {
     localStorage.removeItem('login');
