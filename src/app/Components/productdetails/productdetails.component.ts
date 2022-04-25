@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Iorderitem } from 'src/app/Models/iorderitem';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { Ratting } from 'src/app/Models/ratting';
 import { Review } from 'src/app/Models/review';
@@ -34,6 +35,7 @@ export class ProductdetailsComponent implements OnInit {
   productapi: Iproduct = {} as Iproduct;
   userformgroup: FormGroup;
   productvalue: any;
+  orderitemuser:Iorderitem[]=[]
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
@@ -96,7 +98,7 @@ export class ProductdetailsComponent implements OnInit {
         });
       },
     });
-    console.log(this.review);
+   // console.log(this.review);
   }
 
   //////////////////////////////
@@ -105,18 +107,30 @@ export class ProductdetailsComponent implements OnInit {
       this.currprdid = this.activedroute.snapshot.paramMap.get('pid')
         ? Number(this.activedroute.snapshot.paramMap.get('pid'))
         : 0;
-      console.log(this.currprdid);
+      //console.log(this.currprdid);
 
       let foundprd = this.prdservice
         .getprdbyid(this.currprdid)
         .subscribe((product) => {
           this.prd = product;
           this.productvalue = this.currprdid;
-          console.log(this.productvalue);
+          //console.log(this.productvalue);
         });
+
+        
+this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
+  this.orderitemuser=prod;
+  
+  console.log("this.orderitemuser");
+  console.log(this.orderitemuser);
+});
+
     });
+
+
   }
   addtocart(prod: Iproduct) {
+    console.log(this.orderitemuser);
     this.cartservice.addtocart(prod).subscribe({
       next: (prd) => {
         Swal.fire(
@@ -150,9 +164,4 @@ export class ProductdetailsComponent implements OnInit {
           icon: 'error',
           title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer: ' <a href="/login">If You Have Account ? Click Here</a>',
-        });
-      },
-    });
-  }
-}
+          footer: ' <a href="/login">If You Have Account ? Clic
