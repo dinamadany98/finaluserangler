@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { count } from 'rxjs';
 import { Iorderitem } from 'src/app/Models/iorderitem';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { Ratting } from 'src/app/Models/ratting';
@@ -83,6 +84,10 @@ export class ProductdetailsComponent implements OnInit {
 
   /////////////////////////////
   addReview() {
+    if(this.orderitemuser.length){
+       
+
+    
     this.review.product_id = this.currprdid;
     this.wishlistservice.addreview(this.review).subscribe({
       next: (review) => {
@@ -98,6 +103,15 @@ export class ProductdetailsComponent implements OnInit {
         });
       },
     });
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops... You Canot Add Reivew Without Buy It ',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>',
+    });
+  }
+  
    // console.log(this.review);
   }
 
@@ -121,8 +135,6 @@ export class ProductdetailsComponent implements OnInit {
 this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
   this.orderitemuser=prod;
   
-  console.log("this.orderitemuser");
-  console.log(this.orderitemuser);
 });
 
     });
@@ -164,4 +176,9 @@ this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
           icon: 'error',
           title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer: ' <a href="/login">If You Have Account ? Clic
+          footer: ' <a href="/login">If You Have Account ? Click Here</a>',
+        });
+      },
+    });
+  }
+}
