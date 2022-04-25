@@ -47,3 +47,10 @@ a {
     }
   }
   @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+.whatsapp-chat{
+    bottom: 10px;
+    left: 10px;
+    position: fixed;
+}
+

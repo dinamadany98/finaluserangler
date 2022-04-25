@@ -8,7 +8,7 @@ import { CategoryServiceService } from 'src/app/services/category-service.servic
 import { IProductService } from 'src/app/services/iproduct.service';
 import { WhishlisService } from 'src/app/services/whishlis.service';
 import Swal from 'sweetalert2';
- 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, OnChanges {
   prdlisticat: Iproduct[] = [];
   cartlist: Icart[] = [];
   iswished = false;
+  
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
@@ -51,7 +52,7 @@ export class HomeComponent implements OnInit, OnChanges {
   }
   addtocart(prod: Iproduct) {
     this.cartservice.addtocart(prod).subscribe({
-  
+
       next: (prd) => {
         this.rot.navigate(['/']);
         Swal.fire(
@@ -73,7 +74,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
   addtowishlist(prod: Iproduct) {
     this.whishlistservic.addwishlistdata(prod).subscribe({
-  
+
       next: (prd) => {
         this.rot.navigate(['/']);
         Swal.fire(
