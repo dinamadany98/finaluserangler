@@ -52,6 +52,22 @@ a {
     .card img {
         height: 11em;
     }
+  /* } */
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.whatsapp-chat {
+    bottom: 10px;
+    left: 10px;
+    position: fixed;
 }
 
-@import "~bootstrap-icons/font/bootstrap-icons.css"; */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+body {
+    /* background-color: #F0F1F5; */
+    font-family: 'Roboto', sans-serif;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}

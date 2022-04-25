@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.whatsapp-chat{
+  bottom: 10px;
+  left: 10px;
+  position: fixed;
+}

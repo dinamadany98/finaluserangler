@@ -39,34 +39,16 @@
                                                         </div>
 
                                                         <div class="col my-auto">
-                                                            <h4>Qty : {{order.quantity}}</h4>
+                                                            <h4>Quantity : {{order.quantity}}</h4>
                                                         </div>
                                                         <div class="col my-auto">
                                                             <h4 class="mb-0">$ {{order.total_price}}</h4>
                                                         </div>
                                                     </div>
-                                                    {{order.id}}
+
                                                 </div>
-                                                <button class="btn btn-primary " (click)="toggle(order.id) " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
-                            Add Review
-                            </button>
-                                                <br>
-                                                <br>
-                                                <div class="col-md-8 container " class="order" id="{{order.id}}">
-                                                    <div id="review-form ">
-                                                        <form class="review-form " [formGroup]="userformgroup " (ngSubmit)="addReview() ">
-                                                            <input class=" input " type="text " placeholder="Your Name ">
-                                                            <input class="input " type="email " placeholder="Your Email ">
-                                                            <input class="input " [(ngModel)]="review.product_id " formControlName="product_id " hidden type="text " id="product_id " name="product_id ">
-                                                            <textarea class="input " formControlName="user_review " name="user_review " id="user_review " [class.is-valid]="user_review?.valid " [class.is-invalid]="user_review?.invalid " [(ngModel)]="review.user_review
-                                                    " placeholder="Your Review "></textarea>
-                                                            <button class="primary-btn ">Submit</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <br>
-                                                <br>
+
+
                                             </ng-container>
                                         </ng-container>
                                     </div>

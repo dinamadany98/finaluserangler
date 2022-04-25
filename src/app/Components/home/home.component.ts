@@ -8,7 +8,7 @@ import { CategoryServiceService } from 'src/app/services/category-service.servic
 import { IProductService } from 'src/app/services/iproduct.service';
 import { WhishlisService } from 'src/app/services/whishlis.service';
 import Swal from 'sweetalert2';
- 
+import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,6 +19,32 @@ export class HomeComponent implements OnInit, OnChanges {
   prdlisticat: Iproduct[] = [];
   cartlist: Icart[] = [];
   iswished = false;
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['Previous', 'Next'],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 4,
+      },
+    },
+    nav: true,
+  };
+
+
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
@@ -51,9 +77,7 @@ export class HomeComponent implements OnInit, OnChanges {
   }
   addtocart(prod: Iproduct) {
     this.cartservice.addtocart(prod).subscribe({
-  
       next: (prd) => {
-        this.rot.navigate(['/']);
         Swal.fire(
           'Adding To Cart Succssfuly',
           'Please Check Your Cart',
@@ -73,9 +97,7 @@ export class HomeComponent implements OnInit, OnChanges {
 
   addtowishlist(prod: Iproduct) {
     this.whishlistservic.addwishlistdata(prod).subscribe({
-  
       next: (prd) => {
-        this.rot.navigate(['/']);
         Swal.fire(
           'Adding To Wishlist Succssfuly',
           'Please Check Your Wishlist',
@@ -87,7 +109,7 @@ export class HomeComponent implements OnInit, OnChanges {
           icon: 'error',
           title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer:' <a href="/login">If You Have Account ? Click Here</a>',
+          footer: ' <a href="/login">If You Have Account ? Click Here</a>',
         });
       },
     });

@@ -39,7 +39,7 @@
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </button>
                                             <span>    &nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                            <button type="button " class="btn btn-danger item btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
+                                            <button type="button " (click)="addtowishlist(prod) " class="btn btn-danger item btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                 </button>
                                             <!-- Data -->
@@ -89,7 +89,8 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <p><strong>Expected shipping delivery</strong></p>
-                        <p class="mb-0">12.10.2020 - 14.10.2020</p>
+                        <!-- <p class="mb-0">12.10.2020 - 14.10.2020</p> -->
+                        <p class="mb-0">{{date|date}} - {{date2|date}}</p>
                     </div>
                 </div>
                 <div class="card mb-4 mb-lg-0">
