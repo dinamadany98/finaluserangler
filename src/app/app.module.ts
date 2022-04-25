@@ -24,6 +24,7 @@ import { AccessLoginGuard } from './access-login.guard';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { ProductByCategoryComponent } from './Components/product-by-category/product-by-category.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
  
 
 
@@ -46,6 +47,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     NotFoundComponent,
     LoginComponent,
     ProductByCategoryComponent,
+    ResetPasswordComponent,
     
   ],
   imports: [

@@ -13,6 +13,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ProductByCategoryComponent } from './Components/product-by-category/product-by-category.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { SearchComponent } from './Components/search/search.component';
 import { WishlistComponent } from './Components/wishlist/wishlist.component';
 
@@ -36,7 +37,7 @@ const routes: Routes = [
   {
     path: 'productbycat/:id',
     component:ProductByCategoryComponent,
-     
+
   },
 
 
@@ -70,6 +71,7 @@ const routes: Routes = [
     canActivate: [AccessLoginGuard],
   },
   { path: 'register', component: RegisterComponent },
+  { path: 'password/reset', component:ResetPasswordComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
