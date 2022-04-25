@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Iorderitem } from '../Models/iorderitem';
 import { Iproduct } from '../Models/iproduct';
 import { Iwhishlist } from '../Models/iwhishlist';
 import { Ratting } from '../Models/ratting';
@@ -50,6 +51,12 @@ export class WhishlisService {
   //     this.httpoption
   //   );
   // }
+  checkreiew(prodid:number):Observable<Iorderitem[]> 
+  {
+    return this.httpclint.get<Iorderitem[]>(`${environment.ApiBaseURL}/checkreview/${prodid}`);
+  
+
+  }
   addreview(review: any): Observable<Review> {
     return this.httpclint.post<Review>(
       `${environment.ApiBaseURL}/add-review`,
