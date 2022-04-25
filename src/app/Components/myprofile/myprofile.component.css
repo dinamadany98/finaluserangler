@@ -1,8 +1,10 @@
     html {
         height: 100%;
+        background: #bcdee7 !important;
     }
     
     body {
+        background: #bcdee7 !important;
         overflow: hidden;
         background: #bcdee7 url("/src/assets/img/bg-01.jpg") no-repeat center center fixed;
         background-size: cover;
@@ -13,15 +15,6 @@
         height: 100%;
         font: normal 14px/1.618em "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
-    }
-    
-    .profile-card {
-        /* fallback for old browsers */
-        background: #bcdee7;
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right, #bcdee7, rgba(37, 117, 252, 1));
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right, #bcdee7, rgba(37, 117, 252, 1))
     }
     
     body:before {
@@ -62,8 +55,8 @@
     
     .profile-card {
         background: #FFB300;
-        width: 56px;
-        height: 56px;
+        width: 100%;
+        height: 100%;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -82,8 +75,8 @@
     }
     
     .profile-card header {
-        width: 179px;
-        height: 280px;
+        width: 100%;
+        height: 100%;
         padding: 40px 20px 30px 20px;
         display: inline-block;
         float: left;
@@ -177,7 +170,7 @@
     
     .profile-social-links li {
         list-style: none;
-        margin: -5px 0px 0px 0px;
+        margin: -20px 0px 0px 0px;
         padding: 0px;
         float: left;
         width: 25%;
@@ -187,8 +180,8 @@
     .profile-social-links li a {
         display: inline-block;
         color: red;
-        width: 24px;
-        height: 24px;
+        width: 204px;
+        height: 204px;
         padding: 6px;
         position: relative;
         overflow: hidden!important;

@@ -37,7 +37,8 @@
                             <small *ngIf="email?.errors?.['minlength']">Email must be more than 5 char</small>
                         </div>
                     </div>
-                    <input hidden value="user" class="input100" type="text" [(ngModel)]="newuser.role" formControlName="role" name="role" id="role" />
+                    <!-- <input hidden #user value="user" class="input100" type="text" [(ngModel)]="newuser.role" formControlName="role" name="role" id="role" /> -->
+                    <input class="input " [(ngModel)]="newuser.role" formControlName="role" hidden type="text" id="role" name="role">
 
                     <input class="input100" type="hidden" name="username" placeholder="Username..." />
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
