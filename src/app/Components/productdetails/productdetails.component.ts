@@ -135,12 +135,12 @@ export class ProductdetailsComponent implements OnInit {
         : 0;
       //console.log(this.currprdid);
 
-      let foundprd = this.prdservice
+     this.prdservice
         .getprdbyid(this.currprdid)
         .subscribe((product) => {
           this.prd = product;
           this.productvalue = this.currprdid;
-          //console.log(this.productvalue);
+          console.log(this.prd);
         });
 
 
@@ -175,6 +175,7 @@ this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
   }
 
   addtowishlist(prod: Iproduct) {
+    console.log(this.prd);
     this.wishlistservice.addwishlistdata(prod).subscribe({
       next: (prd) => {
         Swal.fire(
