@@ -53,6 +53,7 @@ export class ProductdetailsComponent implements OnInit {
     });
   }
   addrate(stars:any) {
+    if(this.orderitemuser.length){
     this.rate.product_id = this.currprdid;
     this.rate.stars_rated = stars;
     console.log(this.rate);
@@ -70,7 +71,18 @@ export class ProductdetailsComponent implements OnInit {
         });
       },
     });
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops... You Canot Add Rating Without Buy It ',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>',
+    });
   }
+
+
+
+}
 
   ////////////////////////////
   get user_review() {
