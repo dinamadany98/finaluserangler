@@ -1,17 +1,10 @@
-/* @import "~bootstrap-icons/font/bootstrap-icons.css";
-@media (min-width: 1025px) {
-    .h-custom {
-    height: 100vh !important;
-    }
-    } */
-
 .gradient-custom {
     /* fallback for old browsers */
-    background: #6a11cb;
+    background: #d2c3e3;
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: -webkit-linear-gradient(to right, rgb(216, 197, 237), rgb(176, 200, 240));
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    background: linear-gradient(to right, rgb(198, 182, 215), rgb(185, 210, 253))
 }
 
 .container {

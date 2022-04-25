@@ -32,24 +32,23 @@
 <div class="section">
     <div class="container">
         <div class="row">
-            <carousel style="height:250px;">
-            <ng-container *ngFor="let prd of categorylist">
-
-                <div class=" carousel-cell  ms-5 me-4 ">
-                    <div class="shop  " style="height:250px;">
-                        <div class=" shop-img">
-                            <img src="{{prd.image}} " alt=" ">
-
-                            <img src="http://localhost:8000/assets/{{prd.image}}" alt=" " height="250px">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let prd of categorylist">
+                    <ng-template carouselSlide [i]="prd.id">
+                        <div class="carousel-cell  ms-5 me-4">
+                            <div class="shop">
+                                <div class=" shop-img" style="height: 300px;">
+                                    <img src="http://localhost:8000/assets/{{prd.image}}" alt=" ">
+                                </div>
+                                <div class="shop-body ">
+                                    <h3>{{prd.name}}<br>Collection</h3>
+                                    <a routerLink="/productbycat/{{prd.id}}" class="cta-btn ">Shop now <i class="fa fa-arrow-circle-right "></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="shop-body ">
-                            <h3>{{prd.name}}<br>Collection</h3>
-                            <a   routerLink="/productbycat/{{prd.id}}" class="cta-btn ">Shop now <i class="fa fa-arrow-circle-right "></i></a>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-            </carousel>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
         </div>
     </div>
 </div>
@@ -66,13 +65,13 @@
                     <h3 class="title ">New Products</h3>
                     <div class="section-nav ">
                         <ul class="section-tab-nav tab-nav ">
-                            <li  routerLinkActive="active">
+                            <li routerLinkActive="active">
                                 <a data-toggle="tab" routerLink="/" routerLinkActive="active">All Products</a>
                             </li>
                             <ng-container *ngFor="let cart of categorylist">
-                            <li  routerLinkActive="active">
-                                <a data-toggle="tab"  routerLink="/productbycat/{{cart.id}}" routerLinkActive="active">{{cart.name}}</a>
-                            </li>
+                                <li routerLinkActive="active">
+                                    <a data-toggle="tab" routerLink="/productbycat/{{cart.id}}" routerLinkActive="active">{{cart.name}}</a>
+                                </li>
                             </ng-container>
                         </ul>
                     </div>
@@ -140,9 +139,6 @@
 </div>
 <!-- /SECTION -->
 <!-- /SECTION -->
-
-
-
 <!-- HOT DEAL SECTION -->
 <div id="hot-deal " class="section ">
     <!-- container -->

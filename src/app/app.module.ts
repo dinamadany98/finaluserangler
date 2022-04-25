@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HomeComponent } from './Components/home/home.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { CartComponent } from './Components/cart/cart.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 import { ProductdetailsComponent } from './Components/productdetails/productdetails.component';
@@ -21,12 +19,15 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { LoginComponent } from './Components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AccessLoginGuard } from './access-login.guard';
-import { NgxPayPalModule } from 'ngx-paypal';
 import { ProductByCategoryComponent } from './Components/product-by-category/product-by-category.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
- 
 
+
+ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     LoginComponent,
     ProductByCategoryComponent,
     ResetPasswordComponent,
-    
+
   ],
   imports: [
     NgxPayPalModule,
@@ -57,7 +58,8 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    CarouselModule,
   ],
   providers: [
     [AccessLoginGuard, LoginService],

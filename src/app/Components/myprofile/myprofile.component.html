@@ -1,37 +1,31 @@
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-xl-9 mx-auto">
-                <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-                    <div class="card-img-left d-none d-md-flex">
-                    </div>
-                    <div class="card-body p-4 p-sm-5">
-                        <h5 class="card-title text-center mb-5 fw-light fs-5">MyProfile</h5>
+<aside class="profile-card ">
+    <header>
+        <a target="_blank" href="#">
+            <img src="https://images.unsplash.com/photo-1545703549-7bdb1d01b734?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" class="hoverZoomLink">
+        </a>
+
+        <h1>
+            {{userdata.name}}
+        </h1>
+
+        <h2>
+            {{userdata.email}}
+        </h2>
+
+    </header>
 
 
-                        <div class="form-floating mb-3">
-                            <h2 class="mb-1 mt-5 ms-3">Name:</h2>
-                            <h3 class="ms-4">{{userdata.name}}</h3> <br>
-                        </div>
-                        <div class="form-floating mb-3">
+    <ul class="profile-social-links">
+        <li>
+            <a type="button" (click)="del(userdata.id)">
+                <i class="fa fa-trash h1" aria-hidden="true"></i></a>
+        </li>
+        <li>
+            <a routerLink="/editprofile">
+                <i class="fa fa-pencil-square-o h1" aria-hidden="true"></i></a>
 
-                            <h2>Email:</h2>
-                            <h3 class="ms-4"> {{userdata.email}}</h3>
-                        </div>
+        </li>
 
+    </ul>
 
-                        <div class="d-grid mb-2">
-                            <span class="text-muted d-block mb-5 mt-5">
-                                    <button type="button" (click)="del(userdata.id)"  class="btn btn-outline-danger mb-3"  ><i class="bi bi-trash3 h3 " ></i></button>
-                                   <span  style="font-size:medium;color: red;"> Delete Acount</span>
-                            <a routerLink="/editprofile"><i class="bi bi-pencil-square h3 ms-5"></i></a><span style="font-size:medium;" class="ms-2">Edite Acount</span>
-                            </span>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+</aside>

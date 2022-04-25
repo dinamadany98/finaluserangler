@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
     this.userformgroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]],
+      role: [''],
       password: ['', [Validators.required, Validators.minLength(6)]],
       conpassword: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -37,6 +38,10 @@ export class RegisterComponent implements OnInit {
   get email() {
     return this.userformgroup.get('email');
   }
+  get role() {
+    return this.userformgroup.get('role');
+  }
+
   get password() {
     return this.userformgroup.get('password');
   }
@@ -44,10 +49,12 @@ export class RegisterComponent implements OnInit {
     return this.userformgroup.get('conpassword');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.role);
+  }
   addUser() {
-    // console.log(this.password?.value);
-    // console.log(this.conpassword?.value);
+    this.newuser.role = 'user';
+    console.log(this.newuser);
     if (this.password?.value === this.conpassword?.value) {
       this.UserService.addUser(this.newuser).subscribe({
         next: (prd) => {

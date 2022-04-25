@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { count } from 'rxjs';
+import { Iorderitem } from 'src/app/Models/iorderitem';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { Ratting } from 'src/app/Models/ratting';
 import { Review } from 'src/app/Models/review';
@@ -34,6 +36,7 @@ export class ProductdetailsComponent implements OnInit {
   productapi: Iproduct = {} as Iproduct;
   userformgroup: FormGroup;
   productvalue: any;
+  orderitemuser:Iorderitem[]=[]
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
@@ -50,12 +53,13 @@ export class ProductdetailsComponent implements OnInit {
     });
   }
   addrate(stars:any) {
+    if(this.orderitemuser.length){
     this.rate.product_id = this.currprdid;
     this.rate.stars_rated = stars;
     console.log(this.rate);
     this.wishlistservice.addratting(this.rate).subscribe({
       next: () => {
-        Swal.fire('Review Correct', 'You clicked the button!', 'success');
+        Swal.fire('Ratting Correct', 'You clicked the button!', 'success');
       },
       error: () => {
         Swal.fire({
@@ -67,7 +71,18 @@ export class ProductdetailsComponent implements OnInit {
         });
       },
     });
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops... You Canot Add Rating Without Buy It ',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>',
+    });
   }
+
+
+
+}
 
   ////////////////////////////
   get user_review() {
@@ -81,6 +96,10 @@ export class ProductdetailsComponent implements OnInit {
 
   /////////////////////////////
   addReview() {
+    if(this.orderitemuser.length){
+
+
+
     this.review.product_id = this.currprdid;
     this.wishlistservice.addreview(this.review).subscribe({
       next: (review) => {
@@ -96,7 +115,16 @@ export class ProductdetailsComponent implements OnInit {
         });
       },
     });
-    console.log(this.review);
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops... You Canot Add Reivew Without Buy It ',
+      text: 'Something went wrong!',
+      footer: '<a href="">Why do I have this issue?</a>',
+    });
+  }
+
+   // console.log(this.review);
   }
 
   //////////////////////////////
@@ -105,18 +133,28 @@ export class ProductdetailsComponent implements OnInit {
       this.currprdid = this.activedroute.snapshot.paramMap.get('pid')
         ? Number(this.activedroute.snapshot.paramMap.get('pid'))
         : 0;
-      console.log(this.currprdid);
+      //console.log(this.currprdid);
 
       let foundprd = this.prdservice
         .getprdbyid(this.currprdid)
         .subscribe((product) => {
           this.prd = product;
           this.productvalue = this.currprdid;
-          console.log(this.productvalue);
+          //console.log(this.productvalue);
         });
+
+
+this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
+  this.orderitemuser=prod;
+
+});
+
     });
+
+
   }
   addtocart(prod: Iproduct) {
+    console.log(this.orderitemuser);
     this.cartservice.addtocart(prod).subscribe({
       next: (prd) => {
         Swal.fire(

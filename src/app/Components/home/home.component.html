@@ -1,5 +1,3 @@
-
-
 <div class="section">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -31,125 +29,105 @@
     </button>
     </div>
 </div>
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <carousel style="height:250px;">
-                
-            <ng-container *ngFor="let prd of categorylist" >
-               
-                     
-                <div class="carousel-cell  ms-5 me-4" >
-                    <div class="shop" >
-                        <div class=" shop-img" style="height:250px;">
-                            <img src="{{prd.image}} " alt=" ">
 
-                            <img src="http://localhost:8000/assets/{{prd.image}}" alt=" " >
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let prd of categorylist">
+                    <ng-template carouselSlide [i]="prd.id">
+                        <div class="carousel-cell  ms-5 me-4">
+                            <div class="shop">
+                                <div class=" shop-img" style="height: 300px;">
+                                    <img src="http://localhost:8000/assets/{{prd.image}}" alt=" ">
+                                </div>
+                                <div class="shop-body ">
+                                    <h3>{{prd.name}}<br>Collection</h3>
+                                    <a routerLink="/productbycat/{{prd.id}}" class="cta-btn ">Shop now <i class="fa fa-arrow-circle-right "></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="shop-body ">
-                            <h3>{{prd.name}}<br>Collection</h3>
-                            <a  routerLink="/productbycat/{{prd.id}}" class="cta-btn ">Shop now <i class="fa fa-arrow-circle-right "></i></a>
-                        </div>
-                    </div>
-                
-                     
-                    </div>
-            </ng-container>
-            </carousel>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
         </div>
     </div>
 </div>
 
-<div class="section ">
-    <!-- container -->
-    <div class="container ">
-        <!-- row -->
-        <div class="row ">
 
-            <!-- section title -->
+<div class="section ">
+    <div class="container ">
+        <div class="row ">
             <div class="col-md-12 ">
                 <div class="section-title ">
                     <h3 class="title ">New Products</h3>
                     <div class="section-nav ">
                         <ul class="section-tab-nav tab-nav ">
                             <li routerLinkActive="active">
-                                <a data-toggle="tab"  routerLink="/" routerLinkActive="active" >All Products</a>
+                                <a data-toggle="tab" routerLink="/" routerLinkActive="active">All Products</a>
                             </li>
                             <ng-container *ngFor="let cart of categorylist">
-                            <li  routerLinkActive="active">
-                                <a data-toggle="tab"  routerLink="/productbycat/{{cart.id}}" routerLinkActive="active" >{{cart.name}}</a>
-                            </li>
+                                <li routerLinkActive="active">
+                                    <a data-toggle="tab" routerLink="/productbycat/{{cart.id}}" routerLinkActive="active">{{cart.name}}</a>
+                                </li>
                             </ng-container>
                         </ul>
                     </div>
                 </div>
-                
             </div>
 
-            <div id="store " class="col-md-9 ">
-                <!-- store top filter -->
-
-                <!-- /store top filter -->
-                <!-- store products -->
+            <div class="container">
                 <div class="row ">
-                    <!-- product -->
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor=" let prd of prdlisticat ">
+                            <ng-template carouselSlide [i]="prd.id">
+                                <div class="product ms-4 me-4">
+                                    <div class=" product-img " style="height: 300px;">
+                                        <img src="http://localhost:8000/assets/{{prd.image}} " alt=" ">
+                                    </div>
+                                    <div class="product-body ">
+                                        <h1 class="product-name h1 "> {{ prd.name }} </h1>
 
-                    <carousel style="height:400px;width: 2000px;">
-                    <div class="carousel-cell " *ngFor="let prd of prdlisticat ">
-                        <div class="product ">
-                            <div class="product-img ">
-                                <img src="http://localhost:8000/assets/{{prd.image}}" alt=" " height="190px">
-
-                            </div>
-                            <div class="product-body ">
-                                <h1 class="product-name h1 "> {{ prd.name }} </h1>
-
-                                <h3 class="product-name h1 "> {{ prd.small_description }} </h3>
-                                <h3 class="product-price ">${{prd.selling_price}} <del class="product-old-price "> ${{ prd.original_price }}</del></h3>
-                                <div class="product-rating ">
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
-                                    <i class="fa fa-star "></i>
+                                        <h3 class="product-name h1 "> {{ prd.small_description }} </h3>
+                                        <h3 class="product-price ">${{prd.selling_price}} <del class="product-old-price "> ${{ prd.original_price }}</del></h3>
+                                        <div class="product-rating ">
+                                            <i class="fa fa-star "></i>
+                                            <i class="fa fa-star "></i>
+                                            <i class="fa fa-star "></i>
+                                            <i class="fa fa-star "></i>
+                                            <i class="fa fa-star "></i>
+                                        </div>
+                                        <div class="product-btns ">
+                                            <button class="add-to-wishlist " [class.wished]="iswished " (click)="changecolor() " (click)="addtowishlist(prd) "><i class="fa fa-heart-o "></i><span class="tooltipp ">add to wishlist</span></button>
+                                            <button class="add-to-compare "><i class="fa fa-exchange "></i><span class="tooltipp ">add to compare</span></button>
+                                            <button class="quick-view " (click)="opendtails(prd.id) "><i class="fa fa-eye "></i><span class="tooltipp ">quick view</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart ">
+                                        <button class="add-to-cart-btn " (click)="addtocart(prd) "><i class="fa fa-shopping-cart "></i> add to cart</button>
+                                    </div>
                                 </div>
-                                <div class="product-btns ">
-                                    <button class="add-to-wishlist " [class.wished]="iswished " (click)="changecolor() " (click)="addtowishlist(prd) "><i class="fa fa-heart-o "></i><span class="tooltipp ">add to wishlist</span></button>
-                                    <button class="add-to-compare "><i class="fa fa-exchange "></i><span class="tooltipp ">add to compare</span></button>
-                                    <button class="quick-view " (click)="opendtails(prd.id) "><i class="fa fa-eye "></i><span class="tooltipp ">quick view</span></button>
-                                </div>
-                            </div>
-                            <div class="add-to-cart ">
-                                <button class="add-to-cart-btn " (click)="addtocart(prd) "><i class="fa fa-shopping-cart "></i> add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    </carousel>
-                    <!-- /product -->
-
-                    <!-- product -->
-
-
+                                <br>
+                                <br>
+                                <br>
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
                     <div class="clearfix visible-lg visible-xs "></div>
-
-
-
-
                 </div>
-
             </div>
 
-            <!-- /STORE -->
+
+
+
         </div>
-        <!-- /row -->
     </div>
-    <!-- /container -->
 </div>
-<!-- /SECTION -->
-<!-- /SECTION -->
 
 
-
+<hr>
 <!-- HOT DEAL SECTION -->
 <div id="hot-deal " class="section ">
     <!-- container -->
@@ -194,303 +172,67 @@
     </div>
     <!-- /container -->
 </div>
+<hr>
+<br>
+<br>
 <!-- /HOT DEAL SECTION -->
-
-
-<!-- SECTION -->
-<div class="section ">
-    <!-- container -->
-    <div class="container ">
-        <!-- row -->
-        <div class="row ">
-            <div class="col-md-4 col-xs-6 ">
-                <div class="section-title ">
-                    <h4 class="title ">Top selling</h4>
-                    <div class="section-nav ">
-                        <div id="slick-nav-3 " class="products-slick-nav "></div>
-                    </div>
-                </div>
-
-                <div class="products-widget-slick " data-nav="#slick-nav-3 ">
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product07.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product08.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product09.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
-                    </div>
-
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product01.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product02.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product03.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-xs-6 ">
-                <div class="section-title ">
-                    <h4 class="title ">Top selling</h4>
-                    <div class="section-nav ">
-                        <div id="slick-nav-4 " class="products-slick-nav "></div>
-                    </div>
-                </div>
-
-                <div class="products-widget-slick " data-nav="#slick-nav-4 ">
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product04.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product05.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product06.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
-                    </div>
-
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product07.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product08.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product09.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearfix visible-sm visible-xs "></div>
-
-            <div class="col-md-4 col-xs-6 ">
-                <div class="section-title ">
-                    <h4 class="title ">Top selling</h4>
-                    <div class="section-nav ">
-                        <div id="slick-nav-5 " class="products-slick-nav "></div>
-                    </div>
-                </div>
-
-                <div class="products-widget-slick " data-nav="#slick-nav-5 ">
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product01.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product02.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product03.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
-                    </div>
-
-                    <div>
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product04.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product05.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- /product widget -->
-
-                        <!-- product widget -->
-                        <div class="product-widget ">
-                            <div class="product-img ">
-                                <img src="assets/img/product06.png " alt=" ">
-                            </div>
-                            <div class="product-body ">
-                                <p class="product-category ">Category</p>
-                                <h3 class="product-name "><a href="# ">product name goes here</a></h3>
-                                <h4 class="product-price ">$980.00 <del class="product-old-price ">$990.00</del></h4>
-                            </div>
-                        </div>
-                        <!-- product widget -->
-                    </div>
-                </div>
-            </div>
-
+<section class="why_us_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center text-center">
+            <h2 class="text-center h1">
+                Why Choose Us
+            </h2>
         </div>
-        <!-- /row -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box ">
+                    <div class="img-box">
+                        <img src="assets/img/w1.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5 class="h2">
+                            Fast Delivery
+                        </h5>
+                        <p>
+                            variations of passages of Lorem Ipsum available
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box ">
+                    <div class="img-box">
+                        <img src="assets/img/w2.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5 class="h2">
+                            Free Shiping
+                        </h5>
+                        <p>
+                            variations of passages of Lorem Ipsum available
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box ">
+                    <div class="img-box">
+                        <img src="assets/img/w3.png" alt="">
+                    </div>
+                    <div class="detail-box">
+                        <h5 class="h2">
+                            Best Quality
+                        </h5>
+                        <p>
+                            variations of passages of Lorem Ipsum available
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- /container -->
-</div>
-
-<!-- /SECTION -->
-<!-- /SECTION -->
-<!-- /HEADER -->
+</section>
+<br>
+<br>
+<br>
+<br>

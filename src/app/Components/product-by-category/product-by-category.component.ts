@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import {ActivatedRoute, Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Icart } from 'src/app/Models/icart';
 import { Icategory } from 'src/app/Models/icategory';
 import { Iproduct } from 'src/app/Models/iproduct';
@@ -12,9 +13,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-product-by-category',
   templateUrl: './product-by-category.component.html',
-  styleUrls: ['./product-by-category.component.css']
+  styleUrls: ['./product-by-category.component.css'],
 })
-export class ProductByCategoryComponent implements OnInit , OnChanges {
+export class ProductByCategoryComponent implements OnInit, OnChanges {
   categorylist: Icategory[] = [];
   prdlisticat: Iproduct[] = [];
   cartlist: Icart[] = [];
@@ -22,14 +23,38 @@ export class ProductByCategoryComponent implements OnInit , OnChanges {
   productvalue: any;
   curentid: number = 0;
   prd: Iproduct = {} as Iproduct;
-  productbycategoryid:Iproduct [] = [];
+  productbycategoryid: Iproduct[] = [];
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['Previous', 'Next'],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      400: {
+        items: 2,
+      },
+      740: {
+        items: 3,
+      },
+      940: {
+        items: 4,
+      },
+    },
+    nav: true,
+  };
   constructor(
     private prdcatservice: CategoryServiceService,
     private prdapisevice: IProductService,
     private cartservice: CartService,
     private rot: Router,
     private whishlistservic: WhishlisService,
-    private activedroute: ActivatedRoute,
+    private activedroute: ActivatedRoute
   ) {
     this.rot.routeReuseStrategy.shouldReuseRoute = () => false;
   }
@@ -43,16 +68,16 @@ export class ProductByCategoryComponent implements OnInit , OnChanges {
     });
   }
   ngOnInit(): void {
-    this.activedroute.paramMap.subscribe(paramMap=>{
-      
-      this.curentid=(this.activedroute.snapshot.paramMap.get('id'))?Number(this.activedroute.snapshot.paramMap.get('id')):0;
-      this.prdapisevice.getprdbycatid(this.curentid).subscribe(prod=>{
-        this.productbycategoryid=prod;
-        
+    this.activedroute.paramMap.subscribe((paramMap) => {
+      this.curentid = this.activedroute.snapshot.paramMap.get('id')
+        ? Number(this.activedroute.snapshot.paramMap.get('id'))
+        : 0;
+      this.prdapisevice.getprdbycatid(this.curentid).subscribe((prod) => {
+        this.productbycategoryid = prod;
+
         console.log(this.productbycategoryid);
       });
-    })
-
+    });
 
     this.cartservice.getcartdata().subscribe((cart) => {
       this.cartlist = cart;
@@ -67,7 +92,6 @@ export class ProductByCategoryComponent implements OnInit , OnChanges {
   }
   addtocart(prod: Iproduct) {
     this.cartservice.addtocart(prod).subscribe({
-  
       next: (prd) => {
         this.rot.navigate(['/']);
         Swal.fire(
@@ -89,7 +113,6 @@ export class ProductByCategoryComponent implements OnInit , OnChanges {
 
   addtowishlist(prod: Iproduct) {
     this.whishlistservic.addwishlistdata(prod).subscribe({
-  
       next: (prd) => {
         this.rot.navigate(['/']);
         Swal.fire(
@@ -103,7 +126,7 @@ export class ProductByCategoryComponent implements OnInit , OnChanges {
           icon: 'error',
           title: 'Oops... If You Want It Please Login Now',
           text: 'Something went wrong!',
-          footer:' <a href="/login">If You Have Account ? Click Here</a>',
+          footer: ' <a href="/login">If You Have Account ? Click Here</a>',
         });
       },
     });
@@ -116,5 +139,4 @@ export class ProductByCategoryComponent implements OnInit , OnChanges {
   changecolor() {
     this.iswished = this.iswished;
   }
-
 }
