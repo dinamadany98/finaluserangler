@@ -38,7 +38,6 @@
 
                             <hr>
 
-                            <span class="review-no">41 reviews</span>
                         </div>
                         <p class="product-description">{{prd?.small_description}}</p>
                         <p class="product-description">{{prd?.description}}</p>
@@ -49,21 +48,21 @@
                         <button class="btn btn-primary " (click)="toggle() " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
                             Add Review
                             </button>
+                        <br>
+                        <br>
                         <ng-container *ngIf="flag ">
-                            <br>
-                            <br>
+
                             <div class="col-md-8 container ">
                                 <div id="review-form">
                                     <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
                                         <input class="input " [(ngModel)]="review.product_id" formControlName="product_id" hidden type="text" id="product_id" name="product_id">
                                         <textarea class="input " formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
-                                        <button class="primary-btn ">Submit</button>
+                                        <button class="primary-btn btn-success">Submit</button>
                                     </form>
                                 </div>
                             </div>
                             <br>
-                            <br>
-                            <br>
+
                         </ng-container>
                         <div class="action ">
                             <button class="add-to-cart btn btn-default " (click)="addtocart(prd)" type="button ">add to cart</button>

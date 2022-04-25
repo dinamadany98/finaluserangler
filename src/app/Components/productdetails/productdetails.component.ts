@@ -59,7 +59,7 @@ export class ProductdetailsComponent implements OnInit {
     console.log(this.rate);
     this.wishlistservice.addratting(this.rate).subscribe({
       next: () => {
-        Swal.fire('Review Correct', 'You clicked the button!', 'success');
+        Swal.fire('Ratting Correct', 'You clicked the button!', 'success');
       },
       error: () => {
         Swal.fire({
@@ -97,9 +97,9 @@ export class ProductdetailsComponent implements OnInit {
   /////////////////////////////
   addReview() {
     if(this.orderitemuser.length){
-       
 
-    
+
+
     this.review.product_id = this.currprdid;
     this.wishlistservice.addreview(this.review).subscribe({
       next: (review) => {
@@ -123,7 +123,7 @@ export class ProductdetailsComponent implements OnInit {
       footer: '<a href="">Why do I have this issue?</a>',
     });
   }
-  
+
    // console.log(this.review);
   }
 
@@ -143,10 +143,10 @@ export class ProductdetailsComponent implements OnInit {
           //console.log(this.productvalue);
         });
 
-        
+
 this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
   this.orderitemuser=prod;
-  
+
 });
 
     });
