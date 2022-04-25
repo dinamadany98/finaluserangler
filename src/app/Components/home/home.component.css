@@ -67,7 +67,69 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+#hot-deal.section {
+    padding: 60px 0px;
+    margin: 30px 0px;
+    background-color: #E4E7ED;
+    /* background-image: url('assets/img/hotdeal.png'); */
+    /* background-image: url('/assets/img/product06.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 a,
 a:hover {
     text-decoration: none;
+}
+
+.why_us_section {
+    position: relative;
+    font-size: medium;
+}
+
+.why_us_section .heading_container {
+    margin-bottom: 20px;
+}
+
+.why_us_section .box {
+    margin-top: 25px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    padding: 25px 15px;
+}
+
+.why_us_section .box .img-box {
+    height: 100px;
+}
+
+.why_us_section .box .img-box img {
+    height: 100%;
+    -webkit-filter: brightness(0);
+    filter: brightness(0);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.why_us_section .box .detail-box {
+    margin-top: 15px;
+}
+
+.why_us_section .box .detail-box h5 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.why_us_section .box .detail-box a {
+    color: #3a4468;
+    font-weight: 600;
+}
+
+.why_us_section .box .detail-box a:hover {
+    color: #f3c93e;
+}
+
+.why_us_section .box:hover .img-box img {
+    -webkit-filter: brightness(1);
+    filter: brightness(1);
 }
