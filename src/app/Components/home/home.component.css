@@ -77,6 +77,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.product-name1 {
+    text-transform: none !important;
+}
+
 a,
 a:hover {
     text-decoration: none;
