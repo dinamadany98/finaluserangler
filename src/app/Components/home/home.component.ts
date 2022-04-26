@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit, OnChanges {
     this.cartservice.addtocart(prod).subscribe({
       next: (prd) => {
         Swal.fire(
-          'Adding To Cart Succssfuly',
+          'Added  To Cart Succesfully!',
           'Please Check Your Cart',
           'success'
         );
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit, OnChanges {
     this.whishlistservic.addwishlistdata(prod).subscribe({
       next: (prd) => {
         Swal.fire(
-          'Adding To Wishlist Succssfuly',
+          'Added To Wishlist Succesfully!',
           'Please Check Your Wishlist',
           'success'
         );

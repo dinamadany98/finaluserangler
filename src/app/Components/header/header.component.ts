@@ -21,12 +21,12 @@ export class HeaderComponent implements OnInit {
 
     if(localStorage.getItem('login')&&localStorage.getItem('role')=='user')
         return true;
-        
+
     return false;
   }
   logoutuser() {
     localStorage.removeItem('login');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/login']);
   }
   ngOnInit(): void {
     this.cartservice.getcartdata().subscribe(cart=>{

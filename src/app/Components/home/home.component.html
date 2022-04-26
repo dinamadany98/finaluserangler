@@ -95,11 +95,11 @@
                             <ng-template carouselSlide [i]="prd.id">
                                 <div class="product ms-4 me-4">
                                     <div class=" product-img ">
-                                        <img src="http://localhost:8000/assets/uploads/{{prd.image}} " height="350px" alt=" ">
+                                        <img src="http://localhost:8000/assets/uploads/{{prd.image}} " height="300px" alt=" ">
                                     </div>
                                     <div class="product-body ">
                                         <h1 class="product-name1 h1 "> {{ prd.name }} </h1>
-
+                                        <hr>
                                         <h3 class="product-name1  "> {{ prd.small_description }} </h3>
                                         <h3 class="product-price ">${{prd.selling_price}} <del class="product-old-price "> $2000</del></h3>
                                         <div class="product-rating ">
