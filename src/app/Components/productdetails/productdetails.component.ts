@@ -37,6 +37,7 @@ export class ProductdetailsComponent implements OnInit {
   userformgroup: FormGroup;
   productvalue: any;
   orderitemuser:Iorderitem[]=[]
+  allreview:Review[]=[]
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
@@ -135,12 +136,12 @@ export class ProductdetailsComponent implements OnInit {
         : 0;
       //console.log(this.currprdid);
 
-      let foundprd = this.prdservice
+     this.prdservice
         .getprdbyid(this.currprdid)
         .subscribe((product) => {
           this.prd = product;
           this.productvalue = this.currprdid;
-          //console.log(this.productvalue);
+          console.log(this.prd);
         });
 
 
@@ -148,6 +149,15 @@ this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
   this.orderitemuser=prod;
 
 });
+
+
+this.wishlistservice.getallreviews(this.currprdid).subscribe(prod=>{
+  this.allreview=prod;
+
+});
+
+
+
 
     });
 
@@ -175,6 +185,7 @@ this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
   }
 
   addtowishlist(prod: Iproduct) {
+    console.log(this.prd);
     this.wishlistservice.addwishlistdata(prod).subscribe({
       next: (prd) => {
         Swal.fire(
