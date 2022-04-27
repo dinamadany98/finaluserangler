@@ -37,7 +37,10 @@
                         <p class="product-description">{{prd.description}}</p>
 
                         <h4 class="price">current price: <span>${{prd?.selling_price}}</span></h4>
-                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product! </p>
+                        <ng-container *ngFor="let rivew of allreview">
+                            dddddddd {{rivew.user_review}}
+                        </ng-container>
+                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product!<strong>({{allreview.length}} votes)</strong> </p>
 
                         <button class="btn btn-primary " (click)="toggle() " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
                             Add Review
@@ -62,10 +65,8 @@
                             <button class="add-to-cart btn btn-default " (click)="addtocart(prd)" type="button ">add to cart</button>
                             <button class="like btn btn-default " (click)="addtowishlist(prd)" type="button "><span class="fa fa-heart "></span></button>
                         </div>
-                        {{allreview.length}} reiew <br>
-                        <ng-container *ngFor="let rivew of allreview">
-                            {{rivew.user_review}}
-                        </ng-container>
+                        <!-- {{allreview.length}} reiew <br> -->
+
                     </div>
                 </div>
             </div>
@@ -73,10 +74,10 @@
         <br>
         <br>
         <br>
-        
+
     </div>
-   
-    
+
+
 
 
 
