@@ -60,7 +60,7 @@ export class ProductdetailsComponent implements OnInit {
     console.log(this.rate);
     this.wishlistservice.addratting(this.rate).subscribe({
       next: () => {
-        Swal.fire('Ratting Correct', 'You clicked the button!', 'success');
+        Swal.fire('Added Succesfully!', 'You clicked the button!', 'success');
       },
       error: () => {
         Swal.fire({
@@ -105,7 +105,7 @@ export class ProductdetailsComponent implements OnInit {
     this.wishlistservice.addreview(this.review).subscribe({
       next: (review) => {
         this.router.navigate(['/home']);
-        Swal.fire('Review Correct', 'You clicked the button!', 'success');
+        Swal.fire('Added Succesfully!', 'You clicked the button!', 'success');
       },
       error: (err) => {
         Swal.fire({
@@ -168,7 +168,7 @@ this.wishlistservice.getallreviews(this.currprdid).subscribe(prod=>{
     this.cartservice.addtocart(prod).subscribe({
       next: (prd) => {
         Swal.fire(
-          'Adding To Cart Succssfuly',
+          'Added To Cart Succesfully!',
           'Please Check Your Cart',
           'success'
         );
@@ -189,7 +189,7 @@ this.wishlistservice.getallreviews(this.currprdid).subscribe(prod=>{
     this.wishlistservice.addwishlistdata(prod).subscribe({
       next: (prd) => {
         Swal.fire(
-          'Adding To Wishlist Succssfuly',
+          'Added To Wishlist Succesfully!',
           'Please Check Your Wishlist',
           'success'
         );

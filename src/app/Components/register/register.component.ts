@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
         next: (prd) => {
           this.router.navigate(['/home']);
           Swal.fire(
-            'Registeration Successfully',
+            'Registeration Succesfully!',
             'You clicked the button!',
             'success'
           );

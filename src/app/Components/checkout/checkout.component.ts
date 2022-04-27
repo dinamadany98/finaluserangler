@@ -19,7 +19,7 @@ export class CheckoutComponent implements OnInit {
 
   newshipping:Icheckout={} as Icheckout
   cartlist:Icart[]=[];
-  prdlisticat: Iproduct[] = []; 
+  prdlisticat: Iproduct[] = [];
   public payPalConfig?: IPayPalConfig;
   showSuccess: boolean | undefined;
   constructor(private rot:Router,private checkservice:CheckoutService,private cartservice:CartService,
@@ -48,10 +48,10 @@ return +pric * +count;
   insert(){
 
     this.checkservice.addshippigdetails(this.newshipping).subscribe({
-    
+
       next: (shipping) => {
         this.rot.navigate(['/myorder']);
-        Swal.fire('Adding Successfully', 'Please Check Your Email', 'success');
+        Swal.fire('Added Succesfully!', 'Please Check Your Email', 'success');
       },
       error: (err) => {
         Swal.fire({
@@ -70,12 +70,8 @@ return +pric * +count;
       for(let prod of this.prdlisticat){
 if(cart.product_id==prod.id){
   this.total +=(prod.selling_price * cart.prod_qty);
-
 }
-
       }
-
-
       }
       return this.total;
   }

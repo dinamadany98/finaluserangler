@@ -95,7 +95,7 @@ export class ProductByCategoryComponent implements OnInit, OnChanges {
       next: (prd) => {
         this.rot.navigate(['/']);
         Swal.fire(
-          'Adding To Cart Succssfuly',
+          'Added  To Cart Succesfully!',
           'Please Check Your Cart',
           'success'
         );
@@ -116,7 +116,7 @@ export class ProductByCategoryComponent implements OnInit, OnChanges {
       next: (prd) => {
         this.rot.navigate(['/']);
         Swal.fire(
-          'Adding To Wishlist Succssfuly',
+          'Added To Wishlist Succesfully! ',
           'Please Check Your Wishlist',
           'success'
         );

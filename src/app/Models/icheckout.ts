@@ -15,4 +15,5 @@ export interface Icheckout {
     tracking_no:string ,
     status:number,
     total_price:number
+
 }

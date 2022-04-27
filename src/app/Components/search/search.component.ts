@@ -36,7 +36,7 @@ export class SearchComponent implements OnInit {
       next: (prd) => {
         this.rot.navigate(['/search']);
         Swal.fire(
-          'Adding To Cart Successfully',
+          'Added To Cart Succesfully!',
           'Please Check Your Cart',
           'success'
         );
@@ -57,7 +57,7 @@ export class SearchComponent implements OnInit {
       next: (prd) => {
         this.rot.navigate(['/search']);
         Swal.fire(
-          'Adding To Cart Successfully',
+          'Added To Cart Succesfully!',
           'Please Check Your Cart',
           'success'
         );

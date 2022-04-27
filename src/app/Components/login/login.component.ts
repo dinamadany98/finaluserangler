@@ -38,7 +38,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('login', data.token);
           localStorage.setItem('role', data.role);
           this.router.navigate(['/home']);
-          Swal.fire('Login orrect', 'You clicked the button!', 'success');
+          Swal.fire(
+            'Login Succesfully!',
+            'You clicked the button!',
+            'success'
+          );
           }else
 
           {
@@ -55,7 +59,7 @@ export class LoginComponent implements OnInit {
         error: (err) => {
           Swal.fire({
             icon: 'error',
-            title: 'Oops...Email OR Password Is not Correct',
+            title: 'Oops...Email Or Password Is not Correct',
             text: 'Something went wrong!',
             footer: '<a href="">Why do I have this issue?</a>',
           });
