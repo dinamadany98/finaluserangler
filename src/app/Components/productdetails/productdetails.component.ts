@@ -37,6 +37,7 @@ export class ProductdetailsComponent implements OnInit {
   userformgroup: FormGroup;
   productvalue: any;
   orderitemuser:Iorderitem[]=[]
+  allreview:Review[]=[]
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
@@ -148,6 +149,15 @@ this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
   this.orderitemuser=prod;
 
 });
+
+
+this.wishlistservice.getallreviews(this.currprdid).subscribe(prod=>{
+  this.allreview=prod;
+
+});
+
+
+
 
     });
 

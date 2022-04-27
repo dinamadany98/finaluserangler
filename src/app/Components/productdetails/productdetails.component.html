@@ -67,6 +67,9 @@
                             <button class="add-to-cart btn btn-default " (click)="addtocart(prd)" type="button ">add to cart</button>
                             <button class="like btn btn-default " (click)="addtowishlist(prd)" type="button "><span class="fa fa-heart "></span></button>
                         </div>
+                        <ng-container *ngFor="let rivew of allreview">
+                            {{rivew.user_review}}
+                        </ng-container>
                     </div>
                 </div>
             </div>
@@ -74,8 +77,10 @@
         <br>
         <br>
         <br>
+        
     </div>
-
+   
+    
 
 
 
