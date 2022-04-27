@@ -51,7 +51,7 @@ return +pric * +count;
 
       next: (shipping) => {
         this.rot.navigate(['/myorder']);
-        Swal.fire('Adding Successfully', 'Please Check Your Email', 'success');
+        Swal.fire('Added Succesfully!', 'Please Check Your Email', 'success');
       },
       error: (err) => {
         Swal.fire({
@@ -68,14 +68,10 @@ return +pric * +count;
   totalcal(){
     for(let cart of this.cartlist){
       for(let prod of this.prdlisticat){
-     if(cart.product_id==prod.id){
-   this.total +=(prod.selling_price * cart.prod_qty);
-
+if(cart.product_id==prod.id){
+  this.total +=(prod.selling_price * cart.prod_qty);
 }
-
       }
-
-
       }
       return this.total;
   }

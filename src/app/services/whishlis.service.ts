@@ -57,6 +57,14 @@ export class WhishlisService {
   
 
   }
+
+
+   getallreviews(prodid:number):Observable<Review[]> 
+  {
+    return this.httpclint.get<Review[]>(`${environment.ApiBaseURL}/reviews/${prodid}`);
+  
+
+  } 
   addreview(review: any): Observable<Review> {
     return this.httpclint.post<Review>(
       `${environment.ApiBaseURL}/add-review`,

@@ -14,4 +14,6 @@ export interface Icheckout {
     message: string,
     tracking_no:string ,
     status:number,
+    total_price:number
+
 }
