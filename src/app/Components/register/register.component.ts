@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
 export class RegisterComponent implements OnInit {
   userformgroup: FormGroup;
   newuser: IUser = {} as IUser;
-  form: FormGroup = new FormGroup({});
 
   constructor(
     private fb: FormBuilder,
