@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
     private prdapisevice: IProductService) {
 
     }
-    total=0
+    total:any=0;
   ngOnInit() {
     this.initConfig();
     this.cartservice.getcartdata().subscribe(cart=>{
@@ -81,18 +81,18 @@ if(cart.product_id==prod.id){
   private initConfig(): void {
     this.payPalConfig = {
     currency: 'EUR',
-    clientId: 'sb',
+    clientId: 'AThou6tf0okocZ1m7PDwXX5FZ2QmUTDTHSU20jNj2PyOND5njyTc1P-TzmigmVQ2LJ0mId0_p0evoP81',
     createOrderOnClient: (data) => <ICreateOrderRequest>{
       intent: 'CAPTURE',
       purchase_units: [
         {
           amount: {
             currency_code: 'EUR',
-            value: '9.99',
+            value: this.total,
             breakdown: {
               item_total: {
                 currency_code: 'EUR',
-                value: '9.99'
+                value: this.total
               }
             }
           },
@@ -103,8 +103,9 @@ if(cart.product_id==prod.id){
               category: 'DIGITAL_GOODS',
               unit_amount: {
                 currency_code: 'EUR',
-                value: '9.99',
+                value: this.total,
               },
+
             }
           ]
         }

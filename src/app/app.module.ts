@@ -24,6 +24,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+
+
  import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
@@ -45,6 +48,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     NotFoundComponent,
     LoginComponent,
     ProductByCategoryComponent,
+    ResetPasswordComponent,
+
   ],
   imports: [
     NgxPayPalModule,

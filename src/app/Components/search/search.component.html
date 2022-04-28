@@ -12,9 +12,15 @@
                     <div class="checkbox-filter">
 
 
-                        <div class="">
-                            <div class="header-search">
-
+                        <div class="col-12 head" style="display: inline-block;">
+                            <div class="header-search " >
+                                 
+                                <select class="input-select" id="selct" name="selct" [(ngModel)]="categryid" (click)="getcategryid(categryid)">
+                                    <option value="0">All Categories</option>
+                                     
+                                    <option   *ngFor="let prd of categorylist"   [value]="prd.id">{{prd.name}}</option>
+                                
+                                </select>
 
                                 <input class="input" type="text" [(ngModel)]="filterBy" placeholder="Search For ... " (keyup)="filter($event)">
                                 <ng-container *ngIf="!product.length  && values  ">
@@ -22,6 +28,34 @@
                                         Not Found
                                     </h1>
                                 </ng-container>
+                                
+                <ng-container *ngFor="let prod of product">
+                    <div class="product">
+                        <div class="product-img">
+                            <img src="http://localhost:8000/assets/uploads/{{prod.image}}" height="300px" alt="">
+
+                        </div>
+                        <div class="product-body">
+                            <h1 class="product-name h1"> {{ prod.name }} </h1>
+                            <h3 class="product-price">${{ prod.selling_price }} <del class="product-old-price"> ${{ prod.original_price }}</del></h3>
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-btns">
+                                <button class="add-to-wishlist" (click)="addtowishlist(prod)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                <button class="quick-view" (click)="opendtails(prod.id) "><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                            </div>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-btn" (click)="addtocart(prod)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                        </div>
+                    </div>
+                    </ng-container>
                             </div>
                         </div>
 
@@ -51,7 +85,7 @@
                     <!-- product -->
 
 
-                    <div class="col-md-4 col-xs-6" *ngFor="let prod of product">
+                    <div class="col-md-4 col-xs-6" *ngFor="let prod of  productcategryid">
                         <div class="product">
                             <div class="product-img">
                                 <img src="http://localhost:8000/assets/uploads/{{prod.image}}" height="300px" alt="">

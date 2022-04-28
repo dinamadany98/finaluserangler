@@ -15,7 +15,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnChanges {
-  categorylist: Icategory[] = [];
+  categorylist: Icategory[] = []; 
   prdlisticat: Iproduct[] = [];
   cartlist: Icart[] = [];
   iswished = false;
