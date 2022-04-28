@@ -51,10 +51,21 @@
 
                             <div class="col-md-8 container ">
                                 <div id="review-form">
-                                    <form class="review-form" [formGroup]="userformgroup" (ngSubmit)="addReview()">
-                                        <input class="input " [(ngModel)]="review.product_id" formControlName="product_id" hidden type="text" id="product_id" name="product_id">
-                                        <textarea class="input " formControlName="user_review" name="user_review" id="user_review" [class.is-valid]="user_review?.valid" [class.is-invalid]="user_review?.invalid" [(ngModel)]="review.user_review" placeholder="Your Review "></textarea>
-                                        <button class="primary-btn btn-success">Submit</button>
+                                    <form    (ngSubmit)="addReview()" #formvali="ngForm">
+                                       
+                                        <div class="form-group">
+                                            <input class="input" type="text" id="user_review" name="user_review" placeholder="Reiew" #user_review="ngModel" [(ngModel)]="review.user_review"
+                                             required [class.is-valid]="user_review.valid" [class.is-invalid]="user_review.invalid"  style="height: 100px;">
+                                            <div [hidden]="user_review.valid ||user_review.untouched">
+                                                <small *ngIf="user_review.errors?.['required']">
+                                                    <h4 class="text-danger">Review required</h4>
+                                                  </small>
+                                            </div>
+                                            </div>
+                                            
+                        <input type="submit" class="primary-btn btn-success" [disabled]="formvali.invalid" value="Place order">
+                      
+                                       
                                     </form>
                                 </div>
                             </div>
@@ -65,6 +76,8 @@
                             <button class="add-to-cart btn btn-default " (click)="addtocart(prd)" type="button ">add to cart</button>
                             <button class="like btn btn-default " (click)="addtowishlist(prd)" type="button "><span class="fa fa-heart "></span></button>
                         </div>
+                        <ng-container *ngFor="let rivew of allreview">
+                        </ng-container>
                         <!-- {{allreview.length}} reiew <br> -->
                         <!-- <div class="col-md-6 col-xs-6"> -->
                         <!-- <div class="footer">
@@ -86,7 +99,6 @@
         <br>
         <br>
 
-        <<<<<<< HEAD=======>>>>>>> 8d27c0fdcac608c7e77f51a114158e4832c22c08
     </div>
 
 

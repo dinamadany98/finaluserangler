@@ -102,6 +102,7 @@ export class ProductdetailsComponent implements OnInit {
     this.wishlistservice.addreview(this.review).subscribe({
       next: (review) => {
         Swal.fire('Added Succesfully!', 'You clicked the button!', 'success');
+        window.location.reload();
       },
       error: (err) => {
         Swal.fire({
