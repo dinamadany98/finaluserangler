@@ -13,7 +13,7 @@
                     <div class="preview col-md-6">
 
                         <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="http://localhost:8000/assets/uploads/{{prd.image}}" width="250" height="400" /></div>
+                            <div class="tab-pane active" id="pic-1"><img src="http://localhost:8000/assets/uploads/{{prd.image}}" /></div>
                         </div>
 
 
@@ -34,13 +34,13 @@
                             <hr>
                         </div>
                         <p class="product-description">{{prd.small_description}}</p>
+                        <hr>
                         <p class="product-description">{{prd.description}}</p>
-
                         <h4 class="price">current price: <span>${{prd?.selling_price}}</span></h4>
-                        <ng-container *ngFor="let rivew of allreview">
-                            dddddddd {{rivew.user_review}}
-                        </ng-container>
-                        <p class="vote"><strong>91%</strong> of buyers enjoyed this product!<strong>({{allreview.length}} votes)</strong> </p>
+
+
+                        <p class="vote"><strong>({{allreview.length}} Reviews)</strong>
+                        </p>
 
                         <button class="btn btn-primary " (click)="toggle() " type="button " data-toggle="collapse " data-target="#collapseExample " aria-expanded="false " aria-controls="collapseExample ">
                             Add Review
@@ -66,14 +66,26 @@
                             <button class="like btn btn-default " (click)="addtowishlist(prd)" type="button "><span class="fa fa-heart "></span></button>
                         </div>
                         <!-- {{allreview.length}} reiew <br> -->
-
+                        <!-- <div class="col-md-6 col-xs-6"> -->
+                        <!-- <div class="footer">
+                            <h3 class="footer-title">Reviews</h3>
+                            <ng-container *ngFor="let rivew of allreview">
+                                <ul class="footer-links">
+                                    <li routerLinkActive="active">
+                                        <p>{{rivew.user_review}}</p>
+                                    </li>
+                                </ul>
+                            </ng-container>
+                        </div> -->
                     </div>
                 </div>
             </div>
+
         </div>
         <br>
         <br>
         <br>
+
 
     </div>
 

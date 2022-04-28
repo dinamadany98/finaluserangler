@@ -4,6 +4,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Iproduct } from 'src/app/Models/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 import { WhishlisService } from 'src/app/services/whishlis.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-wishlist',
@@ -54,10 +55,18 @@ export class WishlistComponent implements OnInit {
     this.cartservice.addtocart(list).subscribe({
       next: (list) => {
         this.rot.navigate(['/redirectwishlist']);
+        Swal.fire('Added Succesfully!', 'You clicked the button!', 'success');
+
       },
 
-      error: (err) => {
-        alert('error');
+      error: () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops... Please Login  Now',
+          text: 'Something went wrong!',
+          footer:
+            '<a routerLink="/login" routerLinkActive="active">Why do I have this issue?</a>',
+        });
       },
     });
   }
@@ -65,6 +74,8 @@ export class WishlistComponent implements OnInit {
     this.wishlistservic.clearwishlist().subscribe({
       next: () => {
         this.rot.navigate(['/redirectwishlist']);
+        Swal.fire('Removed Succesfully!', 'You clicked the button!', 'success');
+
       },
 
       error: (err) => {
@@ -77,6 +88,8 @@ export class WishlistComponent implements OnInit {
     this.wishlistservic.deletfromwishlist(id).subscribe({
       next: () => {
         this.rot.navigate(['/redirectwishlist']);
+        Swal.fire('Removed Succesfully!', 'You clicked the button!', 'success');
+
       },
 
       error: (err) => {

@@ -37,7 +37,7 @@ export class ProductdetailsComponent implements OnInit {
   userformgroup: FormGroup;
   productvalue: any;
   orderitemuser:Iorderitem[]=[]
-  allreview:Review[]=[]
+  allreview: Review[]=[];
   constructor(
     private activedroute: ActivatedRoute,
     private prdservice: IProductService,
@@ -98,9 +98,6 @@ export class ProductdetailsComponent implements OnInit {
   /////////////////////////////
   addReview() {
     if(this.orderitemuser.length){
-
-
-
     this.review.product_id = this.currprdid;
     this.wishlistservice.addreview(this.review).subscribe({
       next: (review) => {
@@ -124,7 +121,7 @@ export class ProductdetailsComponent implements OnInit {
     });
   }
 
-   // console.log(this.review);
+   console.log(this.review);
   }
 
   //////////////////////////////
@@ -140,7 +137,7 @@ export class ProductdetailsComponent implements OnInit {
         .subscribe((product) => {
           this.prd = product;
           this.productvalue = this.currprdid;
-          console.log(this.prd);
+          // console.log(this.prd);
         });
 
 
@@ -151,8 +148,8 @@ this.wishlistservice.checkreiew(this.currprdid).subscribe(prod=>{
 
 
 this.wishlistservice.getallreviews(this.currprdid).subscribe(prod=>{
-  this.allreview=prod;
-
+  this.allreview = prod;
+      console.log(this.allreview);
 });
 
 
