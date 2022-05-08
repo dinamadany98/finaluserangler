@@ -93,7 +93,6 @@ export class ProductByCategoryComponent implements OnInit, OnChanges {
   addtocart(prod: Iproduct) {
     this.cartservice.addtocart(prod).subscribe({
       next: (prd) => {
-        this.rot.navigate(['/']);
         Swal.fire(
           'Added  To Cart Succesfully!',
           'Please Check Your Cart',
@@ -114,7 +113,6 @@ export class ProductByCategoryComponent implements OnInit, OnChanges {
   addtowishlist(prod: Iproduct) {
     this.whishlistservic.addwishlistdata(prod).subscribe({
       next: (prd) => {
-        this.rot.navigate(['/']);
         Swal.fire(
           'Added To Wishlist Succesfully! ',
           'Please Check Your Wishlist',

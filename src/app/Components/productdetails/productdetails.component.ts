@@ -75,7 +75,7 @@ export class ProductdetailsComponent implements OnInit {
   }else{
     Swal.fire({
       icon: 'error',
-      title: 'Oops... You Canot Add Rating Without Buy It ',
+      title: 'Oops... You Cannot Add Rating Without Buy It ',
       text: 'Something went wrong!',
       footer: '<a href="">Why do I have this issue?</a>',
     });
@@ -116,7 +116,7 @@ export class ProductdetailsComponent implements OnInit {
   }else{
     Swal.fire({
       icon: 'error',
-      title: 'Oops... You Canot Add Reivew Without Buy It ',
+      title: 'Oops... You Cannot Add Reivew Without Buy It ',
       text: 'Something went wrong!',
       footer: '<a href="">Why do I have this issue?</a>',
     });

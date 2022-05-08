@@ -51,21 +51,20 @@
 
                             <div class="col-md-8 container ">
                                 <div id="review-form">
-                                    <form    (ngSubmit)="addReview()" #formvali="ngForm">
-                                       
+                                    <form (ngSubmit)="addReview()" #formvali="ngForm">
+
                                         <div class="form-group">
-                                            <input class="input" type="text" id="user_review" name="user_review" placeholder="Reiew" #user_review="ngModel" [(ngModel)]="review.user_review"
-                                             required [class.is-valid]="user_review.valid" [class.is-invalid]="user_review.invalid"  style="height: 100px;">
+                                            <input class="input" type="text" id="user_review" name="user_review" placeholder="Reiew" #user_review="ngModel" [(ngModel)]="review.user_review" required [class.is-valid]="user_review.valid" [class.is-invalid]="user_review.invalid" style="height: 100px;">
                                             <div [hidden]="user_review.valid ||user_review.untouched">
                                                 <small *ngIf="user_review.errors?.['required']">
                                                     <h4 class="text-danger">Review required</h4>
                                                   </small>
                                             </div>
-                                            </div>
-                                            
-                        <input type="submit" class="primary-btn btn-success" [disabled]="formvali.invalid" value="Place order">
-                      
-                                       
+                                        </div>
+
+                                        <input type="submit" class="primary-btn btn-success" [disabled]="formvali.invalid" value="submit">
+
+
                                     </form>
                                 </div>
                             </div>
