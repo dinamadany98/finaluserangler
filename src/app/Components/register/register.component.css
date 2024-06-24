@@ -10455,3 +10455,7 @@ iframe {
     right: 0px;
     bottom: 0px;
 }
+
+.limiter {
+    font-size: medium;
+}

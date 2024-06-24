@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from 'src/app/Models/iuser';
 import { UserServiceService } from 'src/app/Services/user-service.service';
+import Swal from 'sweetalert2';
+// import { ConfirmedValidator } from './confirmed.validator';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,12 +13,15 @@ import { UserServiceService } from 'src/app/Services/user-service.service';
 export class RegisterComponent implements OnInit {
   userformgroup: FormGroup;
   newuser: IUser = {} as IUser;
+  form: FormGroup = new FormGroup({});
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private UserService: UserServiceService
   ) {
+ 
+    /////////////////////////////////////////
     this.userformgroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.email]],
@@ -38,24 +43,39 @@ export class RegisterComponent implements OnInit {
     return this.userformgroup.get('conpassword');
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
   addUser() {
-    // let testprd: IUser = {
-    //   id: 1,
-    //   name: 'dina',
-    //   email: 'dina@gmail.com',
-    //   password: 'sssss',
-    //   conpassword: 'sssss'  }
-
+    // console.log(this.password?.value);
+    // console.log(this.conpassword?.value);
+    if (this.password?.value === this.conpassword?.value) {
       this.UserService.addUser(this.newuser).subscribe({
         next: (prd) => {
           this.router.navigate(['/home']);
-          alert('registeration correct');
+          Swal.fire(
+            'Registeration Correct',
+            'You clicked the button!',
+            'success'
+          );
         },
         error: (err) => {
-          alert('error occured');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
         },
       });
+    } else {
+           Swal.fire({
+             icon: 'error',
+             title: 'Oops...',
+             text: 'Something went wrong!',
+             footer: '<a href="">Why do I have this issue?</a>',
+           });
+    }
 
   }
+
+
 }
